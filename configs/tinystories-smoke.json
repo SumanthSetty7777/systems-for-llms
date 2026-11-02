@@ -1,0 +1,32 @@
+{
+  "model": {
+    "vocab_size": 10000,
+    "context_length": 128,
+    "d_model": 512,
+    "num_layers": 4,
+    "num_heads": 16,
+    "d_ff": 1344,
+    "rope_theta": 10000.0,
+    "attention_backend": "eager"
+  },
+  "data": {
+    "kind": "npy",
+    "train_path": "../../assignment1-basics/data/TinyStories-train-tokens.npy",
+    "valid_path": "../../assignment1-basics/data/TinyStories-valid-tokens.npy",
+    "tokenizer_files": [
+      "../../assignment1-basics/outputs/tokenizers/tinystories_10k_mp/vocab.pkl",
+      "../../assignment1-basics/outputs/tokenizers/tinystories_10k_mp/merges.pkl"
+    ]
+  },
+  "seed": 1337,
+  "device": "cpu",
+  "num_threads": 1,
+  "batch_size": 2,
+  "max_steps": 20,
+  "learning_rate": 0.0003,
+  "min_learning_rate": 0.00003,
+  "warmup_steps": 2,
+  "eval_interval": 10,
+  "eval_batches": 2,
+  "checkpoint_interval": 20
+}

@@ -1,0 +1,23 @@
+{
+  "model": {
+    "vocab_size": 32,
+    "context_length": 8,
+    "d_model": 16,
+    "num_layers": 1,
+    "num_heads": 2,
+    "d_ff": 32,
+    "attention_backend": "eager"
+  },
+  "data": {"kind": "synthetic", "synthetic_tokens": 4096},
+  "seed": 1337,
+  "device": "cpu",
+  "num_threads": 1,
+  "batch_size": 2,
+  "max_steps": 20,
+  "learning_rate": 0.003,
+  "min_learning_rate": 0.0003,
+  "warmup_steps": 2,
+  "eval_interval": 5,
+  "eval_batches": 4,
+  "checkpoint_interval": 10
+}

@@ -1,0 +1,22 @@
+[project]
+name = "systems-for-llms"
+version = "0.1.0"
+description = "Controlled experiments in LLM training cost and quality"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = ["torch==2.11.0", "einops==0.8.2", "numpy==2.4.4"]
+
+[dependency-groups]
+dev = ["pytest==9.0.2"]
+report = ["matplotlib==3.11.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
