@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "run_id": "distributed-20261101T180420Z-313f0c87-smoke",
+  "stage": "smoke",
+  "gpu": "H100:2",
+  "allocated_gpu_count": 2,
+  "volume": "systems-for-llms-results",
+  "volume_path": "/results/distributed-20261101T180420Z-313f0c87-smoke",
+  "evidence_status": "complete",
+  "case_status_counts": {
+    "completed": 10
+  },
+  "function_seconds": 330.010420779
+}

@@ -1,0 +1,139 @@
+{
+  "format_version": 1,
+  "target_validation_loss": 2.4,
+  "target_loss_decimal": "2.40",
+  "quality_protocol": {
+    "workload": "100M/1K TinyStories",
+    "policies": [
+      "sdpa:none:8",
+      "sdpa:none:1",
+      "sdpa:block:8"
+    ],
+    "development_seed": 1337,
+    "confirmation_seeds": [
+      2027,
+      2028,
+      2029
+    ],
+    "max_steps": 1200,
+    "tokens_per_step": 8192,
+    "train_warmup_steps": 50,
+    "eval_interval": 50,
+    "eval_batches": 64,
+    "eval_batch_size": 1,
+    "checkpoint_interval": 1200,
+    "allocated_memory_budget_bytes": 3221225472,
+    "memory_scope": "allocated memory only; does not establish fit on a physical 3 GiB GPU",
+    "target_rule": "ceil(max(development validation losses at step 600) / 0.05) * 0.05",
+    "target_step": 600,
+    "target_rounding": "0.05",
+    "confirmation_gate": "freeze numeric target and development evidence hashes before confirmation",
+    "time_to_target_scope": "first observed eval wall_seconds; no interpolation; includes setup and preceding eval/checkpoints, excludes interpreter startup"
+  },
+  "development_run_id": "study-20261101T132912Z-100m-1k-quality-dev",
+  "development_losses_at_target_step": {
+    "sdpa-none-mb1-acc8-seed1337": 2.3878817595541477,
+    "sdpa-block-mb8-acc1-seed1337": 2.3883473575115204,
+    "sdpa-none-mb8-acc1-seed1337": 2.3875473272055387
+  },
+  "reference_config": {
+    "model": {
+      "vocab_size": 10000,
+      "context_length": 1024,
+      "d_model": 768,
+      "num_layers": 12,
+      "num_heads": 12,
+      "d_ff": 2048,
+      "rope_theta": 10000.0,
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "none"
+    },
+    "data": {
+      "kind": "npy",
+      "train_path": "/data/train.npy",
+      "valid_path": "/data/valid.npy",
+      "tokenizer_files": [
+        "/data/tokenizer-0/vocab.pkl",
+        "/data/tokenizer-1/merges.pkl"
+      ]
+    },
+    "seed": 1337,
+    "device": "cuda",
+    "num_threads": 4,
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "precision": "bf16",
+    "max_steps": 1200,
+    "learning_rate": 0.0003,
+    "min_learning_rate": 3e-05,
+    "warmup_steps": 50,
+    "weight_decay": 0.1,
+    "grad_clip": 1.0,
+    "eval_interval": 50,
+    "eval_batches": 64,
+    "eval_batch_size": 1,
+    "checkpoint_interval": 1200
+  },
+  "reference_data_identity": {
+    "kind": "npy",
+    "train": {
+      "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+      "tokens": 541229347,
+      "dtype": "uint16"
+    },
+    "valid": {
+      "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+      "tokens": 5465883,
+      "dtype": "uint16"
+    },
+    "tokenizer_files": [
+      {
+        "name": "vocab.pkl",
+        "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+      },
+      {
+        "name": "merges.pkl",
+        "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+      }
+    ]
+  },
+  "reference_source_sha256": "35dfb435eb9a210c8b6984be60c22c15f1e78b08508ec771f1cbbaaf41109136",
+  "reference_packages": {
+    "torch": "2.11.0",
+    "numpy": "2.4.4",
+    "einops": "0.8.2"
+  },
+  "reference_payload_packages": [
+    "torch==2.11.0",
+    "einops==0.8.2",
+    "numpy==2.4.4",
+    "pytest==9.0.2",
+    "modal==1.5.1"
+  ],
+  "data_files": [
+    {
+      "path": "/Users/ssetty/dl_repos/assignment1-basics/data/TinyStories-train-tokens.npy",
+      "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e"
+    },
+    {
+      "path": "/Users/ssetty/dl_repos/assignment1-basics/data/TinyStories-valid-tokens.npy",
+      "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544"
+    },
+    {
+      "path": "/Users/ssetty/dl_repos/assignment1-basics/outputs/tokenizers/tinystories_10k_mp/vocab.pkl",
+      "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+    },
+    {
+      "path": "/Users/ssetty/dl_repos/assignment1-basics/outputs/tokenizers/tinystories_10k_mp/merges.pkl",
+      "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+    }
+  ],
+  "input_sha256": {
+    "campaign.json": "fd4ac113e2e9a745290026b0162c62567610515c6c64663ed0aa5acc9e2367f2",
+    "launch.json": "ce0daa1dd700bfc3a899c0d47f129c1bb089871a4d8fbc461fd15f128cac145e",
+    "launch-summary.json": "0d81299d5d22a7131e2c3eea45a8535c8e575ebc01dce44e39ebf92e0020a19f",
+    "aggregate.json": "dd2f36c33fae1fc9f24cbb895fc0cd803b60d72c1b06494726ff64ac196217f0",
+    "evidence.json": "a7fb670ff52d521cee8a7377055dd0be0d8d2b769a9f37a3d0cc9cf0ae3baab7"
+  },
+  "frozen_at_utc": "2026-11-01T14:23:41.812271+00:00"
+}

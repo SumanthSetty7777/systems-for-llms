@@ -1,0 +1,219 @@
+{
+  "payload": {
+    "config": {
+      "model": {
+        "vocab_size": 10000,
+        "context_length": 1024,
+        "d_model": 768,
+        "num_layers": 12,
+        "num_heads": 12,
+        "d_ff": 2048,
+        "rope_theta": 10000.0,
+        "attention_backend": "sdpa",
+        "activation_checkpointing": "none"
+      },
+      "data": {
+        "kind": "npy",
+        "train_path": "/data/train.npy",
+        "valid_path": "/data/valid.npy",
+        "tokenizer_files": [
+          "/data/tokenizer-0/vocab.pkl",
+          "/data/tokenizer-1/merges.pkl"
+        ]
+      },
+      "seed": 1337,
+      "device": "cuda",
+      "num_threads": 4,
+      "batch_size": 8,
+      "grad_accum_steps": 1,
+      "precision": "bf16",
+      "max_steps": 30,
+      "learning_rate": 0.0003,
+      "min_learning_rate": 3e-05,
+      "warmup_steps": 5,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_interval": 30,
+      "eval_batches": 4,
+      "eval_batch_size": 1,
+      "checkpoint_interval": 30
+    },
+    "files": [
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/__init__.py",
+        "remote": "/project/src/llmlab/__init__.py",
+        "bytes": 1
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/config.py",
+        "remote": "/project/src/llmlab/config.py",
+        "bytes": 4727
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/data.py",
+        "remote": "/project/src/llmlab/data.py",
+        "bytes": 2600
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/__init__.py",
+        "remote": "/project/src/llmlab/model/__init__.py",
+        "bytes": 1
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/attention.py",
+        "remote": "/project/src/llmlab/model/attention.py",
+        "bytes": 6797
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/layers.py",
+        "remote": "/project/src/llmlab/model/layers.py",
+        "bytes": 3866
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/transformer.py",
+        "remote": "/project/src/llmlab/model/transformer.py",
+        "bytes": 4384
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/pilot.py",
+        "remote": "/project/src/llmlab/pilot.py",
+        "bytes": 23328
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/train.py",
+        "remote": "/project/src/llmlab/train.py",
+        "bytes": 17258
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/training/__init__.py",
+        "remote": "/project/src/llmlab/training/__init__.py",
+        "bytes": 1
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/training/loss.py",
+        "remote": "/project/src/llmlab/training/loss.py",
+        "bytes": 645
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/tests/test_modal_payload.py",
+        "remote": "/project/tests/test_modal_payload.py",
+        "bytes": 3795
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/tests/test_model.py",
+        "remote": "/project/tests/test_model.py",
+        "bytes": 8646
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/tests/test_pilot.py",
+        "remote": "/project/tests/test_pilot.py",
+        "bytes": 19769
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/tests/test_training.py",
+        "remote": "/project/tests/test_training.py",
+        "bytes": 19196
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/gpu-pilot.json",
+        "remote": "/project/configs/gpu-pilot.json",
+        "bytes": 1006
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-100m-s1024.json",
+        "remote": "/project/configs/scale-100m-s1024.json",
+        "bytes": 1005
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-100m-s4096.json",
+        "remote": "/project/configs/scale-100m-s4096.json",
+        "bytes": 1005
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-22m-s1024.json",
+        "remote": "/project/configs/scale-22m-s1024.json",
+        "bytes": 1003
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-22m-s4096.json",
+        "remote": "/project/configs/scale-22m-s4096.json",
+        "bytes": 1003
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-324m-s1024.json",
+        "remote": "/project/configs/scale-324m-s1024.json",
+        "bytes": 1006
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-324m-s4096.json",
+        "remote": "/project/configs/scale-324m-s4096.json",
+        "bytes": 1006
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/smoke.json",
+        "remote": "/project/configs/smoke.json",
+        "bytes": 479
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/configs/tinystories-smoke.json",
+        "remote": "/project/configs/tinystories-smoke.json",
+        "bytes": 850
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/pyproject.toml",
+        "remote": "/project/pyproject.toml",
+        "bytes": 496
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/systems-for-llms/scripts/modal_pilot.py",
+        "remote": "/project/scripts/modal_pilot.py",
+        "bytes": 12958
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/assignment1-basics/data/TinyStories-train-tokens.npy",
+        "remote": "/data/train.npy",
+        "bytes": 1082458822
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/assignment1-basics/data/TinyStories-valid-tokens.npy",
+        "remote": "/data/valid.npy",
+        "bytes": 10931894
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/assignment1-basics/outputs/tokenizers/tinystories_10k_mp/vocab.pkl",
+        "remote": "/data/tokenizer-0/vocab.pkl",
+        "bytes": 117702
+      },
+      {
+        "local": "/Users/ssetty/dl_repos/assignment1-basics/outputs/tokenizers/tinystories_10k_mp/merges.pkl",
+        "remote": "/data/tokenizer-1/merges.pkl",
+        "bytes": 109716
+      }
+    ],
+    "upload_bytes": 1093754965,
+    "python": "3.12",
+    "packages": [
+      "torch==2.11.0",
+      "einops==0.8.2",
+      "numpy==2.4.4",
+      "pytest==9.0.2",
+      "modal==1.5.1"
+    ]
+  },
+  "options": {
+    "gpu": "L40S",
+    "volume": "systems-for-llms-results",
+    "microbatches": [
+      1,
+      8
+    ],
+    "effective_batch_size": 8,
+    "seeds": [
+      1337
+    ],
+    "warmup_steps": 5,
+    "case_timeout_seconds": 120,
+    "job_timeout_seconds": 1800,
+    "run_id": "20261101T115005Z-e1fdfb9a"
+  }
+}

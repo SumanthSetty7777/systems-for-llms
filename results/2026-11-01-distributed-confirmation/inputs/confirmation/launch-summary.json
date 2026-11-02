@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "run_id": "distributed-20261101T230037Z-e05d5479",
+  "stage": "confirmation",
+  "gpu": "H200:8",
+  "allocated_gpu_count": 8,
+  "volume": "systems-for-llms-results",
+  "volume_path": "/results/distributed-20261101T230037Z-e05d5479",
+  "evidence_status": "complete",
+  "case_status_counts": {
+    "completed": 21
+  },
+  "function_seconds": 988.254843008
+}

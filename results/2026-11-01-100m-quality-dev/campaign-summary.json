@@ -1,0 +1,47 @@
+{
+  "status": "finished_with_resource_limits",
+  "stage": "development",
+  "jobs": [
+    {
+      "name": "22m-4k-screen",
+      "status": "completed",
+      "run_id": "study-20261101T132912Z-22m-4k-screen",
+      "output_dir": "/Users/ssetty/dl_repos/systems-for-llms/runs/study-20261101-development/22m-4k-screen",
+      "function_seconds": 122.566676833,
+      "case_status_counts": {
+        "completed": 8
+      }
+    },
+    {
+      "name": "324m-1k-screen",
+      "status": "completed",
+      "run_id": "study-20261101T132912Z-324m-1k-screen",
+      "output_dir": "/Users/ssetty/dl_repos/systems-for-llms/runs/study-20261101-development/324m-1k-screen",
+      "function_seconds": 365.012109606,
+      "case_status_counts": {
+        "completed": 8
+      }
+    },
+    {
+      "name": "324m-4k-screen",
+      "status": "completed_with_resource_limits",
+      "run_id": "study-20261101T132912Z-324m-4k-screen",
+      "output_dir": "/Users/ssetty/dl_repos/systems-for-llms/runs/study-20261101-development/324m-4k-screen",
+      "function_seconds": 395.299194376,
+      "case_status_counts": {
+        "completed": 6,
+        "failed": 2
+      }
+    },
+    {
+      "name": "100m-1k-quality-dev",
+      "status": "completed",
+      "run_id": "study-20261101T132912Z-100m-1k-quality-dev",
+      "output_dir": "/Users/ssetty/dl_repos/systems-for-llms/runs/study-20261101-development/100m-1k-quality-dev",
+      "function_seconds": 859.132786211,
+      "case_status_counts": {
+        "completed": 3
+      }
+    }
+  ]
+}

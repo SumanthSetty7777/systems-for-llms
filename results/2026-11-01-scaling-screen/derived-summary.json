@@ -1,0 +1,87 @@
+[
+  {
+    "workload": "22m-1k",
+    "status_counts": {
+      "completed": 8
+    },
+    "comparability": "passed",
+    "gpu_total_bytes": 47695921152,
+    "best_observed_sdpa": "sdpa-none-mb8-acc1-seed1337",
+    "best_observed_eager": "eager-none-mb8-acc1-seed1337",
+    "best_policy_tps_ratio": 3.3708921588258574,
+    "matched_no_checkpoint_microbatch": 8,
+    "matched_no_checkpoint_tps_ratio": 3.3708921588258574,
+    "matched_block_checkpoint_tps_ratio": 3.5731025734022133
+  },
+  {
+    "workload": "22m-4k",
+    "status_counts": {
+      "completed": 8
+    },
+    "comparability": "passed",
+    "gpu_total_bytes": 47695921152,
+    "best_observed_sdpa": "sdpa-none-mb2-acc1-seed1337",
+    "best_observed_eager": "eager-none-mb2-acc1-seed1337",
+    "best_policy_tps_ratio": 10.11197180497759,
+    "matched_no_checkpoint_microbatch": 2,
+    "matched_no_checkpoint_tps_ratio": 10.11197180497759,
+    "matched_block_checkpoint_tps_ratio": 11.115361411309653
+  },
+  {
+    "workload": "100m-1k",
+    "status_counts": {
+      "completed": 8
+    },
+    "comparability": "passed",
+    "gpu_total_bytes": 47695921152,
+    "best_observed_sdpa": "sdpa-none-mb8-acc1-seed1337",
+    "best_observed_eager": "eager-none-mb1-acc8-seed1337",
+    "best_policy_tps_ratio": 3.2662939498391332,
+    "matched_no_checkpoint_microbatch": 8,
+    "matched_no_checkpoint_tps_ratio": 4.498900770618692,
+    "matched_block_checkpoint_tps_ratio": 4.943058236057354
+  },
+  {
+    "workload": "100m-4k",
+    "status_counts": {
+      "completed": 8
+    },
+    "comparability": "passed",
+    "gpu_total_bytes": 47695921152,
+    "best_observed_sdpa": "sdpa-none-mb1-acc2-seed1337",
+    "best_observed_eager": "eager-none-mb2-acc1-seed1337",
+    "best_policy_tps_ratio": 13.798298218659303,
+    "matched_no_checkpoint_microbatch": 2,
+    "matched_no_checkpoint_tps_ratio": 13.530757411994184,
+    "matched_block_checkpoint_tps_ratio": 14.949352043466227
+  },
+  {
+    "workload": "324m-1k",
+    "status_counts": {
+      "completed": 8
+    },
+    "comparability": "passed",
+    "gpu_total_bytes": 47695921152,
+    "best_observed_sdpa": "sdpa-none-mb8-acc1-seed1337",
+    "best_observed_eager": "eager-none-mb1-acc8-seed1337",
+    "best_policy_tps_ratio": 3.8338569042865296,
+    "matched_no_checkpoint_microbatch": 8,
+    "matched_no_checkpoint_tps_ratio": 4.262730411399337,
+    "matched_block_checkpoint_tps_ratio": 4.619777259760728
+  },
+  {
+    "workload": "324m-4k",
+    "status_counts": {
+      "completed": 6,
+      "failed": 2
+    },
+    "comparability": "insufficient",
+    "gpu_total_bytes": 50897879040,
+    "best_observed_sdpa": "sdpa-none-mb2-acc1-seed1337",
+    "best_observed_eager": "eager-block-mb2-acc1-seed1337",
+    "best_policy_tps_ratio": 15.904528305613988,
+    "matched_no_checkpoint_microbatch": 2,
+    "matched_no_checkpoint_tps_ratio": null,
+    "matched_block_checkpoint_tps_ratio": 13.237631767016214
+  }
+]

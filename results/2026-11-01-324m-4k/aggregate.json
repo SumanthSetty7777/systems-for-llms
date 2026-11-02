@@ -1,0 +1,531 @@
+{
+  "format_version": 1,
+  "plan_sha256": "2afc1c4a52d40536fb74df62ebdb1f119022c24c6ea579e1121e7e2391093e39",
+  "status_counts": {
+    "completed": 6,
+    "failed": 2
+  },
+  "comparability": {
+    "status": "insufficient",
+    "seed_groups": [
+      {
+        "seed": 1337,
+        "status": "insufficient",
+        "reasons": [
+          "not all planned cases completed with valid output"
+        ],
+        "case_ids": [
+          "sdpa-none-mb1-acc2-seed1337",
+          "eager-none-mb2-acc1-seed1337",
+          "sdpa-none-mb2-acc1-seed1337",
+          "eager-block-mb1-acc2-seed1337",
+          "eager-none-mb1-acc2-seed1337",
+          "eager-block-mb2-acc1-seed1337",
+          "sdpa-block-mb2-acc1-seed1337",
+          "sdpa-block-mb1-acc2-seed1337"
+        ]
+      }
+    ],
+    "reasons": [
+      "seed 1337: not all planned cases completed with valid output"
+    ]
+  },
+  "timing_scope": "per-case complete optimizer-step durations after profiling warmup; includes batch preparation and transfer, excludes evaluation/checkpoint time",
+  "throughput_scope": "measured valid tokens divided by summed measured step durations",
+  "percentile_method": "linear interpolation at 0.9 * (sample_count - 1)",
+  "interpretation": "descriptive pilot measurements; CPU/synthetic cases are harness checks; no speedup or quality-equivalence claim",
+  "cases": [
+    {
+      "case_id": "sdpa-none-mb1-acc2-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "none",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "e5157be78a9af92d2682de2c72a8634271fe441327de28637d30b108b0c2300d",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.2760890079999996,
+      "step_seconds_p90": 0.2764640064000005,
+      "tokens_per_second": 29695.20143322811,
+      "last_train_loss": 4.674237251281738,
+      "valid_loss": 4.814544677734375,
+      "runner_times": {
+        "setup_seconds": 2.548921184000001,
+        "train_seconds": 8.792195711999995,
+        "eval_seconds": 0.0367854439999995,
+        "checkpoint_seconds": 5.565439943000001,
+        "wall_seconds": 16.949112928999998
+      },
+      "subprocess_wall_seconds": 19.092413225999998,
+      "peak_cuda_allocated_bytes": 12736308736,
+      "peak_cuda_reserved_bytes": 13509853184,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-none-mb2-acc1-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "none",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "6dbc1fc827a837472887a7fddd84a4d6b2ea499c7026abe75500074beb07f897",
+      "status": "failed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": null,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": null,
+      "measured_steps": 0,
+      "expected_measured_steps": 25,
+      "step_seconds_median": null,
+      "step_seconds_p90": null,
+      "tokens_per_second": null,
+      "last_train_loss": null,
+      "valid_loss": null,
+      "runner_times": {
+        "setup_seconds": null,
+        "train_seconds": null,
+        "eval_seconds": null,
+        "checkpoint_seconds": null,
+        "wall_seconds": 2.715730471999997
+      },
+      "subprocess_wall_seconds": 4.9420421510000025,
+      "peak_cuda_allocated_bytes": null,
+      "peak_cuda_reserved_bytes": null,
+      "returncode": 1,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling",
+      "error": "process exited with code 1; see logs/eager-none-mb2-acc1-seed1337.log; CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 47.40 GiB of which 282.25 MiB is free. Process 1 has 47.11 GiB memory in use. Of the allocated memory 43.67 GiB is allocated by PyTorch, and 2.94 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+      "failure_kind": "oom"
+    },
+    {
+      "case_id": "sdpa-none-mb2-acc1-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "none",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "70eae364f950ba6d7d9ef3ad76a89f8e947360fd6fed389c83677c45e15550bb",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.2757947729999941,
+      "step_seconds_p90": 0.27606883439999735,
+      "tokens_per_second": 29705.69690713359,
+      "last_train_loss": 4.672639846801758,
+      "valid_loss": 4.813139915466309,
+      "runner_times": {
+        "setup_seconds": 2.3729081270000023,
+        "train_seconds": 8.817548618999993,
+        "eval_seconds": 0.03571192900000142,
+        "checkpoint_seconds": 6.700972811,
+        "wall_seconds": 17.933047502
+      },
+      "subprocess_wall_seconds": 20.246191427,
+      "peak_cuda_allocated_bytes": 18210067968,
+      "peak_cuda_reserved_bytes": 19182649344,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-block-mb1-acc2-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "block",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "619a34d9aef072d565d4c3b89d3b42f8f5562278771974fad9eca50aed3caa55",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 4.387224478000007,
+      "step_seconds_p90": 4.388238469000004,
+      "tokens_per_second": 1867.3167996756595,
+      "last_train_loss": 4.6759233474731445,
+      "valid_loss": 4.8165283203125,
+      "runner_times": {
+        "setup_seconds": 2.3539726859999988,
+        "train_seconds": 132.00572153200005,
+        "eval_seconds": 0.5278768129999776,
+        "checkpoint_seconds": 7.204201479999995,
+        "wall_seconds": 142.097163316
+      },
+      "subprocess_wall_seconds": 144.21732214399998,
+      "peak_cuda_allocated_bytes": 12274043392,
+      "peak_cuda_reserved_bytes": 13363052544,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-none-mb1-acc2-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "none",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "2f28bdb583138406db77a545e7568d6826fd6b970862b20dd183b4dfc80cfa38",
+      "status": "failed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": null,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": null,
+      "measured_steps": 0,
+      "expected_measured_steps": 25,
+      "step_seconds_median": null,
+      "step_seconds_p90": null,
+      "tokens_per_second": null,
+      "last_train_loss": null,
+      "valid_loss": null,
+      "runner_times": {
+        "setup_seconds": null,
+        "train_seconds": null,
+        "eval_seconds": null,
+        "checkpoint_seconds": null,
+        "wall_seconds": 2.7368941739999855
+      },
+      "subprocess_wall_seconds": 4.733159811000007,
+      "peak_cuda_allocated_bytes": null,
+      "peak_cuda_reserved_bytes": null,
+      "returncode": 1,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling",
+      "error": "process exited with code 1; see logs/eager-none-mb1-acc2-seed1337.log; CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 372.25 MiB is free. Process 1 has 47.03 GiB memory in use. Of the allocated memory 45.80 GiB is allocated by PyTorch, and 744.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+      "failure_kind": "oom"
+    },
+    {
+      "case_id": "eager-block-mb2-acc1-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "block",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "eed1960def1fdf87194d09c84a0807e3b49550ba0ebc49edeb571a39065bd343",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 4.3859791040000005,
+      "step_seconds_p90": 4.386715084000014,
+      "tokens_per_second": 1867.750890584291,
+      "last_train_loss": 4.674436569213867,
+      "valid_loss": 4.8151116371154785,
+      "runner_times": {
+        "setup_seconds": 2.2299446760000023,
+        "train_seconds": 131.99571967400007,
+        "eval_seconds": 0.5279810089999728,
+        "checkpoint_seconds": 7.525394000999995,
+        "wall_seconds": 142.28405554
+      },
+      "subprocess_wall_seconds": 144.38765825800002,
+      "peak_cuda_allocated_bytes": 18455280128,
+      "peak_cuda_reserved_bytes": 18794676224,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "sdpa-block-mb2-acc1-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "block",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "312ebfee1e7b9d74c5659122c32a5b1b31b8fa1ce1b39e99e2618b0f442947eb",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.329773509000006,
+      "step_seconds_p90": 0.3305278984000097,
+      "tokens_per_second": 24724.598522071436,
+      "last_train_loss": 4.679293632507324,
+      "valid_loss": 4.820952415466309,
+      "runner_times": {
+        "setup_seconds": 2.1024687810000273,
+        "train_seconds": 10.427252373000158,
+        "eval_seconds": 0.03530987900001037,
+        "checkpoint_seconds": 5.934354530999997,
+        "wall_seconds": 18.503860666000037
+      },
+      "subprocess_wall_seconds": 20.536095918,
+      "peak_cuda_allocated_bytes": 6623704576,
+      "peak_cuda_reserved_bytes": 8422162432,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "sdpa-block-mb1-acc2-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "block",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "3d0574210ab7e7af1b4d683f34275f7bbd84b9cdebf6a5692767b28a6ef68cc8",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.3376280389999806,
+      "step_seconds_p90": 0.34064572199998794,
+      "tokens_per_second": 23992.305682562175,
+      "last_train_loss": 4.680138111114502,
+      "valid_loss": 4.822090148925781,
+      "runner_times": {
+        "setup_seconds": 1.980417808000027,
+        "train_seconds": 10.660438898000166,
+        "eval_seconds": 0.035536331000002974,
+        "checkpoint_seconds": 7.014037976999987,
+        "wall_seconds": 19.695681939999986
+      },
+      "subprocess_wall_seconds": 21.645605415000034,
+      "peak_cuda_allocated_bytes": 6928188928,
+      "peak_cuda_reserved_bytes": 7497318400,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "finished",
+  "run_id": "20261101T131029Z-aeb8becf",
+  "volume": "systems-for-llms-results",
+  "volume_path": "/results/20261101T131029Z-aeb8becf",
+  "torch": "2.11.0",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA L40S",
+  "gpu_memory_bytes": 47695921152,
+  "case_status_counts": {
+    "completed": 8
+  },
+  "comparability": {
+    "status": "passed",
+    "seed_groups": [
+      {
+        "seed": 1337,
+        "status": "passed",
+        "reasons": [],
+        "case_ids": [
+          "sdpa-none-mb1-acc8-seed1337",
+          "eager-none-mb8-acc1-seed1337",
+          "sdpa-none-mb8-acc1-seed1337",
+          "eager-block-mb1-acc8-seed1337",
+          "eager-none-mb1-acc8-seed1337",
+          "eager-block-mb8-acc1-seed1337",
+          "sdpa-block-mb8-acc1-seed1337",
+          "sdpa-block-mb1-acc8-seed1337"
+        ]
+      }
+    ],
+    "reasons": []
+  },
+  "function_seconds": 101.061034026
+}

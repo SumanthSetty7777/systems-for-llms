@@ -1,0 +1,394 @@
+{
+  "format_version": 1,
+  "stage": "development",
+  "gpu": "L40S",
+  "concurrent_jobs": 1,
+  "jobs": [
+    {
+      "name": "22m-4k-screen",
+      "config": "configs/scale-22m-s4096.json",
+      "microbatches": [
+        1,
+        2
+      ],
+      "effective_batch_size": 2,
+      "seeds": [
+        1337
+      ],
+      "warmup_steps": 5,
+      "case_timeout_seconds": 120,
+      "job_timeout_seconds": 1800,
+      "overrides": {},
+      "policies": null,
+      "allow_resource_limits": true,
+      "case_count": 8
+    },
+    {
+      "name": "324m-1k-screen",
+      "config": "configs/scale-324m-s1024.json",
+      "microbatches": [
+        1,
+        8
+      ],
+      "effective_batch_size": 8,
+      "seeds": [
+        1337
+      ],
+      "warmup_steps": 5,
+      "case_timeout_seconds": 180,
+      "job_timeout_seconds": 2400,
+      "overrides": {},
+      "policies": null,
+      "allow_resource_limits": true,
+      "case_count": 8
+    },
+    {
+      "name": "324m-4k-screen",
+      "config": "configs/scale-324m-s4096.json",
+      "microbatches": [
+        1,
+        2
+      ],
+      "effective_batch_size": 2,
+      "seeds": [
+        1337
+      ],
+      "warmup_steps": 5,
+      "case_timeout_seconds": 300,
+      "job_timeout_seconds": 3600,
+      "overrides": {},
+      "policies": null,
+      "allow_resource_limits": true,
+      "case_count": 8
+    },
+    {
+      "name": "100m-1k-quality-dev",
+      "config": "configs/scale-100m-s1024.json",
+      "microbatches": [
+        1,
+        8
+      ],
+      "effective_batch_size": 8,
+      "seeds": [
+        1337
+      ],
+      "warmup_steps": 5,
+      "case_timeout_seconds": 600,
+      "job_timeout_seconds": 2400,
+      "overrides": {
+        "max_steps": 1200,
+        "train_warmup_steps": 50,
+        "eval_interval": 50,
+        "eval_batches": 64,
+        "checkpoint_interval": 1200
+      },
+      "policies": [
+        "sdpa:none:8",
+        "sdpa:none:1",
+        "sdpa:block:8"
+      ],
+      "allow_resource_limits": false,
+      "case_count": 3
+    }
+  ],
+  "quality_protocol": {
+    "workload": "100M/1K TinyStories",
+    "policies": [
+      "sdpa:none:8",
+      "sdpa:none:1",
+      "sdpa:block:8"
+    ],
+    "development_seed": 1337,
+    "confirmation_seeds": [
+      2027,
+      2028,
+      2029
+    ],
+    "max_steps": 1200,
+    "tokens_per_step": 8192,
+    "train_warmup_steps": 50,
+    "eval_interval": 50,
+    "eval_batches": 64,
+    "eval_batch_size": 1,
+    "checkpoint_interval": 1200,
+    "allocated_memory_budget_bytes": 3221225472,
+    "memory_scope": "allocated memory only; does not establish fit on a physical 3 GiB GPU",
+    "target_rule": "ceil(max(development validation losses at step 600) / 0.05) * 0.05",
+    "target_step": 600,
+    "target_rounding": "0.05",
+    "confirmation_gate": "freeze numeric target and development evidence hashes before confirmation",
+    "time_to_target_scope": "first observed eval wall_seconds; no interpolation; includes setup and preceding eval/checkpoints, excludes interpreter startup"
+  },
+  "case_count": 27,
+  "max_function_seconds_sum": 10200,
+  "nominal_requested_resources_usd_at_time_limits": 5.9768,
+  "pricing_source": "https://modal.com/pricing",
+  "pricing_checked": "2026-11-01",
+  "cost_scope": "estimate at requested GPU/CPU/RAM only; excludes startup/build, excess usage, storage/egress and other apps; not a billing cap",
+  "working_budget_usd": 50,
+  "source_sha256": {
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/gpu-pilot.json": "9ec2ed698ed34e604515efa244a173d00ae15901e0a8262ae2753eb43ff387bc",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-100m-s1024.json": "aa08eab68916feefbfbfd1e685387039c4fd4a2b0b7ca08a9d2d5de966f75a8b",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-100m-s4096.json": "4dde18f5cde445dc9af3e1abd88af60f398977125523c44eb72cd123473b3ff3",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-22m-s1024.json": "0bf1c418773520bc9c7e4ea5c14e76f628388c5bd255c554ceeec98fbc9ceb4e",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-22m-s4096.json": "83bdfd2f97717e8ca997285e1bdc98f3f72e198cbc100d7cb247979559405fa7",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-324m-s1024.json": "8e2989d8d8cbb24cbf8724dfbe61a585764ecdb2b2d0f88b6b9ebdcc9a3fe41c",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/scale-324m-s4096.json": "2ac110e660d5d539d8a08ee0aa9203eb8da40dc9e5e3545660e1c90fc51e0deb",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/smoke.json": "2f1d6df39b475dd8c235ca446d2843f223ab8d552b697771e49167cad5cefe7c",
+    "/Users/ssetty/dl_repos/systems-for-llms/configs/tinystories-smoke.json": "05a6d70ff0e4b1c4a63ad4ae8f7e4d767e8b2bf85b63ff427eba82e0ad834d9f",
+    "/Users/ssetty/dl_repos/systems-for-llms/pyproject.toml": "79cdea1194d9565a8f42d04bbc298190da9efedde67f0e9db9ce19cb4585e429",
+    "/Users/ssetty/dl_repos/systems-for-llms/scripts/modal_pilot.py": "81f7bbe034cf2ecdacc7624752347291e48d920c6aff61943185b210894c2ea4",
+    "/Users/ssetty/dl_repos/systems-for-llms/scripts/run_study.py": "d12e758c31c3fd028e8b7e866eae57e04c98e6018da8476d9844aa7e3957c018",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/config.py": "be93c25d091229425533df78f8c2ffa1a54e92c0edd7366e2d8afc6e9c46f48a",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/data.py": "a329c8b2c5423f9d94261e0cbf308d4c5f5e9947b3b470a512c304c509e6cb40",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/attention.py": "9fda7f85e61fe857be66284572d35ded30cbe8db982f6e533a44c59535af8f74",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/layers.py": "a50ffd77b95203b65cc47f72dee21f7a47605950e7f6eefb0a4576dfa1ef0196",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/model/transformer.py": "72c2c5aa62c4cfc1360f32c7d523f60b585c7642c9c54e872fbc2b8bf1595554",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/pilot.py": "5a72dc3bca06a6b2525e6c155c24bedd62ab5a668bd3b9575a6514ac957e67ae",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/train.py": "cb8881cb91909b0b3731056b21a434286401a7cc228052322572127c4b790731",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/training/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "/Users/ssetty/dl_repos/systems-for-llms/src/llmlab/training/loss.py": "9cbad5baccdda7417410aa1af2553854698d0938bd9d96335fe67423c8278df6",
+    "/Users/ssetty/dl_repos/systems-for-llms/tests/test_modal_payload.py": "e6050b2d8a9ec6a47e4ea88b0af43a3df7a3a604ff04a62641ff44df7e272cf8",
+    "/Users/ssetty/dl_repos/systems-for-llms/tests/test_model.py": "060098422e92497ebf0e1682f0ebfdf35945abceec776cdab45391e4f282f46f",
+    "/Users/ssetty/dl_repos/systems-for-llms/tests/test_pilot.py": "19c9e7fe01687985d8671a449e13721525dda7e93df09e62654f8538e7671c77",
+    "/Users/ssetty/dl_repos/systems-for-llms/tests/test_study.py": "8d355a36a4093307eb94fe177a0f626cd83963636f97918ef54fb97ad5ec887c",
+    "/Users/ssetty/dl_repos/systems-for-llms/tests/test_training.py": "9b5a7db79f6eac913d135613973d02e9cc96c7092ec0729e30be8742a68276ea"
+  },
+  "resolved_jobs": [
+    {
+      "name": "22m-4k-screen",
+      "config": {
+        "model": {
+          "vocab_size": 10000,
+          "context_length": 4096,
+          "d_model": 512,
+          "num_layers": 4,
+          "num_heads": 8,
+          "d_ff": 1344,
+          "rope_theta": 10000.0,
+          "attention_backend": "sdpa",
+          "activation_checkpointing": "none"
+        },
+        "data": {
+          "kind": "npy",
+          "train_path": "/data/train.npy",
+          "valid_path": "/data/valid.npy",
+          "tokenizer_files": [
+            "/data/tokenizer-0/vocab.pkl",
+            "/data/tokenizer-1/merges.pkl"
+          ]
+        },
+        "seed": 1337,
+        "device": "cuda",
+        "num_threads": 4,
+        "batch_size": 2,
+        "grad_accum_steps": 1,
+        "precision": "bf16",
+        "max_steps": 30,
+        "learning_rate": 0.0003,
+        "min_learning_rate": 3e-05,
+        "warmup_steps": 5,
+        "weight_decay": 0.1,
+        "grad_clip": 1.0,
+        "eval_interval": 30,
+        "eval_batches": 1,
+        "eval_batch_size": 1,
+        "checkpoint_interval": 30
+      },
+      "options": {
+        "microbatches": [
+          1,
+          2
+        ],
+        "effective_batch_size": 2,
+        "seeds": [
+          1337
+        ],
+        "warmup_steps": 5,
+        "case_timeout_seconds": 120,
+        "job_timeout_seconds": 1800,
+        "gpu": "L40S",
+        "volume": "systems-for-llms-results",
+        "run_id": "study-20261101T132912Z-22m-4k-screen"
+      }
+    },
+    {
+      "name": "324m-1k-screen",
+      "config": {
+        "model": {
+          "vocab_size": 10000,
+          "context_length": 1024,
+          "d_model": 1024,
+          "num_layers": 24,
+          "num_heads": 16,
+          "d_ff": 2752,
+          "rope_theta": 10000.0,
+          "attention_backend": "sdpa",
+          "activation_checkpointing": "none"
+        },
+        "data": {
+          "kind": "npy",
+          "train_path": "/data/train.npy",
+          "valid_path": "/data/valid.npy",
+          "tokenizer_files": [
+            "/data/tokenizer-0/vocab.pkl",
+            "/data/tokenizer-1/merges.pkl"
+          ]
+        },
+        "seed": 1337,
+        "device": "cuda",
+        "num_threads": 4,
+        "batch_size": 8,
+        "grad_accum_steps": 1,
+        "precision": "bf16",
+        "max_steps": 30,
+        "learning_rate": 0.0003,
+        "min_learning_rate": 3e-05,
+        "warmup_steps": 5,
+        "weight_decay": 0.1,
+        "grad_clip": 1.0,
+        "eval_interval": 30,
+        "eval_batches": 4,
+        "eval_batch_size": 1,
+        "checkpoint_interval": 30
+      },
+      "options": {
+        "microbatches": [
+          1,
+          8
+        ],
+        "effective_batch_size": 8,
+        "seeds": [
+          1337
+        ],
+        "warmup_steps": 5,
+        "case_timeout_seconds": 180,
+        "job_timeout_seconds": 2400,
+        "gpu": "L40S",
+        "volume": "systems-for-llms-results",
+        "run_id": "study-20261101T132912Z-324m-1k-screen"
+      }
+    },
+    {
+      "name": "324m-4k-screen",
+      "config": {
+        "model": {
+          "vocab_size": 10000,
+          "context_length": 4096,
+          "d_model": 1024,
+          "num_layers": 24,
+          "num_heads": 16,
+          "d_ff": 2752,
+          "rope_theta": 10000.0,
+          "attention_backend": "sdpa",
+          "activation_checkpointing": "none"
+        },
+        "data": {
+          "kind": "npy",
+          "train_path": "/data/train.npy",
+          "valid_path": "/data/valid.npy",
+          "tokenizer_files": [
+            "/data/tokenizer-0/vocab.pkl",
+            "/data/tokenizer-1/merges.pkl"
+          ]
+        },
+        "seed": 1337,
+        "device": "cuda",
+        "num_threads": 4,
+        "batch_size": 2,
+        "grad_accum_steps": 1,
+        "precision": "bf16",
+        "max_steps": 30,
+        "learning_rate": 0.0003,
+        "min_learning_rate": 3e-05,
+        "warmup_steps": 5,
+        "weight_decay": 0.1,
+        "grad_clip": 1.0,
+        "eval_interval": 30,
+        "eval_batches": 1,
+        "eval_batch_size": 1,
+        "checkpoint_interval": 30
+      },
+      "options": {
+        "microbatches": [
+          1,
+          2
+        ],
+        "effective_batch_size": 2,
+        "seeds": [
+          1337
+        ],
+        "warmup_steps": 5,
+        "case_timeout_seconds": 300,
+        "job_timeout_seconds": 3600,
+        "gpu": "L40S",
+        "volume": "systems-for-llms-results",
+        "run_id": "study-20261101T132912Z-324m-4k-screen"
+      }
+    },
+    {
+      "name": "100m-1k-quality-dev",
+      "config": {
+        "model": {
+          "vocab_size": 10000,
+          "context_length": 1024,
+          "d_model": 768,
+          "num_layers": 12,
+          "num_heads": 12,
+          "d_ff": 2048,
+          "rope_theta": 10000.0,
+          "attention_backend": "sdpa",
+          "activation_checkpointing": "none"
+        },
+        "data": {
+          "kind": "npy",
+          "train_path": "/data/train.npy",
+          "valid_path": "/data/valid.npy",
+          "tokenizer_files": [
+            "/data/tokenizer-0/vocab.pkl",
+            "/data/tokenizer-1/merges.pkl"
+          ]
+        },
+        "seed": 1337,
+        "device": "cuda",
+        "num_threads": 4,
+        "batch_size": 8,
+        "grad_accum_steps": 1,
+        "precision": "bf16",
+        "max_steps": 1200,
+        "learning_rate": 0.0003,
+        "min_learning_rate": 3e-05,
+        "warmup_steps": 50,
+        "weight_decay": 0.1,
+        "grad_clip": 1.0,
+        "eval_interval": 50,
+        "eval_batches": 64,
+        "eval_batch_size": 1,
+        "checkpoint_interval": 1200
+      },
+      "options": {
+        "microbatches": [
+          1,
+          8
+        ],
+        "effective_batch_size": 8,
+        "seeds": [
+          1337
+        ],
+        "warmup_steps": 5,
+        "case_timeout_seconds": 600,
+        "job_timeout_seconds": 2400,
+        "gpu": "L40S",
+        "volume": "systems-for-llms-results",
+        "run_id": "study-20261101T132912Z-100m-1k-quality-dev",
+        "policies": [
+          "sdpa:none:8",
+          "sdpa:none:1",
+          "sdpa:block:8"
+        ]
+      }
+    }
+  ]
+}

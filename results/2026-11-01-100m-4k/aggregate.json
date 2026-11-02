@@ -1,0 +1,522 @@
+{
+  "format_version": 1,
+  "plan_sha256": "77424db96ec6c3e3e008480e99c4def79387cdc8fa53212fd11047c2569b2de0",
+  "status_counts": {
+    "completed": 8
+  },
+  "comparability": {
+    "status": "passed",
+    "seed_groups": [
+      {
+        "seed": 1337,
+        "status": "passed",
+        "reasons": [],
+        "case_ids": [
+          "sdpa-none-mb1-acc2-seed1337",
+          "eager-none-mb2-acc1-seed1337",
+          "sdpa-none-mb2-acc1-seed1337",
+          "eager-block-mb1-acc2-seed1337",
+          "eager-none-mb1-acc2-seed1337",
+          "eager-block-mb2-acc1-seed1337",
+          "sdpa-block-mb2-acc1-seed1337",
+          "sdpa-block-mb1-acc2-seed1337"
+        ]
+      }
+    ],
+    "reasons": []
+  },
+  "timing_scope": "per-case complete optimizer-step durations after profiling warmup; includes batch preparation and transfer, excludes evaluation/checkpoint time",
+  "throughput_scope": "measured valid tokens divided by summed measured step durations",
+  "percentile_method": "linear interpolation at 0.9 * (sample_count - 1)",
+  "interpretation": "descriptive pilot measurements; CPU/synthetic cases are harness checks; no speedup or quality-equivalence claim",
+  "cases": [
+    {
+      "case_id": "sdpa-none-mb1-acc2-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "none",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "a87bf359c08caad95d6203fbe28568b1bd7c3ecb1fea189b19f93d9ce87c9519",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.1061265380000016,
+      "step_seconds_p90": 0.10633166720000062,
+      "tokens_per_second": 77190.79416166276,
+      "last_train_loss": 4.946042060852051,
+      "valid_loss": 5.0779709815979,
+      "runner_times": {
+        "setup_seconds": 2.783679383999999,
+        "train_seconds": 3.7492657590000142,
+        "eval_seconds": 0.014559829999999607,
+        "checkpoint_seconds": 1.6229029210000014,
+        "wall_seconds": 8.174899409999998
+      },
+      "subprocess_wall_seconds": 10.373125879,
+      "peak_cuda_allocated_bytes": 4800284160,
+      "peak_cuda_reserved_bytes": 5035261952,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-none-mb2-acc1-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "none",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "5b9996f493b535a399f6f4f34523c5b341650ea26ee4fb592c64070850dc0791",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 1.464433702000001,
+      "step_seconds_p90": 1.4652621573999993,
+      "tokens_per_second": 5594.225674676201,
+      "last_train_loss": 4.945917129516602,
+      "valid_loss": 5.077691078186035,
+      "runner_times": {
+        "setup_seconds": 2.605301137999998,
+        "train_seconds": 44.38619894999998,
+        "eval_seconds": 0.23386619699999756,
+        "checkpoint_seconds": 1.4181294130000026,
+        "wall_seconds": 48.64832099099999
+      },
+      "subprocess_wall_seconds": 50.821806576,
+      "peak_cuda_allocated_bytes": 42456090112,
+      "peak_cuda_reserved_bytes": 43373297664,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "sdpa-none-mb2-acc1-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "none",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "33ba1e3561f64baa92366468de0ee62cf6568a1b440c03db6205d16d74953f62",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.10819961100000342,
+      "step_seconds_p90": 0.10838643219999824,
+      "tokens_per_second": 75694.11051199317,
+      "last_train_loss": 4.94575834274292,
+      "valid_loss": 5.077506065368652,
+      "runner_times": {
+        "setup_seconds": 2.591112190000004,
+        "train_seconds": 3.8028973529999774,
+        "eval_seconds": 0.014659566999995377,
+        "checkpoint_seconds": 1.4583802699999922,
+        "wall_seconds": 7.871105043
+      },
+      "subprocess_wall_seconds": 9.99964759800001,
+      "peak_cuda_allocated_bytes": 7267883520,
+      "peak_cuda_reserved_bytes": 7467958272,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-block-mb1-acc2-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "block",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "76920628729832ab602cf333a67f0a255364e91cb0ac1042c7203765c8c8d9a3",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 1.9302509900000047,
+      "step_seconds_p90": 1.9310124840000071,
+      "tokens_per_second": 4243.953491761168,
+      "last_train_loss": 4.946024417877197,
+      "valid_loss": 5.078070640563965,
+      "runner_times": {
+        "setup_seconds": 2.728997088,
+        "train_seconds": 58.35297012600006,
+        "eval_seconds": 0.2341764059999889,
+        "checkpoint_seconds": 2.2435489930000188,
+        "wall_seconds": 63.565206106999995
+      },
+      "subprocess_wall_seconds": 65.675564131,
+      "peak_cuda_allocated_bytes": 6791739904,
+      "peak_cuda_reserved_bytes": 7000293376,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-none-mb1-acc2-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "none",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "5b71e2d3341f2a01759af32434d96c35d7e7f74e793fe05f23ae00b7c4fd9f8a",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 1.4721904660000007,
+      "step_seconds_p90": 1.4727374400000144,
+      "tokens_per_second": 5564.302007527472,
+      "last_train_loss": 4.946024417877197,
+      "valid_loss": 5.078070640563965,
+      "runner_times": {
+        "setup_seconds": 2.6235319910000214,
+        "train_seconds": 44.620779182000035,
+        "eval_seconds": 0.23392433500001175,
+        "checkpoint_seconds": 2.2935372889999996,
+        "wall_seconds": 49.776685137000015
+      },
+      "subprocess_wall_seconds": 51.945648509999984,
+      "peak_cuda_allocated_bytes": 22441474560,
+      "peak_cuda_reserved_bytes": 23150460928,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "eager-block-mb2-acc1-seed1337",
+      "attention_backend": "eager",
+      "activation_checkpointing": "block",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "a8ff661b579c6aaa43494f04e9e53a83f579646f6401b6c169f4766f1f34c113",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 1.9140363159999936,
+      "step_seconds_p90": 1.9147448408000003,
+      "tokens_per_second": 4279.748694244171,
+      "last_train_loss": 4.945917129516602,
+      "valid_loss": 5.077691078186035,
+      "runner_times": {
+        "setup_seconds": 2.8509685399999967,
+        "train_seconds": 57.874508293999924,
+        "eval_seconds": 0.23442679599997973,
+        "checkpoint_seconds": 2.6121367910000117,
+        "wall_seconds": 63.577771633
+      },
+      "subprocess_wall_seconds": 65.91419964000002,
+      "peak_cuda_allocated_bytes": 11610820096,
+      "peak_cuda_reserved_bytes": 11869880320,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "sdpa-block-mb2-acc1-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "block",
+      "batch_size": 2,
+      "grad_accum_steps": 1,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "2d4eff9c06defca5fc87dc173ca70f09b2f74bbfca289f3a2a2ef97083698382",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.12793586499998355,
+      "step_seconds_p90": 0.1283850204000146,
+      "tokens_per_second": 63979.46988782102,
+      "last_train_loss": 4.945858955383301,
+      "valid_loss": 5.077581882476807,
+      "runner_times": {
+        "setup_seconds": 2.599526515999969,
+        "train_seconds": 4.377223423000203,
+        "eval_seconds": 0.015133216000037919,
+        "checkpoint_seconds": 1.7082161879999944,
+        "wall_seconds": 8.704569523999965
+      },
+      "subprocess_wall_seconds": 10.86927055000001,
+      "peak_cuda_allocated_bytes": 2957388288,
+      "peak_cuda_reserved_bytes": 3273654272,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    },
+    {
+      "case_id": "sdpa-block-mb1-acc2-seed1337",
+      "attention_backend": "sdpa",
+      "activation_checkpointing": "block",
+      "batch_size": 1,
+      "grad_accum_steps": 2,
+      "seed": 1337,
+      "device": "cuda",
+      "precision": "bf16",
+      "config_sha256": "524746deddd7ccd6b419dca7fc87ffb684eebf06d1cc5ae335038ec187ccf844",
+      "status": "completed",
+      "effective_batch_size": 2,
+      "tokens_per_step": 8192,
+      "tokens_seen": 245760,
+      "data_identity": {
+        "kind": "npy",
+        "train": {
+          "sha256": "1edf409861d6cff6b7cb03edf2aef6064b55ee44d7aec66f8d12f0d87e14486e",
+          "tokens": 541229347,
+          "dtype": "uint16"
+        },
+        "valid": {
+          "sha256": "de4f13cb853596c26b26e09bc673c772f7cc1c4ccf28d7a62200d08d2702e544",
+          "tokens": 5465883,
+          "dtype": "uint16"
+        },
+        "tokenizer_files": [
+          {
+            "name": "vocab.pkl",
+            "sha256": "b9a3565b55d0b16c03a7fd876296207084932b799923418055c7d48cacb7b7ea"
+          },
+          {
+            "name": "merges.pkl",
+            "sha256": "f3d1232740294d5c69b8580e35e68edf90e82f7c779a5a8ebec8fb0f7df6ae70"
+          }
+        ]
+      },
+      "data_identity_sha256": "fff2b99094cd2b3376935d5855b7bd8d635fbe09894b09c19440544980258ccb",
+      "batch_stream_sha256": "b9346602fc32f515ce3159b985e64e2def0877720a4c8b9a15fd799b3ce19b6e",
+      "measured_steps": 25,
+      "expected_measured_steps": 25,
+      "step_seconds_median": 0.13638346200002616,
+      "step_seconds_p90": 0.13785638980000386,
+      "tokens_per_second": 58794.24593920615,
+      "last_train_loss": 4.946017742156982,
+      "valid_loss": 5.077971458435059,
+      "runner_times": {
+        "setup_seconds": 2.5989893270000266,
+        "train_seconds": 4.7435067560001585,
+        "eval_seconds": 0.014755024000010053,
+        "checkpoint_seconds": 2.0256299220000074,
+        "wall_seconds": 9.387490194999998
+      },
+      "subprocess_wall_seconds": 11.518504794999956,
+      "peak_cuda_allocated_bytes": 2627786240,
+      "peak_cuda_reserved_bytes": 2669674496,
+      "returncode": 0,
+      "gpu_name": "NVIDIA L40S",
+      "gpu_count": 1,
+      "workload": "tokenized language modeling"
+    }
+  ]
+}
