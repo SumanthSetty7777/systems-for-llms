@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/usr/local/bin/python",
+    "-m",
+    "attention_lab.backward_study",
+    "--stage",
+    "study",
+    "--output-dir",
+    "/results/cohere-backward-study-20261105T183827Z-529f17/study",
+    "--time-budget-seconds",
+    "600"
+  ]
+}

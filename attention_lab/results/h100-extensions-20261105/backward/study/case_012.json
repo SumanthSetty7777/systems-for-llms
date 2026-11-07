@@ -1,0 +1,229 @@
+{
+  "kind": "attention_training",
+  "n": 4096,
+  "d": 64,
+  "batch": 1,
+  "heads": 2,
+  "dtype": "torch.bfloat16",
+  "spec": {
+    "causal": true,
+    "window_left": 255,
+    "window_right": null,
+    "same_document": false
+  },
+  "seed": 29,
+  "variants": {
+    "structured_triton": {
+      "first_forward_backward_ms": 1288.004936,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.00568079948425293,
+          "rms_error": 0.00023712417169008404,
+          "relative_rms_error": 0.0021019147243350744,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.006997942924499512,
+          "rms_error": 0.000258855550782755,
+          "relative_rms_error": 0.002414426766335964,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.006649494171142578,
+          "rms_error": 0.0002562312292866409,
+          "relative_rms_error": 0.0023802148643881083,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.00830078125,
+          "rms_error": 0.00026340631302446127,
+          "relative_rms_error": 0.002335438970476389,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "backward_only": {
+        "timing": {
+          "median_ms": 0.02666666607062022,
+          "min_ms": 0.02658133457104365,
+          "max_ms": 0.027285332481066387,
+          "samples_ms": [
+            0.027285332481066387,
+            0.026698666314284008,
+            0.02677333354949951,
+            0.02666666607062022,
+            0.02666666607062022,
+            0.02658133457104365,
+            0.026687999566396076,
+            0.02664533257484436,
+            0.026602665583292644,
+            0.026719999810059864,
+            0.02666666607062022,
+            0.02666666607062022,
+            0.02666666607062022,
+            0.026698666314284008,
+            0.026698666314284008
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3,
+          "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+        },
+        "baseline_allocated_bytes": 291619328,
+        "peak_allocated_bytes": 294797824,
+        "peak_increment_bytes": 3178496,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "forward_backward": {
+        "timing": {
+          "median_ms": 0.034261333445707955,
+          "min_ms": 0.034154665966828666,
+          "max_ms": 0.0348693331082662,
+          "samples_ms": [
+            0.0348693331082662,
+            0.034261333445707955,
+            0.03420799970626831,
+            0.0342399999499321,
+            0.034304000437259674,
+            0.034154665966828666,
+            0.03419733295838038,
+            0.03428266694148382,
+            0.0342399999499321,
+            0.034261333445707955,
+            0.03432533393303553,
+            0.034314667185147606,
+            0.03421866645415624,
+            0.034304000437259674,
+            0.03432533393303553
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3,
+          "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+        },
+        "baseline_allocated_bytes": 291619328,
+        "peak_allocated_bytes": 295879168,
+        "peak_increment_bytes": 4259840,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "status": "passed"
+    },
+    "flex_attention_triton": {
+      "first_forward_backward_ms": 0.7975030000011429,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.00568079948425293,
+          "rms_error": 0.00023872609017416835,
+          "relative_rms_error": 0.002116114366799593,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.006997942924499512,
+          "rms_error": 0.000258836051216349,
+          "relative_rms_error": 0.0024142449256032705,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.006649494171142578,
+          "rms_error": 0.00025639173691160977,
+          "relative_rms_error": 0.0023817059118300676,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.00830078125,
+          "rms_error": 0.000263420952251181,
+          "relative_rms_error": 0.002335568889975548,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "backward_only": {
+        "timing": {
+          "median_ms": 0.02407466620206833,
+          "min_ms": 0.024010665714740753,
+          "max_ms": 0.024821333587169647,
+          "samples_ms": [
+            0.024821333587169647,
+            0.0240639994541804,
+            0.024106666445732117,
+            0.02405333270629247,
+            0.02420266717672348,
+            0.024106666445732117,
+            0.02407466620206833,
+            0.024106666445732117,
+            0.0240639994541804,
+            0.024010665714740753,
+            0.0240639994541804,
+            0.02407466620206833,
+            0.02407466620206833,
+            0.024031999210516613,
+            0.024149333437283833
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3,
+          "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+        },
+        "baseline_allocated_bytes": 291619328,
+        "peak_allocated_bytes": 294797824,
+        "peak_increment_bytes": 3178496,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+        "baseline_over_custom_speedup": 0.9028000027567148
+      },
+      "forward_backward": {
+        "timing": {
+          "median_ms": 0.0469760000705719,
+          "min_ms": 0.04683733483155569,
+          "max_ms": 0.04756266872088114,
+          "samples_ms": [
+            0.04756266872088114,
+            0.04698666433493296,
+            0.0469760000705719,
+            0.04698666433493296,
+            0.0469760000705719,
+            0.04701866706212362,
+            0.04684799909591675,
+            0.046944002310434975,
+            0.04695466657479604,
+            0.04698666433493296,
+            0.047007997830708824,
+            0.04702933132648468,
+            0.046869332591692604,
+            0.04683733483155569,
+            0.04684799909591675
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3,
+          "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+        },
+        "baseline_allocated_bytes": 291619328,
+        "peak_allocated_bytes": 295879168,
+        "peak_increment_bytes": 4259840,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+        "baseline_over_custom_speedup": 1.3711083412737621
+      },
+      "status": "passed"
+    }
+  },
+  "scope": "GPU graph replay, no Python dispatch; inputs, retained forward, warmups, capture and replay share one explicit nondefault stream; no dropout; identical Q/K/V, mask and upstream gradient",
+  "compiler_settings": {
+    "torch._functorch.config.donated_buffer": false,
+    "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+  },
+  "flex_mask_setup_ms": 3043.7500869999994,
+  "status": "passed",
+  "case_index": 12
+}

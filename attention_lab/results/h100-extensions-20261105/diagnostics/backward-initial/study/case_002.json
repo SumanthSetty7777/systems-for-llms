@@ -1,0 +1,52 @@
+{
+  "kind": "correctness",
+  "n": 129,
+  "d": 64,
+  "dtype": "torch.float16",
+  "spec": {
+    "causal": false,
+    "window_left": 11,
+    "window_right": 5,
+    "same_document": false
+  },
+  "seed": 17,
+  "block_q": 32,
+  "block_k": 64,
+  "document_pattern": null,
+  "errors": {
+    "output": {
+      "correct": true,
+      "max_abs_error": 0.0006147623062133789,
+      "rms_error": 9.084591147257015e-05,
+      "relative_rms_error": 0.00025033028214238584,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dq": {
+      "correct": true,
+      "max_abs_error": 0.0008263587951660156,
+      "rms_error": 9.49906388996169e-05,
+      "relative_rms_error": 0.000299720122711733,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dk": {
+      "correct": true,
+      "max_abs_error": 0.001165628433227539,
+      "rms_error": 9.491734817856923e-05,
+      "relative_rms_error": 0.000296626181807369,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dv": {
+      "correct": true,
+      "max_abs_error": 0.0009310245513916016,
+      "rms_error": 0.00010756016854429618,
+      "relative_rms_error": 0.0002951687201857567,
+      "atol": 0.004,
+      "rtol": 0.006
+    }
+  },
+  "status": "passed",
+  "case_index": 2
+}

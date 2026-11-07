@@ -1,0 +1,227 @@
+{
+  "kind": "attention_training",
+  "n": 1024,
+  "d": 64,
+  "batch": 1,
+  "heads": 2,
+  "dtype": "torch.bfloat16",
+  "spec": {
+    "causal": true,
+    "window_left": null,
+    "window_right": null,
+    "same_document": false
+  },
+  "seed": 19,
+  "variants": {
+    "structured_triton": {
+      "first_forward_backward_ms": 1168.5379590000052,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.000246781186433509,
+          "relative_rms_error": 0.0020291549153625965,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.00027905782917514443,
+          "relative_rms_error": 0.002638391451910138,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.008005261421203613,
+          "rms_error": 0.0002662295592017472,
+          "relative_rms_error": 0.002532330108806491,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012444496154785156,
+          "rms_error": 0.00028532574651762843,
+          "relative_rms_error": 0.0023669209331274033,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "backward_only": {
+        "timing": {
+          "median_ms": 0.056032001972198486,
+          "min_ms": 0.055957332253456116,
+          "max_ms": 0.05734399954477946,
+          "samples_ms": [
+            0.05734399954477946,
+            0.056032001972198486,
+            0.05606399973233541,
+            0.05604266623655955,
+            0.056032001972198486,
+            0.05601066847642263,
+            0.056032001972198486,
+            0.05601066847642263,
+            0.055999999245007835,
+            0.055957332253456116,
+            0.05604266623655955,
+            0.05598933498064677,
+            0.05598933498064677,
+            0.056032001972198486,
+            0.05605333546797434
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140022272,
+        "peak_allocated_bytes": 140816896,
+        "peak_increment_bytes": 794624,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "forward_backward": {
+        "timing": {
+          "median_ms": 0.0717439999183019,
+          "min_ms": 0.07170133292675018,
+          "max_ms": 0.07282133400440216,
+          "samples_ms": [
+            0.07282133400440216,
+            0.07181866466999054,
+            0.07175466914971669,
+            0.0717439999183019,
+            0.0717439999183019,
+            0.07175466914971669,
+            0.0717439999183019,
+            0.07173333565394084,
+            0.07173333565394084,
+            0.07175466914971669,
+            0.0717439999183019,
+            0.07170133292675018,
+            0.07172266642252605,
+            0.0717439999183019,
+            0.07176533341407776
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140022272,
+        "peak_allocated_bytes": 141087232,
+        "peak_increment_bytes": 1064960,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "status": "passed"
+    },
+    "flex_attention_triton": {
+      "status": "failed",
+      "error_type": "RuntimeError",
+      "error": "This backward function was compiled with non-empty donated buffers which requires create_graph=False and retain_graph=False. Please keep backward(create_graph=False, retain_graph=False) across all backward() function calls, or set torch._functorch.config.donated_buffer=False to disable donated buffer.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    grads = torch.autograd.grad(output, values, upstream, retain_graph=True)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/function.py\", line 317, in apply\n    return user_fn(self, *args)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2748, in backward\n    return impl_fn()\n           ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2734, in impl_fn\n    out = CompiledFunction._backward_impl(ctx, all_args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2906, in _backward_impl\n    torch._check(\n  File \"/usr/local/lib/python3.12/site-packages/torch/__init__.py\", line 1753, in _check\n    _check_with(RuntimeError, cond, message)  # pyrefly: ignore [bad-argument-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/__init__.py\", line 1735, in _check_with\n    raise error_type(message_evaluated)\nRuntimeError: This backward function was compiled with non-empty donated buffers which requires create_graph=False and retain_graph=False. Please keep backward(create_graph=False, retain_graph=False) across all backward() function calls, or set torch._functorch.config.donated_buffer=False to disable donated buffer.\n"
+    },
+    "pytorch_sdpa_native_causal": {
+      "first_forward_backward_ms": 89.15948300000309,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.00024749990552663803,
+          "relative_rms_error": 0.002035064622759819,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.00027924866299144924,
+          "relative_rms_error": 0.002640195656567812,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.008005261421203613,
+          "rms_error": 0.00026733180857263505,
+          "relative_rms_error": 0.0025428147055208683,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012444496154785156,
+          "rms_error": 0.0002853280457202345,
+          "relative_rms_error": 0.002366940025240183,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "backward_only": {
+        "timing": {
+          "median_ms": 0.036202666660149894,
+          "min_ms": 0.03610666592915853,
+          "max_ms": 0.03726933399836222,
+          "samples_ms": [
+            0.03682133307059606,
+            0.03626666714747747,
+            0.03610666592915853,
+            0.03610666592915853,
+            0.03619199991226196,
+            0.03623466690381368,
+            0.036202666660149894,
+            0.03626666714747747,
+            0.03612799942493439,
+            0.03726933399836222,
+            0.036202666660149894,
+            0.036159999668598175,
+            0.03613866617282232,
+            0.03624533365170161,
+            0.03617066641648611
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140023296,
+        "peak_allocated_bytes": 141342720,
+        "peak_increment_bytes": 1319424,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+        "baseline_over_custom_speedup": 0.6461069636261193
+      },
+      "forward_backward": {
+        "timing": {
+          "median_ms": 0.05120000243186951,
+          "min_ms": 0.05085866649945577,
+          "max_ms": 0.051872000098228455,
+          "samples_ms": [
+            0.051872000098228455,
+            0.051039998730023704,
+            0.05120000243186951,
+            0.051125332713127136,
+            0.05085866649945577,
+            0.05138133466243744,
+            0.05115733544031779,
+            0.05108266572157542,
+            0.05126399795214335,
+            0.05136000116666158,
+            0.05131733417510986,
+            0.05134933193524679,
+            0.05126399795214335,
+            0.05120000243186951,
+            0.051167999704678856
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140023296,
+        "peak_allocated_bytes": 141614080,
+        "peak_increment_bytes": 1590784,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+        "baseline_over_custom_speedup": 0.7136485628090605
+      },
+      "status": "passed"
+    }
+  },
+  "scope": "GPU graph replay, no Python dispatch; no dropout; identical Q/K/V, mask and upstream gradient",
+  "flex_mask_setup_ms": 3752.0443430000014,
+  "status": "failed",
+  "case_index": 6
+}

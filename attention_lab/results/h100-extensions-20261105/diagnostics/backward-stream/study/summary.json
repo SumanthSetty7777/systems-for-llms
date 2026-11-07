@@ -1,0 +1,1177 @@
+{
+  "stage": "study",
+  "budget_seconds": 600.0,
+  "environment": {
+    "python": "3.12.1",
+    "torch": "2.11.0+cu130",
+    "triton": "3.6.0",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_memory_bytes": 85009367040
+  },
+  "implementation": "online-softmax forward saves natural-log LSE; query-owned dQ; transposed-CSR key-owned dK/dV; FP32 accumulation; no atomics or dense attention matrix in custom implementation",
+  "compiler_settings": {
+    "torch._functorch.config.donated_buffer": false,
+    "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+  },
+  "limitations": [
+    "first derivatives only",
+    "no dropout",
+    "same sequence length for Q/K/V",
+    "one shared document-label sequence across batch and heads",
+    "attention GPU graph timings exclude Python dispatch; complete optimizer steps use matched eager CUDA events including host submission gaps",
+    "Flex buffer donation disabled for retained backward, explicitly not the default donation setting",
+    "correctness uses dense FP32 oracle outside timing",
+    "time budget checked between cases; one compilation can exceed the remaining budget"
+  ],
+  "cases": [
+    {
+      "kind": "gpu_unittests",
+      "status": "passed",
+      "tests_run": 2,
+      "skipped": [],
+      "coverage": "five mask/shape cases each in FP16 and BF16; D64/D128, ragged lengths, repeated labels, asymmetric tiles, plus broadcast upstream gradient",
+      "output": "test_broadcast_upstream_gradient (attention_lab.test_backward.CUDABackwardTests.test_broadcast_upstream_gradient) ... ok\ntest_outputs_and_all_three_gradients (attention_lab.test_backward.CUDABackwardTests.test_outputs_and_all_three_gradients) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 19.523s\n\nOK\n",
+      "case_index": 0
+    },
+    {
+      "kind": "correctness",
+      "n": 17,
+      "d": 64,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.00048232078552246094,
+          "rms_error": 8.857845386955887e-05,
+          "relative_rms_error": 0.00024069863138720393,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0006898641586303711,
+          "rms_error": 0.0001056125620380044,
+          "relative_rms_error": 0.00030990506638772786,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0011739730834960938,
+          "rms_error": 0.00010972670133924112,
+          "relative_rms_error": 0.00031650339951738715,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0006848573684692383,
+          "rms_error": 0.00010035665036411956,
+          "relative_rms_error": 0.0002729466650635004,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 1
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 128,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 32,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0074462890625,
+          "rms_error": 0.0006608573603443801,
+          "relative_rms_error": 0.001884307130239904,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.010239362716674805,
+          "rms_error": 0.0006771811749786139,
+          "relative_rms_error": 0.0025640819221735,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.006291747093200684,
+          "rms_error": 0.000672596856020391,
+          "relative_rms_error": 0.0025196888018399477,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.014473438262939453,
+          "rms_error": 0.0008080517291091383,
+          "relative_rms_error": 0.002288402523845434,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 2
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 64,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": 11,
+        "window_right": 5,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0006147623062133789,
+          "rms_error": 9.084591147257015e-05,
+          "relative_rms_error": 0.00025033028214238584,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0008263587951660156,
+          "rms_error": 9.49906388996169e-05,
+          "relative_rms_error": 0.000299720122711733,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.001165628433227539,
+          "rms_error": 9.491734817856923e-05,
+          "relative_rms_error": 0.000296626181807369,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0009310245513916016,
+          "rms_error": 0.00010756016854429618,
+          "relative_rms_error": 0.0002951687201857567,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 3
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 128,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007578849792480469,
+          "rms_error": 0.0007254276424646378,
+          "relative_rms_error": 0.001783391460776329,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.010249108076095581,
+          "rms_error": 0.0008234207052737474,
+          "relative_rms_error": 0.002740871626883745,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.01432037353515625,
+          "rms_error": 0.0008089704206213355,
+          "relative_rms_error": 0.0026586868334561586,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.01111149787902832,
+          "rms_error": 0.0009159488836303353,
+          "relative_rms_error": 0.002231915947049856,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 4
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 64,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": false,
+        "window_left": 0,
+        "window_right": 0,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "relative_rms_error": 0.0,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 7.636845111846924e-07,
+          "rms_error": 8.549505992050399e-08,
+          "relative_rms_error": 85495.0625,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 9.126961231231689e-07,
+          "rms_error": 8.751909064130814e-08,
+          "relative_rms_error": 87519.09375,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "relative_rms_error": 0.0,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 5
+    },
+    {
+      "kind": "correctness",
+      "n": 257,
+      "d": 128,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": true,
+        "window_left": 63,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0010776519775390625,
+          "rms_error": 0.00010112726158695295,
+          "relative_rms_error": 0.0002191759558627382,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0012683868408203125,
+          "rms_error": 0.00010645255679264665,
+          "relative_rms_error": 0.0003241990343667567,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0015134811401367188,
+          "rms_error": 0.00010676394595066085,
+          "relative_rms_error": 0.0003255046613048762,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.001705169677734375,
+          "rms_error": 0.00012970177340321243,
+          "relative_rms_error": 0.0002808622666634619,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 6
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 128,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": null,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 32,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0005433559417724609,
+          "rms_error": 7.314088725252077e-05,
+          "relative_rms_error": 0.0002441045653540641,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0008617639541625977,
+          "rms_error": 8.120583515847102e-05,
+          "relative_rms_error": 0.00030097088892944157,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0008974075317382812,
+          "rms_error": 8.175760740414262e-05,
+          "relative_rms_error": 0.00030228833202272654,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0009829998016357422,
+          "rms_error": 8.865997369866818e-05,
+          "relative_rms_error": 0.0002966781612485647,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 7
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 64,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": false,
+        "window_left": 1,
+        "window_right": 3,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007829666137695312,
+          "rms_error": 0.0010918820044025779,
+          "relative_rms_error": 0.0018770265160128474,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.00838613510131836,
+          "rms_error": 0.0011371925938874483,
+          "relative_rms_error": 0.0027945139445364475,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.007202625274658203,
+          "rms_error": 0.0011223395122215152,
+          "relative_rms_error": 0.002791432663798332,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.013898134231567383,
+          "rms_error": 0.001382835558615625,
+          "relative_rms_error": 0.002364391228184104,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 8
+    },
+    {
+      "kind": "transformer_optimizer_step",
+      "n": 512,
+      "d": 64,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "variants": {
+        "pytorch_sdpa_native_causal": {
+          "first_step_ms": 1798.1489699999997,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4270339012145996,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 1.4270339012145996,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.1945852041244507,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 305.8138122558594,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033368938602507114,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.07397977262735367,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039776897756382823,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.05091442912817001,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288696847856045,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.13539063930511475,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014810531865805387,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.3791496157646179,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.3368858112226008e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0007397959125228226,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.9776919038558844e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0005091445636935532,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288708052830771e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0013539092615246773,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4810533684794791e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0037914966233074665,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9991048574447632,
+              "update_norm": 0.0007397959125228226,
+              "gradient_norm": 0.07397977262735367,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99932861328125,
+              "update_norm": 0.0005091445636935532,
+              "gradient_norm": 0.05091442912817001,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0013539092615246773,
+              "gradient_norm": 0.13539063930511475,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.999908447265625,
+              "update_norm": 0.0037914966233074665,
+              "gradient_norm": 0.3791496157646179,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4270339012145996,
+          "step": {
+            "timing": {
+              "median_ms": 1.415082613627116,
+              "min_ms": 1.4019734064737956,
+              "max_ms": 2.9846932093302407,
+              "samples_ms": [
+                1.4257173538208008,
+                1.4107306798299153,
+                1.4133226076761882,
+                1.4168426195780437,
+                1.4126933415730794,
+                1.4019734064737956,
+                1.4105067253112793,
+                1.4122133255004883,
+                2.9846932093302407,
+                1.5443414052327473,
+                1.4734080632527669,
+                1.4770560264587402
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 71344128,
+            "peak_allocated_bytes": 74893312,
+            "peak_increment_bytes": 3549184,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed",
+          "baseline_over_custom_speedup": 0.8350580047687693
+        },
+        "flex_attention_triton": {
+          "first_step_ms": 6091.563626000003,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4269657135009766,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 6.818771362304688e-05,
+              "relative_rms_error": 4.778282671841914e-05,
+              "actual_norm": 1.4269657135009766,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.194556713104248,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.002431525383144617,
+              "relative_rms_error": 0.002035455800682513,
+              "actual_norm": 305.8065185546875,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033369287848472595,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 9.799659892451018e-07,
+              "relative_rms_error": 0.0029367610427125596,
+              "actual_norm": 0.07398054003715515,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039780052611604333,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 8.731859679755871e-07,
+              "relative_rms_error": 0.0021952088202641966,
+              "actual_norm": 0.050918467342853546,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288667161948979,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 1.4356082829181105e-06,
+              "relative_rms_error": 0.002714483972550031,
+              "actual_norm": 0.13538987934589386,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014810693683102727,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 2.8801173357351217e-06,
+              "relative_rms_error": 0.0019446413956170931,
+              "actual_norm": 0.3791537582874298,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.336933559694444e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 1.0120837501403912e-08,
+              "relative_rms_error": 0.003033018830721013,
+              "actual_norm": 0.0007398065063171089,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.978013864980312e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 9.002718570627621e-09,
+              "relative_rms_error": 0.0022633021330537417,
+              "actual_norm": 0.0005091857747174799,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288681222737068e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 1.454404241485463e-08,
+              "relative_rms_error": 0.002750018013769915,
+              "actual_norm": 0.0013539023930206895,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4810695574851707e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 2.882572935902772e-08,
+              "relative_rms_error": 0.0019462991660200337,
+              "actual_norm": 0.003791538067162037,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9992269277572632,
+              "update_norm": 0.0007398065063171089,
+              "gradient_norm": 0.07398054003715515,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99951171875,
+              "update_norm": 0.0005091857747174799,
+              "gradient_norm": 0.050918467342853546,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99945068359375,
+              "update_norm": 0.0013539023930206895,
+              "gradient_norm": 0.13538987934589386,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9999237060546875,
+              "update_norm": 0.003791538067162037,
+              "gradient_norm": 0.3791537582874298,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4269657135009766,
+          "step": {
+            "timing": {
+              "median_ms": 1.9212426344553628,
+              "min_ms": 1.8639893531799316,
+              "max_ms": 2.7278079986572266,
+              "samples_ms": [
+                1.9557867050170898,
+                1.9791359901428223,
+                2.7278079986572266,
+                2.0014293988545737,
+                1.9082026481628418,
+                1.934282620747884,
+                2.2462612787882485,
+                1.8639893531799316,
+                1.8826346397399902,
+                1.8692480723063152,
+                1.904607931772868,
+                1.8936853408813477
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 73048576,
+            "peak_allocated_bytes": 76596736,
+            "peak_increment_bytes": 3548160,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed",
+          "baseline_over_custom_speedup": 1.1337493836439336
+        },
+        "structured_triton": {
+          "first_step_ms": 2493.387418000005,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4269986152648926,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 3.528594970703125e-05,
+              "relative_rms_error": 2.4726777462678438e-05,
+              "actual_norm": 1.4269986152648926,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.1945704221725464,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.0022811093367636204,
+              "relative_rms_error": 0.0019095409259111975,
+              "actual_norm": 305.8100280761719,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033369826269336045,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 9.665627658250742e-07,
+              "relative_rms_error": 0.0028965942769077265,
+              "actual_norm": 0.07398173958063126,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039775832556188107,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 8.420465746894479e-07,
+              "relative_rms_error": 0.0021169236973849434,
+              "actual_norm": 0.050913065671920776,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288736429065466,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 1.3743615454586688e-06,
+              "relative_rms_error": 0.002598677112710315,
+              "actual_norm": 0.13539165258407593,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014811297878623009,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 2.7666478672472294e-06,
+              "relative_rms_error": 0.001868027355340882,
+              "actual_norm": 0.379169225692749,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.3369713037245674e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 9.972210612829713e-09,
+              "relative_rms_error": 0.002988478232995332,
+              "actual_norm": 0.0007398148882202804,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.977593678428093e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 8.695468345365498e-09,
+              "relative_rms_error": 0.0021860587887504077,
+              "actual_norm": 0.0005091319908387959,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288733063935069e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 1.3934637443924203e-08,
+              "relative_rms_error": 0.0026347904449869784,
+              "actual_norm": 0.0013539156643673778,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4811299479333684e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 2.7672928837318977e-08,
+              "relative_rms_error": 0.0018684626378946319,
+              "actual_norm": 0.003791692666709423,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9992472529411316,
+              "update_norm": 0.0007398148882202804,
+              "gradient_norm": 0.07398173958063126,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0005091319908387959,
+              "gradient_norm": 0.050913065671920776,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0013539156643673778,
+              "gradient_norm": 0.13539165258407593,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9999847412109375,
+              "update_norm": 0.003791692666709423,
+              "gradient_norm": 0.379169225692749,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4269986152648926,
+          "step": {
+            "timing": {
+              "median_ms": 1.694591999053955,
+              "min_ms": 1.6681920687357585,
+              "max_ms": 2.0651413599650064,
+              "samples_ms": [
+                1.7259519894917805,
+                1.6972479820251465,
+                1.6919360160827637,
+                1.6886186599731445,
+                1.6891306241353352,
+                1.6778772672017415,
+                1.6681920687357585,
+                1.6825493176778157,
+                1.8154773712158203,
+                2.0651413599650064,
+                1.7458346684773762,
+                1.7194773356119792
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 73051648,
+            "peak_allocated_bytes": 76599808,
+            "peak_increment_bytes": 3548160,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        }
+      },
+      "flex_mask_setup_ms": 6034.148511000005,
+      "architecture": "one pre-norm Transformer block, 2 heads, GELU MLP width 4C, mean squared output loss, FP32 master weights and SGD lr=0.01, weights cast to activation dtype for linear operators; no dropout",
+      "scope": "matched eager CUDA-event timing for every variant, including Python submission gaps; parameter restoration, forward, loss, backward and SGD; identical reset weights each invocation; compilation and setup excluded",
+      "timing_mode": "eager",
+      "timing_mode_reason": "native SDPA full-step backward raised cudaErrorStreamCaptureImplicit during CUDA-graph capture in the initial smoke; all complete-step variants deliberately use eager timing, with no per-variant fallback",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "optimizer_correctness_reference": "pytorch_sdpa_native_causal",
+      "status": "passed",
+      "case_index": 9
+    },
+    {
+      "kind": "attention_training",
+      "n": 1024,
+      "d": 64,
+      "batch": 1,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 19,
+      "variants": {
+        "structured_triton": {
+          "first_forward_backward_ms": 1334.7219859999982,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.000246781186433509,
+              "relative_rms_error": 0.0020291549153625965,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.00027905782917514443,
+              "relative_rms_error": 0.002638391451910138,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.0002662295592017472,
+              "relative_rms_error": 0.002532330108806491,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.00028532574651762843,
+              "relative_rms_error": 0.0023669209331274033,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "status": "failed",
+          "error_type": "AcceleratorError",
+          "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+          "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+        },
+        "flex_attention_triton": {
+          "first_forward_backward_ms": 1.032821000009676,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00024704966926947236,
+              "relative_rms_error": 0.0020313626155257225,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.000279358820989728,
+              "relative_rms_error": 0.0026412373408675194,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.00026727092335931957,
+              "relative_rms_error": 0.0025422354228794575,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.00028529117116704583,
+              "relative_rms_error": 0.0023666340857744217,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "status": "failed",
+          "error_type": "AcceleratorError",
+          "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+          "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+        },
+        "pytorch_sdpa_native_causal": {
+          "first_forward_backward_ms": 119.13407200000847,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00024749990552663803,
+              "relative_rms_error": 0.002035064622759819,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.00027924866299144924,
+              "relative_rms_error": 0.002640195656567812,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.00026733180857263505,
+              "relative_rms_error": 0.0025428147055208683,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.0002853280457202345,
+              "relative_rms_error": 0.002366940025240183,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "status": "failed",
+          "error_type": "AcceleratorError",
+          "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+          "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+        }
+      },
+      "scope": "GPU graph replay, no Python dispatch; no dropout; identical Q/K/V, mask and upstream gradient",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "flex_mask_setup_ms": 5128.670306000004,
+      "status": "failed",
+      "case_index": 10
+    },
+    {
+      "kind": "performance",
+      "status": "failed",
+      "error": "Offset increment outside graph capture encountered unexpectedly.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 337, in <lambda>\n    performance_case(n, d, torch.bfloat16, spec, docs)))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    values, upstream = values_for(n, d, dtype, seed)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in values_for\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in <genexpr>\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+      "case_index": 11
+    },
+    {
+      "kind": "performance",
+      "status": "failed",
+      "error": "Offset increment outside graph capture encountered unexpectedly.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 342, in <lambda>\n    performance_case(n, d, torch.bfloat16, spec, docs, seed=29)))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    values, upstream = values_for(n, d, dtype, seed)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in values_for\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in <genexpr>\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+      "case_index": 12
+    },
+    {
+      "kind": "performance",
+      "status": "failed",
+      "error": "Offset increment outside graph capture encountered unexpectedly.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 342, in <lambda>\n    performance_case(n, d, torch.bfloat16, spec, docs, seed=29)))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    values, upstream = values_for(n, d, dtype, seed)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in values_for\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in <genexpr>\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+      "case_index": 13
+    },
+    {
+      "kind": "transformer",
+      "status": "failed",
+      "error": "Offset increment outside graph capture encountered unexpectedly.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 343, in <lambda>\n    jobs.append((\"transformer\", lambda: transformer_step_case(1024, 128, torch.bfloat16,\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 199, in transformer_step_case\n    x = torch.randn(1, n, width, device=\"cuda\", dtype=dtype)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+      "case_index": 14
+    }
+  ],
+  "planned_cases": 15,
+  "elapsed_seconds": 57.259077041999994,
+  "completed_cases": 15,
+  "passed_cases": 10,
+  "status": "failed"
+}

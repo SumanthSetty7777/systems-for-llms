@@ -1,0 +1,722 @@
+[
+  {
+    "case_id": "n1024-d64-causal-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028754399716854097,
+    "flex_speedup": 0.9725626638672307
+  },
+  {
+    "case_id": "n1024-d64-causal-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028754399716854097,
+    "flex_speedup": 1.1504704770722263
+  },
+  {
+    "case_id": "n1024-d64-causal-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028754399716854097,
+    "flex_speedup": 1.8266503748718883
+  },
+  {
+    "case_id": "n1024-d64-causal-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028754399716854097,
+    "flex_speedup": 2.0049645253746045
+  },
+  {
+    "case_id": "n1024-d64-causal-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027902400493621825,
+    "flex_speedup": 0.9417069568390565
+  },
+  {
+    "case_id": "n1024-d64-causal-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027902400493621825,
+    "flex_speedup": 1.7970939550314402
+  },
+  {
+    "case_id": "n1024-d64-causal-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027902400493621825,
+    "flex_speedup": 1.1183864927226275
+  },
+  {
+    "case_id": "n1024-d64-causal-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027902400493621825,
+    "flex_speedup": 1.9774351487840371
+  },
+  {
+    "case_id": "n1024-d64-causal-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02781360000371933,
+    "flex_speedup": 1.9584836397380547
+  },
+  {
+    "case_id": "n1024-d64-causal-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02781360000371933,
+    "flex_speedup": 0.9592219719052776
+  },
+  {
+    "case_id": "n1024-d64-causal-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02781360000371933,
+    "flex_speedup": 1.1396774435418127
+  },
+  {
+    "case_id": "n1024-d64-causal-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02781360000371933,
+    "flex_speedup": 1.8111585796467107
+  },
+  {
+    "case_id": "n1024-d64-window-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.01732800006866455,
+    "flex_speedup": 2.3776070387131676
+  },
+  {
+    "case_id": "n1024-d64-window-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.01732800006866455,
+    "flex_speedup": 2.146679890401147
+  },
+  {
+    "case_id": "n1024-d64-window-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.01732800006866455,
+    "flex_speedup": 3.4158650973124525
+  },
+  {
+    "case_id": "n1024-d64-window-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.01732800006866455,
+    "flex_speedup": 2.953770654670686
+  },
+  {
+    "case_id": "n1024-d64-window-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017100000381469728,
+    "flex_speedup": 2.3532974181662967
+  },
+  {
+    "case_id": "n1024-d64-window-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017100000381469728,
+    "flex_speedup": 3.356626927507185
+  },
+  {
+    "case_id": "n1024-d64-window-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017100000381469728,
+    "flex_speedup": 2.139853902907313
+  },
+  {
+    "case_id": "n1024-d64-window-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017100000381469728,
+    "flex_speedup": 2.9482760126752363
+  },
+  {
+    "case_id": "n1024-d64-window-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017052799463272095,
+    "flex_speedup": 2.949086754990268
+  },
+  {
+    "case_id": "n1024-d64-window-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017052799463272095,
+    "flex_speedup": 2.3800803863678537
+  },
+  {
+    "case_id": "n1024-d64-window-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017052799463272095,
+    "flex_speedup": 2.1414506289561794
+  },
+  {
+    "case_id": "n1024-d64-window-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.017052799463272095,
+    "flex_speedup": 3.374920660268764
+  },
+  {
+    "case_id": "n1024-d64-document-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.04041679948568344,
+    "flex_speedup": 2.2882960112497757
+  },
+  {
+    "case_id": "n1024-d64-document-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.04041679948568344,
+    "flex_speedup": 2.2593354144435427
+  },
+  {
+    "case_id": "n1024-d64-document-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.04051599949598313,
+    "flex_speedup": 2.2596260349136466
+  },
+  {
+    "case_id": "n1024-d64-document-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.04051599949598313,
+    "flex_speedup": 2.2462963550449713
+  },
+  {
+    "case_id": "n1024-d64-document-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.0386583998799324,
+    "flex_speedup": 2.214112184404339
+  },
+  {
+    "case_id": "n1024-d64-document-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d64-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.0386583998799324,
+    "flex_speedup": 2.2048181292811857
+  },
+  {
+    "case_id": "n1024-d128-causal-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027228799462318418,
+    "flex_speedup": 0.7829767683967171
+  },
+  {
+    "case_id": "n1024-d128-causal-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027228799462318418,
+    "flex_speedup": 0.8921391208603857
+  },
+  {
+    "case_id": "n1024-d128-causal-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027228799462318418,
+    "flex_speedup": 1.4060395656090157
+  },
+  {
+    "case_id": "n1024-d128-causal-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.027228799462318418,
+    "flex_speedup": 1.4258901738565002
+  },
+  {
+    "case_id": "n1024-d128-causal-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02685039937496185,
+    "flex_speedup": 0.7888081942554759
+  },
+  {
+    "case_id": "n1024-d128-causal-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02685039937496185,
+    "flex_speedup": 1.3986331598036554
+  },
+  {
+    "case_id": "n1024-d128-causal-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02685039937496185,
+    "flex_speedup": 0.8934170984056476
+  },
+  {
+    "case_id": "n1024-d128-causal-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02685039937496185,
+    "flex_speedup": 1.440966854559894
+  },
+  {
+    "case_id": "n1024-d128-causal-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.026279999315738677,
+    "flex_speedup": 1.4121136230357871
+  },
+  {
+    "case_id": "n1024-d128-causal-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.026279999315738677,
+    "flex_speedup": 0.7834485962571981
+  },
+  {
+    "case_id": "n1024-d128-causal-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.026279999315738677,
+    "flex_speedup": 0.8796357704664642
+  },
+  {
+    "case_id": "n1024-d128-causal-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.026279999315738677,
+    "flex_speedup": 1.399539846020699
+  },
+  {
+    "case_id": "n1024-d128-window-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014075200259685516,
+    "flex_speedup": 1.4935483776606238
+  },
+  {
+    "case_id": "n1024-d128-window-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014075200259685516,
+    "flex_speedup": 1.4843499623086613
+  },
+  {
+    "case_id": "n1024-d128-window-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014075200259685516,
+    "flex_speedup": 2.097270311136571
+  },
+  {
+    "case_id": "n1024-d128-window-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014075200259685516,
+    "flex_speedup": 1.7669980982107092
+  },
+  {
+    "case_id": "n1024-d128-window-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.013717599958181382,
+    "flex_speedup": 1.4553556423904652
+  },
+  {
+    "case_id": "n1024-d128-window-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.013717599958181382,
+    "flex_speedup": 2.087787671150936
+  },
+  {
+    "case_id": "n1024-d128-window-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.013717599958181382,
+    "flex_speedup": 1.4643039811374974
+  },
+  {
+    "case_id": "n1024-d128-window-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.013717599958181382,
+    "flex_speedup": 1.7595690169763525
+  },
+  {
+    "case_id": "n1024-d128-window-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014022399485111237,
+    "flex_speedup": 1.8025504103269159
+  },
+  {
+    "case_id": "n1024-d128-window-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014022399485111237,
+    "flex_speedup": 1.51928571102789
+  },
+  {
+    "case_id": "n1024-d128-window-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014022399485111237,
+    "flex_speedup": 1.5035168651831865
+  },
+  {
+    "case_id": "n1024-d128-window-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.014022399485111237,
+    "flex_speedup": 2.1282174219734675
+  },
+  {
+    "case_id": "n1024-d128-document-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03300319910049439,
+    "flex_speedup": 1.1567731149002372
+  },
+  {
+    "case_id": "n1024-d128-document-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03300319910049439,
+    "flex_speedup": 1.572659278098625
+  },
+  {
+    "case_id": "n1024-d128-document-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03232720047235489,
+    "flex_speedup": 1.134510665785042
+  },
+  {
+    "case_id": "n1024-d128-document-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03232720047235489,
+    "flex_speedup": 1.564421199800164
+  },
+  {
+    "case_id": "n1024-d128-document-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03171279877424241,
+    "flex_speedup": 1.1361382146654893
+  },
+  {
+    "case_id": "n1024-d128-document-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n1024-d128-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.03171279877424241,
+    "flex_speedup": 1.5389781166313212
+  },
+  {
+    "case_id": "n4096-d64-causal-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12234960198402405,
+    "flex_speedup": 0.7006620341479802
+  },
+  {
+    "case_id": "n4096-d64-causal-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12234960198402405,
+    "flex_speedup": 0.7568591134572787
+  },
+  {
+    "case_id": "n4096-d64-causal-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12234960198402405,
+    "flex_speedup": 1.0086529433810418
+  },
+  {
+    "case_id": "n4096-d64-causal-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12234960198402405,
+    "flex_speedup": 1.2230459400633602
+  },
+  {
+    "case_id": "n4096-d64-causal-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12261199951171875,
+    "flex_speedup": 0.736227989711144
+  },
+  {
+    "case_id": "n4096-d64-causal-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12261199951171875,
+    "flex_speedup": 1.0012543130701175
+  },
+  {
+    "case_id": "n4096-d64-causal-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12261199951171875,
+    "flex_speedup": 0.7721664411826907
+  },
+  {
+    "case_id": "n4096-d64-causal-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12261199951171875,
+    "flex_speedup": 1.2312122843274846
+  },
+  {
+    "case_id": "n4096-d64-causal-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12297999858856201,
+    "flex_speedup": 1.2252811033564697
+  },
+  {
+    "case_id": "n4096-d64-causal-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12297999858856201,
+    "flex_speedup": 0.7049018416442141
+  },
+  {
+    "case_id": "n4096-d64-causal-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12297999858856201,
+    "flex_speedup": 0.753288051732598
+  },
+  {
+    "case_id": "n4096-d64-causal-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.12297999858856201,
+    "flex_speedup": 1.0285498247175848
+  },
+  {
+    "case_id": "n4096-d64-window-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021915200352668765,
+    "flex_speedup": 1.5245992405325999
+  },
+  {
+    "case_id": "n4096-d64-window-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021915200352668765,
+    "flex_speedup": 1.4586018160815177
+  },
+  {
+    "case_id": "n4096-d64-window-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021915200352668765,
+    "flex_speedup": 2.046772308642836
+  },
+  {
+    "case_id": "n4096-d64-window-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021915200352668765,
+    "flex_speedup": 2.0607839139649347
+  },
+  {
+    "case_id": "n4096-d64-window-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021888000518083574,
+    "flex_speedup": 1.518987435365968
+  },
+  {
+    "case_id": "n4096-d64-window-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021888000518083574,
+    "flex_speedup": 2.048977817148799
+  },
+  {
+    "case_id": "n4096-d64-window-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021888000518083574,
+    "flex_speedup": 1.4621633530439722
+  },
+  {
+    "case_id": "n4096-d64-window-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.021888000518083574,
+    "flex_speedup": 2.054208301525033
+  },
+  {
+    "case_id": "n4096-d64-window-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02189119979739189,
+    "flex_speedup": 2.0614736064864503
+  },
+  {
+    "case_id": "n4096-d64-window-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02189119979739189,
+    "flex_speedup": 1.5164311470813059
+  },
+  {
+    "case_id": "n4096-d64-window-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02189119979739189,
+    "flex_speedup": 1.453598912393343
+  },
+  {
+    "case_id": "n4096-d64-window-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02189119979739189,
+    "flex_speedup": 2.0402624813164336
+  },
+  {
+    "case_id": "n4096-d64-document-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08181599974632264,
+    "flex_speedup": 2.964863323409378
+  },
+  {
+    "case_id": "n4096-d64-document-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08181599974632264,
+    "flex_speedup": 2.934408350157194
+  },
+  {
+    "case_id": "n4096-d64-document-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08137759864330292,
+    "flex_speedup": 2.9183496566830223
+  },
+  {
+    "case_id": "n4096-d64-document-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08137759864330292,
+    "flex_speedup": 2.9270832741519723
+  },
+  {
+    "case_id": "n4096-d64-document-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08177359998226166,
+    "flex_speedup": 2.993264772531098
+  },
+  {
+    "case_id": "n4096-d64-document-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d64-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.08177359998226166,
+    "flex_speedup": 2.972980159214939
+  },
+  {
+    "case_id": "n4096-d128-causal-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15702400207519532,
+    "flex_speedup": 0.7808286033256739
+  },
+  {
+    "case_id": "n4096-d128-causal-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15702400207519532,
+    "flex_speedup": 0.80860181416145
+  },
+  {
+    "case_id": "n4096-d128-causal-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15702400207519532,
+    "flex_speedup": 1.0572525762455347
+  },
+  {
+    "case_id": "n4096-d128-causal-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15702400207519532,
+    "flex_speedup": 1.12825994746944
+  },
+  {
+    "case_id": "n4096-d128-causal-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15719760060310362,
+    "flex_speedup": 0.7725699929865378
+  },
+  {
+    "case_id": "n4096-d128-causal-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15719760060310362,
+    "flex_speedup": 1.056407068584234
+  },
+  {
+    "case_id": "n4096-d128-causal-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15719760060310362,
+    "flex_speedup": 0.7944858424174119
+  },
+  {
+    "case_id": "n4096-d128-causal-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15719760060310362,
+    "flex_speedup": 1.1284759406568776
+  },
+  {
+    "case_id": "n4096-d128-causal-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15667760372161865,
+    "flex_speedup": 1.1280015297414734
+  },
+  {
+    "case_id": "n4096-d128-causal-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15667760372161865,
+    "flex_speedup": 0.7648540523314975
+  },
+  {
+    "case_id": "n4096-d128-causal-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15667760372161865,
+    "flex_speedup": 0.7936643902051962
+  },
+  {
+    "case_id": "n4096-d128-causal-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-causal-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.15667760372161865,
+    "flex_speedup": 1.0587926895277557
+  },
+  {
+    "case_id": "n4096-d128-window-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02845599949359894,
+    "flex_speedup": 1.2425766343513636
+  },
+  {
+    "case_id": "n4096-d128-window-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02845599949359894,
+    "flex_speedup": 1.2118424430147159
+  },
+  {
+    "case_id": "n4096-d128-window-s11-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02845599949359894,
+    "flex_speedup": 1.6647944900714722
+  },
+  {
+    "case_id": "n4096-d128-window-s11-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.02845599949359894,
+    "flex_speedup": 1.5369657958775766
+  },
+  {
+    "case_id": "n4096-d128-window-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028411200642585753,
+    "flex_speedup": 1.240967232077329
+  },
+  {
+    "case_id": "n4096-d128-window-s12-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028411200642585753,
+    "flex_speedup": 1.6571322313356431
+  },
+  {
+    "case_id": "n4096-d128-window-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028411200642585753,
+    "flex_speedup": 1.2180683349146586
+  },
+  {
+    "case_id": "n4096-d128-window-s12-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028411200642585753,
+    "flex_speedup": 1.54341590169508
+  },
+  {
+    "case_id": "n4096-d128-window-s13-interval_split-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028409600257873535,
+    "flex_speedup": 1.539715614686841
+  },
+  {
+    "case_id": "n4096-d128-window-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028409600257873535,
+    "flex_speedup": 1.2490591286809287
+  },
+  {
+    "case_id": "n4096-d128-window-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028409600257873535,
+    "flex_speedup": 1.2143761071856332
+  },
+  {
+    "case_id": "n4096-d128-window-s13-interval_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-window-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.028409600257873535,
+    "flex_speedup": 1.6662912884370487
+  },
+  {
+    "case_id": "n4096-d128-document-s11-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06414799988269806,
+    "flex_speedup": 1.2930770371725833
+  },
+  {
+    "case_id": "n4096-d128-document-s11-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s11-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06414799988269806,
+    "flex_speedup": 1.735155408664243
+  },
+  {
+    "case_id": "n4096-d128-document-s12-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06385360062122344,
+    "flex_speedup": 1.3070612296477742
+  },
+  {
+    "case_id": "n4096-d128-document-s12-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s12-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06385360062122344,
+    "flex_speedup": 1.7196010337327543
+  },
+  {
+    "case_id": "n4096-d128-document-s13-csr_masked-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06377840042114258,
+    "flex_speedup": 1.2884317319890917
+  },
+  {
+    "case_id": "n4096-d128-document-s13-csr_full-64-64-4-2",
+    "baseline_source_case_id": "n4096-d128-document-s13-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.06377840042114258,
+    "flex_speedup": 1.7197989584038182
+  }
+]

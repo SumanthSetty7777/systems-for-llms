@@ -1,0 +1,11 @@
+{"case": 0, "kind": "correctness", "status": "passed", "elapsed_seconds": 4.7780635249999985}
+{"case": 1, "kind": "correctness", "status": "passed", "elapsed_seconds": 6.207107736999998}
+{"case": 2, "kind": "correctness", "status": "passed", "elapsed_seconds": 7.470496020999999}
+{"case": 3, "kind": "correctness", "status": "passed", "elapsed_seconds": 9.452972069999998}
+{"case": 4, "kind": "correctness", "status": "passed", "elapsed_seconds": 11.081098554}
+/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+{"case": 5, "kind": "transformer", "status": "failed", "elapsed_seconds": 24.771229234}
+{"case": 6, "kind": "performance", "status": "failed", "elapsed_seconds": 30.698422144000002}
+{"case": 7, "kind": "performance", "status": "failed", "elapsed_seconds": 40.098763214}
+{"status": "failed", "output": "/results/cohere-backward-smoke-20261105T182127Z-60147c/study/summary.json"}

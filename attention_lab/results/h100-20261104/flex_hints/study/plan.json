@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "stage": "flex_hints",
+  "cases": [
+    {
+      "workload_id": "n1024-d64-causal",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d64-causal-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d64-causal",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d64-causal-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d64-causal",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d64-causal-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d64-window",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d64-window-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d64-window",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d64-window-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d64-window",
+      "length": 1024,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d64-window-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-causal",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d128-causal-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-causal",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d128-causal-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-causal",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n1024-d128-causal-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-window",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d128-window-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-window",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d128-window-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n1024-d128-window",
+      "length": 1024,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n1024-d128-window-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-causal",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d64-causal-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-causal",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d64-causal-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-causal",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d64-causal-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-window",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d64-window-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-window",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d64-window-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d64-window",
+      "length": 4096,
+      "head_dim": 64,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d64-window-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-causal",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d128-causal-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-causal",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d128-causal-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-causal",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "causal",
+      "document_ids": null,
+      "case_id": "n4096-d128-causal-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-window",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d128-window-s11-interval_split-64-64-4-2",
+      "seed": 11,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-window",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d128-window-s12-interval_split-64-64-4-2",
+      "seed": 12,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    },
+    {
+      "workload_id": "n4096-d128-window",
+      "length": 4096,
+      "head_dim": 128,
+      "batch": 1,
+      "heads": 8,
+      "dtype": "bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "pattern": "window",
+      "document_ids": null,
+      "case_id": "n4096-d128-window-s13-interval_split-64-64-4-2",
+      "seed": 13,
+      "variant": "interval_split",
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "include_flex": true,
+      "selection": null,
+      "implementation": "interval",
+      "use_full_blocks": true,
+      "flex_contiguous": true
+    }
+  ],
+  "selection_policy": "Confirmation transfers winners from matching training families; held-out measurements never select configurations.",
+  "timing_mode": "cuda_graph",
+  "warmup": 5,
+  "repeats": 20,
+  "inner_repeats": 20,
+  "baseline_reuse": "Flex results may be paired only within an identical workload and input seed; baseline_source_case_id records the source. SDPA is remeasured per case."
+}

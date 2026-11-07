@@ -1,0 +1,226 @@
+{"case": "n1024-d64-causal-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.029862400889396665, "progress": "1/120"}
+{"case": "n1024-d64-causal-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.025114400684833525, "progress": "2/120"}
+{"case": "n1024-d64-causal-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.015516799688339234, "progress": "3/120"}
+{"case": "n1024-d64-causal-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.014259999990463255, "progress": "4/120"}
+{"case": "n1024-d64-causal-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.029710400104522704, "progress": "5/120"}
+{"case": "n1024-d64-causal-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.015371200442314149, "progress": "6/120"}
+{"case": "n1024-d64-causal-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.024971199780702592, "progress": "7/120"}
+{"case": "n1024-d64-causal-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.014094400405883788, "progress": "8/120"}
+{"case": "n1024-d64-causal-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.014066399633884431, "progress": "9/120"}
+{"case": "n1024-d64-causal-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.02900159955024719, "progress": "10/120"}
+{"case": "n1024-d64-causal-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02452640011906624, "progress": "11/120"}
+{"case": "n1024-d64-causal-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.015192000567913056, "progress": "12/120"}
+{"case": "n1024-d64-window-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.007307200133800507, "progress": "13/120"}
+{"case": "n1024-d64-window-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.00809599980711937, "progress": "14/120"}
+{"case": "n1024-d64-window-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.005066399835050106, "progress": "15/120"}
+{"case": "n1024-d64-window-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.005860799923539162, "progress": "16/120"}
+{"case": "n1024-d64-window-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.00727359987795353, "progress": "17/120"}
+{"case": "n1024-d64-window-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.0050512000918388365, "progress": "18/120"}
+{"case": "n1024-d64-window-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.008025600016117096, "progress": "19/120"}
+{"case": "n1024-d64-window-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.005780800059437752, "progress": "20/120"}
+{"case": "n1024-d64-window-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.005780800059437752, "progress": "21/120"}
+{"case": "n1024-d64-window-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.007192000001668929, "progress": "22/120"}
+{"case": "n1024-d64-window-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.007985600084066392, "progress": "23/120"}
+{"case": "n1024-d64-window-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.00501520000398159, "progress": "24/120"}
+{"case": "n1024-d64-document-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.017900800704956053, "progress": "25/120"}
+{"case": "n1024-d64-document-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.01801919937133789, "progress": "26/120"}
+{"case": "n1024-d64-document-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.017931200563907623, "progress": "27/120"}
+{"case": "n1024-d64-document-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.017862400412559508, "progress": "28/120"}
+{"case": "n1024-d64-document-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.017636799812316896, "progress": "29/120"}
+{"case": "n1024-d64-document-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.01778720021247864, "progress": "30/120"}
+{"case": "n1024-d128-causal-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.03528719991445541, "progress": "31/120"}
+{"case": "n1024-d128-causal-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.030563199520111085, "progress": "32/120"}
+{"case": "n1024-d128-causal-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.019230400025844575, "progress": "33/120"}
+{"case": "n1024-d128-causal-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.01881919950246811, "progress": "34/120"}
+{"case": "n1024-d128-causal-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.03468399941921234, "progress": "35/120"}
+{"case": "n1024-d128-causal-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.019016000628471374, "progress": "36/120"}
+{"case": "n1024-d128-causal-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.03004239946603775, "progress": "37/120"}
+{"case": "n1024-d128-causal-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.018593600392341612, "progress": "38/120"}
+{"case": "n1024-d128-causal-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.018680000305175783, "progress": "39/120"}
+{"case": "n1024-d128-causal-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.03418319970369339, "progress": "40/120"}
+{"case": "n1024-d128-causal-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02992959916591644, "progress": "41/120"}
+{"case": "n1024-d128-causal-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.018926399946212768, "progress": "42/120"}
+{"case": "n1024-d128-window-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.009455999732017517, "progress": "43/120"}
+{"case": "n1024-d128-window-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.009547999873757363, "progress": "44/120"}
+{"case": "n1024-d128-window-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.006536000221967697, "progress": "45/120"}
+{"case": "n1024-d128-window-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.007870399951934814, "progress": "46/120"}
+{"case": "n1024-d128-window-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.009375200048089026, "progress": "47/120"}
+{"case": "n1024-d128-window-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.006575199961662293, "progress": "48/120"}
+{"case": "n1024-d128-window-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.009436000138521194, "progress": "49/120"}
+{"case": "n1024-d128-window-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.007810400053858757, "progress": "50/120"}
+{"case": "n1024-d128-window-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.0077968001365661625, "progress": "51/120"}
+{"case": "n1024-d128-window-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.00923520028591156, "progress": "52/120"}
+{"case": "n1024-d128-window-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.009370400011539458, "progress": "53/120"}
+{"case": "n1024-d128-window-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.006434400007128716, "progress": "54/120"}
+{"case": "n1024-d128-document-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.0286871999502182, "progress": "55/120"}
+{"case": "n1024-d128-document-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02109839990735054, "progress": "56/120"}
+{"case": "n1024-d128-document-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.028313601016998292, "progress": "57/120"}
+{"case": "n1024-d128-document-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02083040028810501, "progress": "58/120"}
+{"case": "n1024-d128-document-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.027879200875759125, "progress": "59/120"}
+{"case": "n1024-d128-document-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.020331999659538268, "progress": "60/120"}
+{"case": "n4096-d64-causal-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1736680030822754, "progress": "61/120"}
+{"case": "n4096-d64-causal-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.16324799656867983, "progress": "62/120"}
+{"case": "n4096-d64-causal-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.12159440517425538, "progress": "63/120"}
+{"case": "n4096-d64-causal-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.0983607977628708, "progress": "64/120"}
+{"case": "n4096-d64-causal-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.17047200202941892, "progress": "65/120"}
+{"case": "n4096-d64-causal-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.12059440016746521, "progress": "66/120"}
+{"case": "n4096-d64-causal-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.15208800435066222, "progress": "67/120"}
+{"case": "n4096-d64-causal-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.09925920069217681, "progress": "68/120"}
+{"case": "n4096-d64-causal-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.09736000001430511, "progress": "69/120"}
+{"case": "n4096-d64-causal-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1731607973575592, "progress": "70/120"}
+{"case": "n4096-d64-causal-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.15873759984970093, "progress": "71/120"}
+{"case": "n4096-d64-causal-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1192791998386383, "progress": "72/120"}
+{"case": "n4096-d64-window-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.014423999935388565, "progress": "73/120"}
+{"case": "n4096-d64-window-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.01486399993300438, "progress": "74/120"}
+{"case": "n4096-d64-window-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.010667999833822252, "progress": "75/120"}
+{"case": "n4096-d64-window-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.010605600103735922, "progress": "76/120"}
+{"case": "n4096-d64-window-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.014396800100803376, "progress": "77/120"}
+{"case": "n4096-d64-window-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.01061679981648922, "progress": "78/120"}
+{"case": "n4096-d64-window-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.014800000190734863, "progress": "79/120"}
+{"case": "n4096-d64-window-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.010557600110769273, "progress": "80/120"}
+{"case": "n4096-d64-window-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.010516799986362457, "progress": "81/120"}
+{"case": "n4096-d64-window-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.01435520052909851, "progress": "82/120"}
+{"case": "n4096-d64-window-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.014818400144577026, "progress": "83/120"}
+{"case": "n4096-d64-window-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.010605600103735922, "progress": "84/120"}
+{"case": "n4096-d64-document-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.02760879993438721, "progress": "85/120"}
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8] User stack trace:
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8]     if spec.window_left is not None:
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:00.399000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d64-document-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.027981600165367125, "progress": "86/120"}
+{"case": "n4096-d64-document-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.027610398828983307, "progress": "87/120"}
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9] User stack trace:
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9]     if spec.window_left is not None:
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:00.754000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/9] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d64-document-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02699199914932251, "progress": "88/120"}
+{"case": "n4096-d64-document-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.027421601116657257, "progress": "89/120"}
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10] User stack trace:
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10]     if spec.window_left is not None:
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:01.107000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/10] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d64-document-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.027567200362682343, "progress": "90/120"}
+{"case": "n4096-d128-causal-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.20287760496139529, "progress": "91/120"}
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11] User stack trace:
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11]     if spec.window_left is not None:
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:02.442000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/11] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-causal-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.19813519716262817, "progress": "92/120"}
+{"case": "n4096-d128-causal-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1486527979373932, "progress": "93/120"}
+{"case": "n4096-d128-causal-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.13940240144729615, "progress": "94/120"}
+{"case": "n4096-d128-causal-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.2024951934814453, "progress": "95/120"}
+{"case": "n4096-d128-causal-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1484391987323761, "progress": "96/120"}
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12] User stack trace:
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12]     if spec.window_left is not None:
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:04.632000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/12] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-causal-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.19635359644889833, "progress": "97/120"}
+{"case": "n4096-d128-causal-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.13824480175971984, "progress": "98/120"}
+{"case": "n4096-d128-causal-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.13793439865112306, "progress": "99/120"}
+{"case": "n4096-d128-causal-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.20161759853363037, "progress": "100/120"}
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13] User stack trace:
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13]     if spec.window_left is not None:
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:05.446000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/13] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-causal-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.1955024003982544, "progress": "101/120"}
+{"case": "n4096-d128-causal-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.1469208002090454, "progress": "102/120"}
+{"case": "n4096-d128-window-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.022714400291442872, "progress": "103/120"}
+W1104 22:17:06.953000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/14] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:06.953000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/14]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:06.953000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/14]    last reason: 1/7: tensor 'key' size mismatch at index 3. expected 64, actual 128
+W1104 22:17:06.953000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/14] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:06.953000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/14] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-window-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.02313599959015846, "progress": "104/120"}
+{"case": "n4096-d128-window-s11-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.01703680008649826, "progress": "105/120"}
+{"case": "n4096-d128-window-s11-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.01838640049099922, "progress": "106/120"}
+{"case": "n4096-d128-window-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.022753600031137466, "progress": "107/120"}
+{"case": "n4096-d128-window-s12-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.017044799774885176, "progress": "108/120"}
+W1104 22:17:09.375000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/15] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:09.375000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/15]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:09.375000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/15]    last reason: 1/7: tensor 'key' size mismatch at index 3. expected 64, actual 128
+W1104 22:17:09.375000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/15] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:09.375000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/15] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-window-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.023316800594329834, "progress": "109/120"}
+{"case": "n4096-d128-window-s12-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.01840159967541695, "progress": "110/120"}
+{"case": "n4096-d128-window-s13-interval_split-64-64-4-2", "status": "passed", "latency_ms": 0.018408000469207764, "progress": "111/120"}
+{"case": "n4096-d128-window-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.022703199833631515, "progress": "112/120"}
+W1104 22:17:10.179000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/16] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:10.179000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/16]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:10.179000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/16]    last reason: 1/7: tensor 'key' size mismatch at index 3. expected 64, actual 128
+W1104 22:17:10.179000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/16] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:10.179000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/16] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-window-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.023258399963378903, "progress": "113/120"}
+{"case": "n4096-d128-window-s13-interval_masked-64-64-4-2", "status": "passed", "latency_ms": 0.017085599899291995, "progress": "114/120"}
+{"case": "n4096-d128-document-s11-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.049404799938201904, "progress": "115/120"}
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17] User stack trace:
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17]     if spec.window_left is not None:
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:11.759000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/17] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-document-s11-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.036706399917602536, "progress": "116/120"}
+{"case": "n4096-d128-document-s12-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.049216799437999725, "progress": "117/120"}
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18] User stack trace:
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18]     if spec.window_left is not None:
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:12.266000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/18] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-document-s12-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.03696560114622116, "progress": "118/120"}
+{"case": "n4096-d128-document-s13-csr_masked-64-64-4-2", "status": "passed", "latency_ms": 0.04941360056400299, "progress": "119/120"}
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19] torch._dynamo hit config.recompile_limit (8)
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]    function: 'flex_attention' (/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py:1468)
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]    last reason: 1/7: ___check_type_id(block_mask.mask_mod.__closure__[2].cell_contents.window_left, 47562725584608), type=<class 'int'>  # if spec.window_left is not None:  # roject/attention_lab/benchmark.py:99 in mask_mod (HINT: guard on "spec".window_left, type int)
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19] User stack trace:
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]   File "/usr/local/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py", line 1690, in flex_attention
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]     out, lse, max_scores = flex_attention_hop(
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]   File "/project/attention_lab/benchmark.py", line 99, in mask_mod
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19]     if spec.window_left is not None:
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1104 22:17:12.764000 10 site-packages/torch/_dynamo/convert_frame.py:1743] [1/19] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+{"case": "n4096-d128-document-s13-csr_full-64-64-4-2", "status": "passed", "latency_ms": 0.03698159903287887, "progress": "120/120"}
+{"completed_cases": 120, "created_utc": "2026-11-04T22:15:53.739682+00:00", "elapsed_seconds": 79.05830799799999, "failed_cases": 0, "flex_failed_cases": 12, "flex_passed_cases": 24, "flex_requested_cases": 36, "not_run_cases": 0, "passed_cases": 120, "planned_cases": 120, "python": "3.12.10", "schema_version": 1, "source_sha256": {"__init__.py": "f642c9c1a55dbae0184c9c46c29aaf1421da3bf349243fa107fc54d18ec2a6fb", "benchmark.py": "73ffc8f405829ad0a8e8a2e9535bd9e7b6fe3a62185f5bc80a2cfbdd3690542f", "gpu_search.py": "de00c77d141b3fa46f57e31397560a19dbffd367937a13b712751065afb0f6f4", "masks.py": "6a995f395586dc920fb535223effa46b07d4b699ff85652031ae24031206fcfe", "run_campaign.py": "e267237919ac4aec4e2c06cfd5229e80fb7f171772102e13922f47826bbc47ef", "run_modal.py": "435c2f96eb7bbd31e3fbaf3ca1398bb1accb0e37c410c727534671dca64e89b9", "search.py": "090e8985c433267a3ddc21de465d941dcfcba8b6ccf6bff932071aae8869044b", "study.py": "0e34f502fe06fd22dd80e503a1ae88c8e6d17e905401fe4351647b4182fda5c0", "test_benchmark.py": "36691ad2e5d06ad2d6af8bac723122643f2c700c50f2c87c899fef2e3ff09920", "test_gpu_search.py": "30a87feb0ecb93f1210c435b4a614b581da15a5b5ea1191775e2cefa1c32aa4a", "test_interval_kernel.py": "9df35a9c41dc2aa5eff0689372b9e8163ae5e206658c292e2c53db34cf041362", "test_masks.py": "052675551e13cff79a8d5849f9580214234b9b9714123baa0cddc099c256a9bb", "test_search.py": "903c1c19d67159627015837851d4528ae158ec90046c4e36745990fe2fffe565", "test_study.py": "0645be6595b84d0c5fcc333f534742dd4345c31775a85c02cc519807e44d7fda", "triton_attention.py": "5b888bfc83b4633aeed90b02d39587a9081a99faeb6f980ffdadc93b363af590", "validate.py": "caa86837c0f84ad6be791805277694fe4d6b11d850d850f1b6bcea896b1d845e"}, "stage": "ablation", "status": "completed_with_baseline_failures", "time_budget_seconds": 900.0}

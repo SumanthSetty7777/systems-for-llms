@@ -1,0 +1,234 @@
+{
+  "stage": "block",
+  "cases": [
+    {
+      "case_id": "block-n1024-d64-causal-s211",
+      "length": 1024,
+      "head_dim": 64,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "causal",
+      "mask": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 3
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-causal",
+        "source_case_id": "tune-causal-s23-interval_split-64-64-4-3",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n1024-d64-window-s211",
+      "length": 1024,
+      "head_dim": 64,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "window",
+      "mask": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-window128",
+        "source_case_id": "tune-window128-s23-interval_split-64-64-4-2",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n1024-d128-causal-s211",
+      "length": 1024,
+      "head_dim": 128,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "causal",
+      "mask": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 3
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-causal",
+        "source_case_id": "tune-causal-s23-interval_split-64-64-4-3",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n1024-d128-window-s211",
+      "length": 1024,
+      "head_dim": 128,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "window",
+      "mask": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-window128",
+        "source_case_id": "tune-window128-s23-interval_split-64-64-4-2",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n4096-d64-causal-s211",
+      "length": 4096,
+      "head_dim": 64,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "causal",
+      "mask": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 3
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-causal",
+        "source_case_id": "tune-causal-s23-interval_split-64-64-4-3",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n4096-d64-window-s211",
+      "length": 4096,
+      "head_dim": 64,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "window",
+      "mask": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-window128",
+        "source_case_id": "tune-window128-s23-interval_split-64-64-4-2",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n4096-d128-causal-s211",
+      "length": 4096,
+      "head_dim": 128,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "causal",
+      "mask": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 3
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-causal",
+        "source_case_id": "tune-causal-s23-interval_split-64-64-4-3",
+        "block_results_used_for_selection": false
+      }
+    },
+    {
+      "case_id": "block-n4096-d128-window-s211",
+      "length": 4096,
+      "head_dim": 128,
+      "heads": 8,
+      "batch": 1,
+      "dtype": "bfloat16",
+      "seed": 211,
+      "pattern": "window",
+      "mask": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "config": {
+        "block_q": 64,
+        "block_k": 64,
+        "num_warps": 4,
+        "num_stages": 2
+      },
+      "selection": {
+        "policy": "training_family_transfer",
+        "source_workload": "tune-window128",
+        "source_case_id": "tune-window128-s23-interval_split-64-64-4-2",
+        "block_results_used_for_selection": false
+      }
+    }
+  ],
+  "scope": "One BF16 inference Transformer block; same weights and operators for each attention variant.",
+  "selection_policy": "Configurations frozen from training-family kernel winners or fixed defaults; block measurements never select configurations.",
+  "warmup": 5,
+  "repeats": 20,
+  "inner_repeats": 5
+}

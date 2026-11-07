@@ -1,0 +1,146 @@
+[
+  {
+    "case_id": "holdout-tail257-s101-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail257-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.016018400341272353,
+    "flex_speedup": 2.679020625978603
+  },
+  {
+    "case_id": "holdout-tail257-s101-interval_split-64-64-4-2-transferred",
+    "baseline_source_case_id": "holdout-tail257-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.016018400341272353,
+    "flex_speedup": 2.6605102771557068
+  },
+  {
+    "case_id": "holdout-tail257-s102-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail257-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.01624559983611107,
+    "flex_speedup": 2.7032747605566785
+  },
+  {
+    "case_id": "holdout-tail257-s102-interval_split-64-64-4-2-transferred",
+    "baseline_source_case_id": "holdout-tail257-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.01624559983611107,
+    "flex_speedup": 2.7327411896427054
+  },
+  {
+    "case_id": "holdout-tail257-s103-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail257-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.016008800268173216,
+    "flex_speedup": 2.688205357381907
+  },
+  {
+    "case_id": "holdout-tail257-s103-interval_split-64-64-4-2-transferred",
+    "baseline_source_case_id": "holdout-tail257-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.016008800268173216,
+    "flex_speedup": 2.69544717626678
+  },
+  {
+    "case_id": "holdout-tail4097-s101-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail4097-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.051814398169517516,
+    "flex_speedup": 1.1204179321238905
+  },
+  {
+    "case_id": "holdout-tail4097-s101-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-tail4097-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.051814398169517516,
+    "flex_speedup": 1.1195463893042983
+  },
+  {
+    "case_id": "holdout-tail4097-s102-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail4097-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.05065520107746124,
+    "flex_speedup": 1.129526570221668
+  },
+  {
+    "case_id": "holdout-tail4097-s102-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-tail4097-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.05065520107746124,
+    "flex_speedup": 1.1177031547752874
+  },
+  {
+    "case_id": "holdout-tail4097-s103-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-tail4097-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.049812799692153936,
+    "flex_speedup": 1.0875967017214152
+  },
+  {
+    "case_id": "holdout-tail4097-s103-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-tail4097-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.049812799692153936,
+    "flex_speedup": 1.102072620117933
+  },
+  {
+    "case_id": "holdout-causal8192-s101-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-causal8192-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.3808984041213989,
+    "flex_speedup": 1.3723378106151578
+  },
+  {
+    "case_id": "holdout-causal8192-s101-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-causal8192-s101-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.3808984041213989,
+    "flex_speedup": 1.4028580356353744
+  },
+  {
+    "case_id": "holdout-causal8192-s102-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-causal8192-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.37881280183792115,
+    "flex_speedup": 1.3483646902494302
+  },
+  {
+    "case_id": "holdout-causal8192-s102-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-causal8192-s102-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.37881280183792115,
+    "flex_speedup": 1.3967241433949422
+  },
+  {
+    "case_id": "holdout-causal8192-s103-interval_split-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-causal8192-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.3785760045051575,
+    "flex_speedup": 1.3515474192598782
+  },
+  {
+    "case_id": "holdout-causal8192-s103-interval_split-64-64-4-3-transferred",
+    "baseline_source_case_id": "holdout-causal8192-s103-interval_split-64-64-4-2-default",
+    "flex_latency_ms": 0.3785760045051575,
+    "flex_speedup": 1.3969429380458602
+  },
+  {
+    "case_id": "holdout-document8192-s101-csr_full-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-document8192-s101-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.1405456006526947,
+    "flex_speedup": 3.162876940842196
+  },
+  {
+    "case_id": "holdout-document8192-s101-csr_full-64-64-4-4-transferred",
+    "baseline_source_case_id": "holdout-document8192-s101-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.1405456006526947,
+    "flex_speedup": 3.1678958796906618
+  },
+  {
+    "case_id": "holdout-document8192-s102-csr_full-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-document8192-s102-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.1398200035095215,
+    "flex_speedup": 3.1179755087457828
+  },
+  {
+    "case_id": "holdout-document8192-s102-csr_full-64-64-4-4-transferred",
+    "baseline_source_case_id": "holdout-document8192-s102-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.1398200035095215,
+    "flex_speedup": 3.199776732202704
+  },
+  {
+    "case_id": "holdout-document8192-s103-csr_full-64-64-4-2-default",
+    "baseline_source_case_id": "holdout-document8192-s103-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.13970159888267517,
+    "flex_speedup": 3.144902468502136
+  },
+  {
+    "case_id": "holdout-document8192-s103-csr_full-64-64-4-4-transferred",
+    "baseline_source_case_id": "holdout-document8192-s103-csr_full-64-64-4-2-default",
+    "flex_latency_ms": 0.13970159888267517,
+    "flex_speedup": 3.200406884399933
+  }
+]

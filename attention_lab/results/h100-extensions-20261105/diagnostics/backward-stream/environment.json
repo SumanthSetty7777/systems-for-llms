@@ -1,0 +1,25 @@
+{
+  "python": "3.12.1 (main, Jan  8 2024, 04:46:10) [Clang 17.0.6 ]",
+  "torch": "2.11.0+cu130",
+  "triton": "3.6.0",
+  "cuda": "13.0",
+  "device_count": 1,
+  "devices": [
+    "NVIDIA H100 80GB HBM3"
+  ],
+  "nvidia_smi": {
+    "stdout": "Thu Nov  5 18:30:28 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA H100 80GB HBM3          On  |   00000000:86:00.0 Off |                    0 |\n| N/A   56C    P0             75W /  700W |       4MiB /  81559MiB |      0%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "nvcc": {
+    "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Jul_16_07:30:01_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.48\nBuild cuda_13.0.r13.0/compiler.36260728_0\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "packages": {
+    "stdout": "aiohappyeyeballs==2.7.1\naiohttp==3.14.5\naiosignal==1.4.0\nanyio==4.16.0\nattrs==26.1.0\ncbor2==6.2.0.post2\ncertifi==2026.10.23\nclick==8.5.0\ncuda-bindings==13.5.0\ncuda-pathfinder==1.8.5\ncuda-toolkit==13.0.2\neinops==0.8.2\nfilelock==4.2.9\nfrozenlist==1.8.0\nfsspec==2026.9.0\ngrpclib==0.4.9\nh2==4.4.1\nhpack==4.2.0\nhyperframe==6.1.0\nidna==3.20\nJinja2==3.1.6\nmarkdown-it-py==4.2.0\nMarkupSafe==3.0.4\nmdurl==0.1.2\nmodal==1.5.1\nmpmath==1.3.0\nmultidict==7.2.1\nnetworkx==3.7\nninja==1.11.1.4\nnumpy==2.4.4\nnvidia-cublas==13.1.0.3\nnvidia-cuda-cupti==13.0.85\nnvidia-cuda-nvrtc==13.0.88\nnvidia-cuda-runtime==13.0.96\nnvidia-cudnn-cu13==9.19.0.56\nnvidia-cufft==12.0.0.61\nnvidia-cufile==1.15.1.6\nnvidia-curand==10.4.0.35\nnvidia-cusolver==12.0.4.66\nnvidia-cusparse==12.6.3.3\nnvidia-cusparselt-cu13==0.8.0\nnvidia-nccl-cu13==2.28.9\nnvidia-nvjitlink==13.0.88\nnvidia-nvshmem-cu13==3.4.5\nnvidia-nvtx==13.0.85\npropcache==0.5.4\nprotobuf==6.33.6\nPygments==2.21.0\nrich==15.0.0\nsetuptools @ file:///build/setuptools-69.0.3-py3-none-any.whl#sha256=385eb4edd9c9d5c17540511303e39a147ce2fc04bc55289c322b9e5904fe2c05\nsympy==1.14.0\nsynchronicity==0.12.7\ntoml==0.10.2\ntorch==2.11.0\ntriton==3.6.0\ntypes-certifi==2021.10.8.3\ntypes-toml==0.10.8.20260518\ntyping_extensions==4.16.0\nwatchfiles==1.3.0\nyarl==1.25.1\n",
+    "stderr": "",
+    "returncode": 0
+  }
+}

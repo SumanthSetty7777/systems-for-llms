@@ -1,0 +1,126 @@
+{
+  "kind": "attention_training",
+  "n": 1024,
+  "d": 64,
+  "batch": 1,
+  "heads": 2,
+  "dtype": "torch.bfloat16",
+  "spec": {
+    "causal": true,
+    "window_left": 127,
+    "window_right": null,
+    "same_document": false
+  },
+  "seed": 19,
+  "variants": {
+    "structured_triton": {
+      "first_forward_backward_ms": 1242.0148170000048,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.00033991847885772586,
+          "relative_rms_error": 0.002066750545054674,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.0003775223740376532,
+          "relative_rms_error": 0.002523602917790413,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.009573817253112793,
+          "rms_error": 0.0003715870843734592,
+          "relative_rms_error": 0.002479046583175659,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012625455856323242,
+          "rms_error": 0.00038691479130648077,
+          "relative_rms_error": 0.0023552365601062775,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "backward_only": {
+        "timing": {
+          "median_ms": 0.020394666741291683,
+          "min_ms": 0.020266667008399963,
+          "max_ms": 0.021130666136741638,
+          "samples_ms": [
+            0.021130666136741638,
+            0.02038399999340375,
+            0.020266667008399963,
+            0.02040533348917961,
+            0.020394666741291683,
+            0.020362666497627895,
+            0.020394666741291683,
+            0.020394666741291683,
+            0.020362666497627895,
+            0.02041600023706754,
+            0.020373333245515823,
+            0.02040533348917961,
+            0.020373333245515823,
+            0.02040533348917961,
+            0.02038399999340375
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140029440,
+        "peak_allocated_bytes": 140824064,
+        "peak_increment_bytes": 794624,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "forward_backward": {
+        "timing": {
+          "median_ms": 0.026346666117509205,
+          "min_ms": 0.026261332134405773,
+          "max_ms": 0.027232001225153606,
+          "samples_ms": [
+            0.027232001225153606,
+            0.026335999369621277,
+            0.026261332134405773,
+            0.02630399912595749,
+            0.026346666117509205,
+            0.026367999613285065,
+            0.026314665873845417,
+            0.026346666117509205,
+            0.02641066660483678,
+            0.026335999369621277,
+            0.026346666117509205,
+            0.026335999369621277,
+            0.026399999856948853,
+            0.026346666117509205,
+            0.026389333109060924
+          ],
+          "mode": "cuda_graph",
+          "calls_per_sample": 3
+        },
+        "baseline_allocated_bytes": 140029440,
+        "peak_allocated_bytes": 141094400,
+        "peak_increment_bytes": 1064960,
+        "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+      },
+      "status": "passed"
+    },
+    "flex_attention_triton": {
+      "status": "failed",
+      "error_type": "RuntimeError",
+      "error": "This backward function was compiled with non-empty donated buffers which requires create_graph=False and retain_graph=False. Please keep backward(create_graph=False, retain_graph=False) across all backward() function calls, or set torch._functorch.config.donated_buffer=False to disable donated buffer.",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    grads = torch.autograd.grad(output, values, upstream, retain_graph=True)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/function.py\", line 317, in apply\n    return user_fn(self, *args)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2748, in backward\n    return impl_fn()\n           ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2734, in impl_fn\n    out = CompiledFunction._backward_impl(ctx, all_args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 2906, in _backward_impl\n    torch._check(\n  File \"/usr/local/lib/python3.12/site-packages/torch/__init__.py\", line 1753, in _check\n    _check_with(RuntimeError, cond, message)  # pyrefly: ignore [bad-argument-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/__init__.py\", line 1735, in _check_with\n    raise error_type(message_evaluated)\nRuntimeError: This backward function was compiled with non-empty donated buffers which requires create_graph=False and retain_graph=False. Please keep backward(create_graph=False, retain_graph=False) across all backward() function calls, or set torch._functorch.config.donated_buffer=False to disable donated buffer.\n"
+    }
+  },
+  "scope": "GPU graph replay, no Python dispatch; no dropout; identical Q/K/V, mask and upstream gradient",
+  "flex_mask_setup_ms": 3032.4972480000056,
+  "status": "failed",
+  "case_index": 7
+}

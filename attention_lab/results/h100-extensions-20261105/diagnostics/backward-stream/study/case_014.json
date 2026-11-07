@@ -1,0 +1,7 @@
+{
+  "kind": "transformer",
+  "status": "failed",
+  "error": "Offset increment outside graph capture encountered unexpectedly.",
+  "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 343, in <lambda>\n    jobs.append((\"transformer\", lambda: transformer_step_case(1024, 128, torch.bfloat16,\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 199, in transformer_step_case\n    x = torch.randn(1, n, width, device=\"cuda\", dtype=dtype)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+  "case_index": 14
+}

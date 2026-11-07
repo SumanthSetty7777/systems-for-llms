@@ -1,0 +1,9 @@
+{
+  "kind": "gpu_unittests",
+  "status": "passed",
+  "tests_run": 2,
+  "skipped": [],
+  "coverage": "five mask/shape cases each in FP16 and BF16; D64/D128, ragged lengths, repeated labels, asymmetric tiles, plus broadcast upstream gradient",
+  "output": "test_broadcast_upstream_gradient (attention_lab.test_backward.CUDABackwardTests.test_broadcast_upstream_gradient) ... ok\ntest_outputs_and_all_three_gradients (attention_lab.test_backward.CUDABackwardTests.test_outputs_and_all_three_gradients) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 19.523s\n\nOK\n",
+  "case_index": 0
+}

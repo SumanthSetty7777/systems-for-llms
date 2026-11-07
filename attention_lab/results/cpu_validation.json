@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-04T21:49:42.182501+00:00",
+  "python": "3.14.3",
+  "torch": "2.13.0",
+  "device": "cpu",
+  "semantic_cases": 440,
+  "numerical_cases": 24,
+  "numeric_precision": "float64",
+  "max_output_abs_error": 6.661338147750939e-16,
+  "max_gradient_abs_error": 1.5543122344752192e-15,
+  "example": {
+    "length": 4096,
+    "window_left": 127,
+    "causal": true,
+    "block_q": 64,
+    "block_k": 64,
+    "dense_tiles": 4096,
+    "scheduled_tiles": 189,
+    "skipped_tile_fraction": 0.953857421875
+  },
+  "scope": "CPU schedule semantics and differentiable reference interpreter only; Triton execution, GPU gradients and GPU performance are not validated."
+}

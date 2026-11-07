@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/local/bin/python",
+    "-m",
+    "attention_lab.cuda_decode.study",
+    "--stage",
+    "study",
+    "--output-dir",
+    "/results/cohere-cuda-study-20261105T183455Z-b4f1f7/study",
+    "--time-budget-seconds",
+    "600",
+    "--execute"
+  ]
+}

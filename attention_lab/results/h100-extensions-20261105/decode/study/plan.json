@@ -1,0 +1,97 @@
+{
+  "cases": [
+    [
+      1,
+      32,
+      8,
+      1024,
+      128
+    ],
+    [
+      1,
+      32,
+      8,
+      4096,
+      128
+    ],
+    [
+      1,
+      32,
+      8,
+      16384,
+      128
+    ],
+    [
+      1,
+      32,
+      8,
+      65536,
+      128
+    ],
+    [
+      8,
+      32,
+      8,
+      4096,
+      128
+    ],
+    [
+      8,
+      32,
+      8,
+      16384,
+      128
+    ],
+    [
+      32,
+      32,
+      8,
+      4096,
+      128
+    ],
+    [
+      1,
+      16,
+      1,
+      16384,
+      64
+    ],
+    [
+      1,
+      32,
+      4,
+      4096,
+      64
+    ],
+    [
+      8,
+      32,
+      4,
+      4096,
+      64
+    ]
+  ],
+  "seeds": [
+    211,
+    212,
+    213
+  ],
+  "splits": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "variants": [
+    "token",
+    "tile"
+  ],
+  "baselines": {
+    "sdpa_flash": "forced Flash SDPA",
+    "flex_decode": "FlexAttention BACKEND=TRITON_DECODE",
+    "flex_triton_attention": "FlexAttention BACKEND=TRITON"
+  },
+  "selection": "best observed split per case; no held-out dispatch claim"
+}

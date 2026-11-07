@@ -1,0 +1,2388 @@
+{
+  "stage": "study",
+  "budget_seconds": 600.0,
+  "environment": {
+    "python": "3.12.1",
+    "torch": "2.11.0+cu130",
+    "triton": "3.6.0",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_memory_bytes": 85009367040,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "reference_precision": "FP32 inputs and accumulation; TF32 explicitly disabled before all numerical oracles"
+  },
+  "implementation": "online-softmax forward saves natural-log LSE; query-owned dQ; transposed-CSR key-owned dK/dV; FP32 accumulation; no atomics or dense attention matrix in custom implementation",
+  "compiler_settings": {
+    "torch._functorch.config.donated_buffer": false,
+    "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+  },
+  "limitations": [
+    "first derivatives only",
+    "no dropout",
+    "same sequence length for Q/K/V",
+    "one shared document-label sequence across batch and heads",
+    "attention GPU graph timings exclude Python dispatch; complete optimizer steps use matched eager CUDA events including host submission gaps",
+    "Flex buffer donation disabled for retained backward, explicitly not the default donation setting",
+    "correctness uses dense FP32 oracle outside timing",
+    "time budget checked between cases; one compilation can exceed the remaining budget"
+  ],
+  "cases": [
+    {
+      "kind": "gpu_unittests",
+      "status": "passed",
+      "tests_run": 2,
+      "skipped": [],
+      "coverage": "five mask/shape cases each in FP16 and BF16; D64/D128, ragged lengths, repeated labels, asymmetric tiles, plus broadcast upstream gradient",
+      "output": "test_broadcast_upstream_gradient (attention_lab.test_backward.CUDABackwardTests.test_broadcast_upstream_gradient) ... ok\ntest_outputs_and_all_three_gradients (attention_lab.test_backward.CUDABackwardTests.test_outputs_and_all_three_gradients) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 15.425s\n\nOK\n",
+      "case_index": 0
+    },
+    {
+      "kind": "correctness",
+      "n": 17,
+      "d": 64,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.00048232078552246094,
+          "rms_error": 8.857845386955887e-05,
+          "relative_rms_error": 0.00024069863138720393,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0006898641586303711,
+          "rms_error": 0.0001056125620380044,
+          "relative_rms_error": 0.00030990506638772786,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0011739730834960938,
+          "rms_error": 0.00010972670133924112,
+          "relative_rms_error": 0.00031650339951738715,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0006848573684692383,
+          "rms_error": 0.00010035665036411956,
+          "relative_rms_error": 0.0002729466650635004,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 1
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 128,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 32,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0074462890625,
+          "rms_error": 0.0006608573603443801,
+          "relative_rms_error": 0.001884307130239904,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.010239362716674805,
+          "rms_error": 0.0006771811749786139,
+          "relative_rms_error": 0.0025640819221735,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.006291747093200684,
+          "rms_error": 0.000672596856020391,
+          "relative_rms_error": 0.0025196888018399477,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.014473438262939453,
+          "rms_error": 0.0008080517291091383,
+          "relative_rms_error": 0.002288402523845434,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 2
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 64,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": 11,
+        "window_right": 5,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0006147623062133789,
+          "rms_error": 9.084591147257015e-05,
+          "relative_rms_error": 0.00025033028214238584,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0008263587951660156,
+          "rms_error": 9.49906388996169e-05,
+          "relative_rms_error": 0.000299720122711733,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.001165628433227539,
+          "rms_error": 9.491734817856923e-05,
+          "relative_rms_error": 0.000296626181807369,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0009310245513916016,
+          "rms_error": 0.00010756016854429618,
+          "relative_rms_error": 0.0002951687201857567,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 3
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 128,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007578849792480469,
+          "rms_error": 0.0007254276424646378,
+          "relative_rms_error": 0.001783391460776329,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.010249108076095581,
+          "rms_error": 0.0008234207052737474,
+          "relative_rms_error": 0.002740871626883745,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.01432037353515625,
+          "rms_error": 0.0008089704206213355,
+          "relative_rms_error": 0.0026586868334561586,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.01111149787902832,
+          "rms_error": 0.0009159488836303353,
+          "relative_rms_error": 0.002231915947049856,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 4
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 64,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": false,
+        "window_left": 0,
+        "window_right": 0,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "relative_rms_error": 0.0,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 7.636845111846924e-07,
+          "rms_error": 8.549505992050399e-08,
+          "relative_rms_error": 85495.0625,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 9.126961231231689e-07,
+          "rms_error": 8.751909064130814e-08,
+          "relative_rms_error": 87519.09375,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "relative_rms_error": 0.0,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 5
+    },
+    {
+      "kind": "correctness",
+      "n": 257,
+      "d": 128,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": true,
+        "window_left": 63,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 32,
+      "block_k": 64,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0010776519775390625,
+          "rms_error": 0.00010112726158695295,
+          "relative_rms_error": 0.0002191759558627382,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0012683868408203125,
+          "rms_error": 0.00010645255679264665,
+          "relative_rms_error": 0.0003241990343667567,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0015134811401367188,
+          "rms_error": 0.00010676394595066085,
+          "relative_rms_error": 0.0003255046613048762,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.001705169677734375,
+          "rms_error": 0.00012970177340321243,
+          "relative_rms_error": 0.0002808622666634619,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 6
+    },
+    {
+      "kind": "correctness",
+      "n": 129,
+      "d": 128,
+      "dtype": "torch.float16",
+      "spec": {
+        "causal": false,
+        "window_left": null,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 32,
+      "document_pattern": "repeated labels",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.0005433559417724609,
+          "rms_error": 7.314088725252077e-05,
+          "relative_rms_error": 0.0002441045653540641,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.0008617639541625977,
+          "rms_error": 8.120583515847102e-05,
+          "relative_rms_error": 0.00030097088892944157,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.0008974075317382812,
+          "rms_error": 8.175760740414262e-05,
+          "relative_rms_error": 0.00030228833202272654,
+          "atol": 0.004,
+          "rtol": 0.006
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.0009829998016357422,
+          "rms_error": 8.865997369866818e-05,
+          "relative_rms_error": 0.0002966781612485647,
+          "atol": 0.004,
+          "rtol": 0.006
+        }
+      },
+      "status": "passed",
+      "case_index": 7
+    },
+    {
+      "kind": "correctness",
+      "n": 65,
+      "d": 64,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": false,
+        "window_left": 1,
+        "window_right": 3,
+        "same_document": false
+      },
+      "seed": 17,
+      "block_q": 64,
+      "block_k": 64,
+      "document_pattern": null,
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007829666137695312,
+          "rms_error": 0.0010918820044025779,
+          "relative_rms_error": 0.0018770265160128474,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.00838613510131836,
+          "rms_error": 0.0011371925938874483,
+          "relative_rms_error": 0.0027945139445364475,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.007202625274658203,
+          "rms_error": 0.0011223395122215152,
+          "relative_rms_error": 0.002791432663798332,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.013898134231567383,
+          "rms_error": 0.001382835558615625,
+          "relative_rms_error": 0.002364391228184104,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "passed",
+      "case_index": 8
+    },
+    {
+      "kind": "transformer_optimizer_step",
+      "n": 512,
+      "d": 64,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "variants": {
+        "pytorch_sdpa_native_causal": {
+          "first_step_ms": 993.7432480000012,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4270339012145996,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 1.4270339012145996,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.1945852041244507,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 305.8138122558594,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033368938602507114,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.07397977262735367,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039776897756382823,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.05091442912817001,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288696847856045,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.13539063930511475,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014810531865805387,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.3791496157646179,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.3368858112226008e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0007397959125228226,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.9776919038558844e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0005091445636935532,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288708052830771e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0013539092615246773,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4810533684794791e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0037914966233074665,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9991048574447632,
+              "update_norm": 0.0007397959125228226,
+              "gradient_norm": 0.07397977262735367,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99932861328125,
+              "update_norm": 0.0005091445636935532,
+              "gradient_norm": 0.05091442912817001,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0013539092615246773,
+              "gradient_norm": 0.13539063930511475,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.999908447265625,
+              "update_norm": 0.0037914966233074665,
+              "gradient_norm": 0.3791496157646179,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4270339012145996,
+          "step": {
+            "timing": {
+              "median_ms": 0.9156853357950847,
+              "min_ms": 0.8717013200124105,
+              "max_ms": 1.3156267007191975,
+              "samples_ms": [
+                0.9357226689656576,
+                0.9180160363515218,
+                0.9332906405131022,
+                0.9158186912536621,
+                0.9185067017873129,
+                1.3156267007191975,
+                0.9155519803365072,
+                0.8874346415201823,
+                0.876746654510498,
+                0.8717013200124105,
+                0.8880639870961508,
+                0.8877546787261963
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 71344128,
+            "peak_allocated_bytes": 74893312,
+            "peak_increment_bytes": 3549184,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed",
+          "baseline_over_custom_speedup": 0.774625079255953
+        },
+        "flex_attention_triton": {
+          "first_step_ms": 4259.727888,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4269657135009766,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 6.818771362304688e-05,
+              "relative_rms_error": 4.778282671841914e-05,
+              "actual_norm": 1.4269657135009766,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.194556713104248,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.002431525383144617,
+              "relative_rms_error": 0.002035455800682513,
+              "actual_norm": 305.8065185546875,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033369287848472595,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 9.799659892451018e-07,
+              "relative_rms_error": 0.0029367610427125596,
+              "actual_norm": 0.07398054003715515,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039780052611604333,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 8.731859679755871e-07,
+              "relative_rms_error": 0.0021952088202641966,
+              "actual_norm": 0.050918467342853546,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288667161948979,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 1.4356082829181105e-06,
+              "relative_rms_error": 0.002714483972550031,
+              "actual_norm": 0.13538987934589386,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014810693683102727,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 2.8801173357351217e-06,
+              "relative_rms_error": 0.0019446413956170931,
+              "actual_norm": 0.3791537582874298,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.336933559694444e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 1.0120837501403912e-08,
+              "relative_rms_error": 0.003033018830721013,
+              "actual_norm": 0.0007398065063171089,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.978013864980312e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 9.002718570627621e-09,
+              "relative_rms_error": 0.0022633021330537417,
+              "actual_norm": 0.0005091857747174799,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288681222737068e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 1.454404241485463e-08,
+              "relative_rms_error": 0.002750018013769915,
+              "actual_norm": 0.0013539023930206895,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4810695574851707e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 2.882572935902772e-08,
+              "relative_rms_error": 0.0019462991660200337,
+              "actual_norm": 0.003791538067162037,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9992269277572632,
+              "update_norm": 0.0007398065063171089,
+              "gradient_norm": 0.07398054003715515,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99951171875,
+              "update_norm": 0.0005091857747174799,
+              "gradient_norm": 0.050918467342853546,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99945068359375,
+              "update_norm": 0.0013539023930206895,
+              "gradient_norm": 0.13538987934589386,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9999237060546875,
+              "update_norm": 0.003791538067162037,
+              "gradient_norm": 0.3791537582874298,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4269657135009766,
+          "step": {
+            "timing": {
+              "median_ms": 1.2486880222956338,
+              "min_ms": 1.1987733046213787,
+              "max_ms": 1.6366292635599773,
+              "samples_ms": [
+                1.1987733046213787,
+                1.6366292635599773,
+                1.346549352010091,
+                1.2491520245869954,
+                1.256160020828247,
+                1.2482240200042725,
+                1.2477760314941406,
+                1.2512319882710774,
+                1.252832015355428,
+                1.2364373207092285,
+                1.2396053473154705,
+                1.242421309153239
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 73048576,
+            "peak_allocated_bytes": 76596736,
+            "peak_increment_bytes": 3548160,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed",
+          "baseline_over_custom_speedup": 1.0563290908190022
+        },
+        "structured_triton": {
+          "first_step_ms": 1908.8050409999937,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.4269986152648926,
+              "reference_rms": 1.4270339012145996,
+              "rms_error": 3.528594970703125e-05,
+              "relative_rms_error": 2.4726777462678438e-05,
+              "actual_norm": 1.4269986152648926,
+              "reference_norm": 1.4270339012145996,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.1945704221725464,
+              "reference_rms": 1.1945852041244507,
+              "rms_error": 0.0022811093367636204,
+              "relative_rms_error": 0.0019095409259111975,
+              "actual_norm": 305.8100280761719,
+              "reference_norm": 305.8138122558594,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 0.00033369826269336045,
+              "reference_rms": 0.00033368938602507114,
+              "rms_error": 9.665627658250742e-07,
+              "relative_rms_error": 0.0028965942769077265,
+              "actual_norm": 0.07398173958063126,
+              "reference_norm": 0.07397977262735367,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00039775832556188107,
+              "reference_rms": 0.00039776897756382823,
+              "rms_error": 8.420465746894479e-07,
+              "relative_rms_error": 0.0021169236973849434,
+              "actual_norm": 0.050913065671920776,
+              "reference_norm": 0.05091442912817001,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.0005288736429065466,
+              "reference_rms": 0.0005288696847856045,
+              "rms_error": 1.3743615454586688e-06,
+              "relative_rms_error": 0.002598677112710315,
+              "actual_norm": 0.13539165258407593,
+              "reference_norm": 0.13539063930511475,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0014811297878623009,
+              "reference_rms": 0.0014810531865805387,
+              "rms_error": 2.7666478672472294e-06,
+              "relative_rms_error": 0.001868027355340882,
+              "actual_norm": 0.379169225692749,
+              "reference_norm": 0.3791496157646179,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 3.3369713037245674e-06,
+              "reference_rms": 3.3368858112226008e-06,
+              "rms_error": 9.972210612829713e-09,
+              "relative_rms_error": 0.002988478232995332,
+              "actual_norm": 0.0007398148882202804,
+              "reference_norm": 0.0007397959125228226,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 3.977593678428093e-06,
+              "reference_rms": 3.9776919038558844e-06,
+              "rms_error": 8.695468345365498e-09,
+              "relative_rms_error": 0.0021860587887504077,
+              "actual_norm": 0.0005091319908387959,
+              "reference_norm": 0.0005091445636935532,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 5.288733063935069e-06,
+              "reference_rms": 5.288708052830771e-06,
+              "rms_error": 1.3934637443924203e-08,
+              "relative_rms_error": 0.0026347904449869784,
+              "actual_norm": 0.0013539156643673778,
+              "reference_norm": 0.0013539092615246773,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 1.4811299479333684e-05,
+              "reference_rms": 1.4810533684794791e-05,
+              "rms_error": 2.7672928837318977e-08,
+              "relative_rms_error": 0.0018684626378946319,
+              "actual_norm": 0.003791692666709423,
+              "reference_norm": 0.0037914966233074665,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9992472529411316,
+              "update_norm": 0.0007398148882202804,
+              "gradient_norm": 0.07398173958063126,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0005091319908387959,
+              "gradient_norm": 0.050913065671920776,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.99957275390625,
+              "update_norm": 0.0013539156643673778,
+              "gradient_norm": 0.13539165258407593,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9999847412109375,
+              "update_norm": 0.003791692666709423,
+              "gradient_norm": 0.379169225692749,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.4269986152648926,
+          "step": {
+            "timing": {
+              "median_ms": 1.182101329167684,
+              "min_ms": 1.1313599745432537,
+              "max_ms": 1.5345919926961262,
+              "samples_ms": [
+                1.217685302098592,
+                1.1831786632537842,
+                1.1779733498891194,
+                1.5345919926961262,
+                1.4362667401631672,
+                1.1810239950815837,
+                1.1930346488952637,
+                1.1640106836954753,
+                1.1644480228424072,
+                1.1580159664154053,
+                1.5076799392700195,
+                1.1313599745432537
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 73051648,
+            "peak_allocated_bytes": 76599808,
+            "peak_increment_bytes": 3548160,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        }
+      },
+      "flex_mask_setup_ms": 3887.076024999999,
+      "architecture": "one pre-norm Transformer block, 2 heads, GELU MLP width 4C, mean squared output loss, FP32 master weights and SGD lr=0.01, weights cast to activation dtype for linear operators; no dropout",
+      "scope": "matched eager CUDA-event timing for every variant, including Python submission gaps; parameter restoration, forward, loss, backward and SGD; identical reset weights each invocation; compilation and setup excluded",
+      "timing_mode": "eager",
+      "timing_mode_reason": "native SDPA full-step backward raised cudaErrorStreamCaptureImplicit during CUDA-graph capture in the initial smoke; all complete-step variants deliberately use eager timing, with no per-variant fallback",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "optimizer_correctness_reference": "pytorch_sdpa_native_causal",
+      "status": "passed",
+      "case_index": 9
+    },
+    {
+      "kind": "attention_training",
+      "n": 1024,
+      "d": 64,
+      "batch": 1,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 19,
+      "variants": {
+        "structured_triton": {
+          "first_forward_backward_ms": 1100.0533039999993,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.000246781186433509,
+              "relative_rms_error": 0.0020291549153625965,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.00027905782917514443,
+              "relative_rms_error": 0.002638391451910138,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.0002662295592017472,
+              "relative_rms_error": 0.002532330108806491,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.00028532574651762843,
+              "relative_rms_error": 0.0023669209331274033,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.05588266750176748,
+              "min_ms": 0.055776000022888184,
+              "max_ms": 0.05668266614278158,
+              "samples_ms": [
+                0.05668266614278158,
+                0.05584000051021576,
+                0.055776000022888184,
+                0.05596800148487091,
+                0.055904000997543335,
+                0.05588266750176748,
+                0.05589333176612854,
+                0.05588266750176748,
+                0.05584000051021576,
+                0.055861334005991616,
+                0.055776000022888184,
+                0.055904000997543335,
+                0.05585066477457682,
+                0.05584000051021576,
+                0.05588266750176748
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140044800,
+            "peak_allocated_bytes": 140839424,
+            "peak_increment_bytes": 794624,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.07115733126799266,
+              "min_ms": 0.07109333574771881,
+              "max_ms": 0.07212799787521362,
+              "samples_ms": [
+                0.07212799787521362,
+                0.07115733126799266,
+                0.0711359977722168,
+                0.07114666700363159,
+                0.07123200098673503,
+                0.07115733126799266,
+                0.0711359977722168,
+                0.07109333574771881,
+                0.07122133175532024,
+                0.07115733126799266,
+                0.07112533350785573,
+                0.0711893339951833,
+                0.07117866476376851,
+                0.07112533350785573,
+                0.07114666700363159
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140044800,
+            "peak_allocated_bytes": 141109760,
+            "peak_increment_bytes": 1064960,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        },
+        "flex_attention_triton": {
+          "first_forward_backward_ms": 0.9168049999956907,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00024704966926947236,
+              "relative_rms_error": 0.0020313626155257225,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.000279358820989728,
+              "relative_rms_error": 0.0026412373408675194,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.00026727092335931957,
+              "relative_rms_error": 0.0025422354228794575,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.00028529117116704583,
+              "relative_rms_error": 0.0023666340857744217,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.04042666653792063,
+              "min_ms": 0.04030933231115341,
+              "max_ms": 0.04152533411979675,
+              "samples_ms": [
+                0.04152533411979675,
+                0.04042666653792063,
+                0.04041599979003271,
+                0.04042666653792063,
+                0.040362666050593056,
+                0.04030933231115341,
+                0.04049066702524821,
+                0.04055466751257578,
+                0.04043733328580856,
+                0.04051200052102407,
+                0.04053333401679993,
+                0.04041599979003271,
+                0.040448000033696495,
+                0.04041599979003271,
+                0.040405333042144775
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140044800,
+            "peak_allocated_bytes": 140839424,
+            "peak_increment_bytes": 794624,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.7234204869809051
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.07063466807206471,
+              "min_ms": 0.07052800059318542,
+              "max_ms": 0.07177599767843883,
+              "samples_ms": [
+                0.07177599767843883,
+                0.07072000205516815,
+                0.070592001080513,
+                0.0705813318490982,
+                0.07075199981530507,
+                0.07064533233642578,
+                0.07063466807206471,
+                0.07052800059318542,
+                0.07055999835332234,
+                0.07055999835332234,
+                0.0706879993279775,
+                0.07070933282375336,
+                0.07065600156784058,
+                0.07055999835332234,
+                0.07063466807206471
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140044800,
+            "peak_allocated_bytes": 141109760,
+            "peak_increment_bytes": 1064960,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.9926548229590076
+          },
+          "status": "passed"
+        },
+        "pytorch_sdpa_native_causal": {
+          "first_forward_backward_ms": 93.76408800000036,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00024749990552663803,
+              "relative_rms_error": 0.002035064622759819,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.00027924866299144924,
+              "relative_rms_error": 0.002640195656567812,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.008005261421203613,
+              "rms_error": 0.00026733180857263505,
+              "relative_rms_error": 0.0025428147055208683,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012444496154785156,
+              "rms_error": 0.0002853280457202345,
+              "relative_rms_error": 0.002366940025240183,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.03596800069014231,
+              "min_ms": 0.035487999518712364,
+              "max_ms": 0.03685333331425985,
+              "samples_ms": [
+                0.03685333331425985,
+                0.035487999518712364,
+                0.0360000009338061,
+                0.03585066646337509,
+                0.035936000446478523,
+                0.036117332677046456,
+                0.03596800069014231,
+                0.0360000009338061,
+                0.03619199991226196,
+                0.03603200117746989,
+                0.03595733394225439,
+                0.0359253336985906,
+                0.03601066768169403,
+                0.035904000202814736,
+                0.03596800069014231
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140045824,
+            "peak_allocated_bytes": 141365248,
+            "peak_increment_bytes": 1319424,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.6436342840828903
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.05110399921735128,
+              "min_ms": 0.050399998823801674,
+              "max_ms": 0.051327998439470925,
+              "samples_ms": [
+                0.051327998439470925,
+                0.05089066425959269,
+                0.051029334465662636,
+                0.051029334465662636,
+                0.050399998823801674,
+                0.051327998439470925,
+                0.05110399921735128,
+                0.051114668448766075,
+                0.051221330960591636,
+                0.05118933320045471,
+                0.05110399921735128,
+                0.050944000482559204,
+                0.05123200019200643,
+                0.0510506679614385,
+                0.05114666620890299
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 140045824,
+            "peak_allocated_bytes": 141636608,
+            "peak_increment_bytes": 1590784,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.7181831907788033
+          },
+          "status": "passed"
+        }
+      },
+      "scope": "GPU graph replay, no Python dispatch; inputs, retained forward, warmups, capture and replay share one explicit nondefault stream; no dropout; identical Q/K/V, mask and upstream gradient",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "flex_mask_setup_ms": 3178.1369580000032,
+      "status": "passed",
+      "case_index": 10
+    },
+    {
+      "kind": "attention_training",
+      "n": 1024,
+      "d": 64,
+      "batch": 1,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 19,
+      "variants": {
+        "structured_triton": {
+          "first_forward_backward_ms": 1196.1833189999993,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00033991847885772586,
+              "relative_rms_error": 0.002066750545054674,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.0003775223740376532,
+              "relative_rms_error": 0.002523602917790413,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.009573817253112793,
+              "rms_error": 0.0003715870843734592,
+              "relative_rms_error": 0.002479046583175659,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012625455856323242,
+              "rms_error": 0.00038691479130648077,
+              "relative_rms_error": 0.0023552365601062775,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.020096000283956528,
+              "min_ms": 0.020053333292404812,
+              "max_ms": 0.020736000190178554,
+              "samples_ms": [
+                0.020736000190178554,
+                0.020106667031844456,
+                0.020096000283956528,
+                0.020117333779732387,
+                0.020074666788180668,
+                0.020096000283956528,
+                0.0200853335360686,
+                0.02006400004029274,
+                0.02014933278163274,
+                0.020106667031844456,
+                0.020074666788180668,
+                0.020138667275508244,
+                0.02006400004029274,
+                0.020074666788180668,
+                0.020053333292404812
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 207160832,
+            "peak_allocated_bytes": 207955456,
+            "peak_increment_bytes": 794624,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.026133333643277485,
+              "min_ms": 0.02606933315594991,
+              "max_ms": 0.026858667532602947,
+              "samples_ms": [
+                0.026858667532602947,
+                0.026122666895389557,
+                0.026101333399613697,
+                0.02611200014750163,
+                0.026154667139053345,
+                0.026122666895389557,
+                0.02606933315594991,
+                0.026154667139053345,
+                0.026133333643277485,
+                0.026208000878492992,
+                0.02609066665172577,
+                0.02622933437426885,
+                0.026133333643277485,
+                0.026101333399613697,
+                0.026154667139053345
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 207160832,
+            "peak_allocated_bytes": 208225792,
+            "peak_increment_bytes": 1064960,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        },
+        "flex_attention_triton": {
+          "first_forward_backward_ms": 4104.4046090000065,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.007217884063720703,
+              "rms_error": 0.00034147585392929614,
+              "relative_rms_error": 0.0020762195345014334,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.009593188762664795,
+              "rms_error": 0.00037799307028762996,
+              "relative_rms_error": 0.0025267493911087513,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.009573817253112793,
+              "rms_error": 0.00037171939038671553,
+              "relative_rms_error": 0.002479929244145751,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.012625455856323242,
+              "rms_error": 0.00038691970985382795,
+              "relative_rms_error": 0.002355266595259309,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.019317333896954853,
+              "min_ms": 0.01924266666173935,
+              "max_ms": 0.019946667055288952,
+              "samples_ms": [
+                0.019946667055288952,
+                0.019391999890406925,
+                0.019296000401178997,
+                0.01924266666173935,
+                0.01934933289885521,
+                0.019274666905403137,
+                0.019413333386182785,
+                0.019296000401178997,
+                0.01932799940307935,
+                0.019317333896954853,
+                0.01926400015751521,
+                0.019317333896954853,
+                0.019285333653291065,
+                0.019306667149066925,
+                0.01933866615096728
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 207160832,
+            "peak_allocated_bytes": 207955456,
+            "peak_increment_bytes": 794624,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.9612526683917637
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.03655466685692469,
+              "min_ms": 0.03640533238649368,
+              "max_ms": 0.03718400001525879,
+              "samples_ms": [
+                0.03718400001525879,
+                0.03645866612593333,
+                0.036501333117485046,
+                0.036576000352700554,
+                0.03640533238649368,
+                0.03655466685692469,
+                0.03651199986537298,
+                0.0365226666132609,
+                0.036576000352700554,
+                0.03660800059636434,
+                0.03658666710058848,
+                0.03656533360481262,
+                0.036533333361148834,
+                0.03659733384847641,
+                0.036533333361148834
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 207160832,
+            "peak_allocated_bytes": 208225792,
+            "peak_increment_bytes": 1064960,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 1.398775500894735
+          },
+          "status": "passed"
+        }
+      },
+      "scope": "GPU graph replay, no Python dispatch; inputs, retained forward, warmups, capture and replay share one explicit nondefault stream; no dropout; identical Q/K/V, mask and upstream gradient",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "flex_mask_setup_ms": 2559.3443690000013,
+      "status": "passed",
+      "case_index": 11
+    },
+    {
+      "kind": "attention_training",
+      "n": 4096,
+      "d": 64,
+      "batch": 1,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 255,
+        "window_right": null,
+        "same_document": false
+      },
+      "seed": 29,
+      "variants": {
+        "structured_triton": {
+          "first_forward_backward_ms": 1288.004936,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.00568079948425293,
+              "rms_error": 0.00023712417169008404,
+              "relative_rms_error": 0.0021019147243350744,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.006997942924499512,
+              "rms_error": 0.000258855550782755,
+              "relative_rms_error": 0.002414426766335964,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.006649494171142578,
+              "rms_error": 0.0002562312292866409,
+              "relative_rms_error": 0.0023802148643881083,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.00830078125,
+              "rms_error": 0.00026340631302446127,
+              "relative_rms_error": 0.002335438970476389,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.02666666607062022,
+              "min_ms": 0.02658133457104365,
+              "max_ms": 0.027285332481066387,
+              "samples_ms": [
+                0.027285332481066387,
+                0.026698666314284008,
+                0.02677333354949951,
+                0.02666666607062022,
+                0.02666666607062022,
+                0.02658133457104365,
+                0.026687999566396076,
+                0.02664533257484436,
+                0.026602665583292644,
+                0.026719999810059864,
+                0.02666666607062022,
+                0.02666666607062022,
+                0.02666666607062022,
+                0.026698666314284008,
+                0.026698666314284008
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 291619328,
+            "peak_allocated_bytes": 294797824,
+            "peak_increment_bytes": 3178496,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.034261333445707955,
+              "min_ms": 0.034154665966828666,
+              "max_ms": 0.0348693331082662,
+              "samples_ms": [
+                0.0348693331082662,
+                0.034261333445707955,
+                0.03420799970626831,
+                0.0342399999499321,
+                0.034304000437259674,
+                0.034154665966828666,
+                0.03419733295838038,
+                0.03428266694148382,
+                0.0342399999499321,
+                0.034261333445707955,
+                0.03432533393303553,
+                0.034314667185147606,
+                0.03421866645415624,
+                0.034304000437259674,
+                0.03432533393303553
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 291619328,
+            "peak_allocated_bytes": 295879168,
+            "peak_increment_bytes": 4259840,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        },
+        "flex_attention_triton": {
+          "first_forward_backward_ms": 0.7975030000011429,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.00568079948425293,
+              "rms_error": 0.00023872609017416835,
+              "relative_rms_error": 0.002116114366799593,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.006997942924499512,
+              "rms_error": 0.000258836051216349,
+              "relative_rms_error": 0.0024142449256032705,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.006649494171142578,
+              "rms_error": 0.00025639173691160977,
+              "relative_rms_error": 0.0023817059118300676,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.00830078125,
+              "rms_error": 0.000263420952251181,
+              "relative_rms_error": 0.002335568889975548,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.02407466620206833,
+              "min_ms": 0.024010665714740753,
+              "max_ms": 0.024821333587169647,
+              "samples_ms": [
+                0.024821333587169647,
+                0.0240639994541804,
+                0.024106666445732117,
+                0.02405333270629247,
+                0.02420266717672348,
+                0.024106666445732117,
+                0.02407466620206833,
+                0.024106666445732117,
+                0.0240639994541804,
+                0.024010665714740753,
+                0.0240639994541804,
+                0.02407466620206833,
+                0.02407466620206833,
+                0.024031999210516613,
+                0.024149333437283833
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 291619328,
+            "peak_allocated_bytes": 294797824,
+            "peak_increment_bytes": 3178496,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.9028000027567148
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.0469760000705719,
+              "min_ms": 0.04683733483155569,
+              "max_ms": 0.04756266872088114,
+              "samples_ms": [
+                0.04756266872088114,
+                0.04698666433493296,
+                0.0469760000705719,
+                0.04698666433493296,
+                0.0469760000705719,
+                0.04701866706212362,
+                0.04684799909591675,
+                0.046944002310434975,
+                0.04695466657479604,
+                0.04698666433493296,
+                0.047007997830708824,
+                0.04702933132648468,
+                0.046869332591692604,
+                0.04683733483155569,
+                0.04684799909591675
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 291619328,
+            "peak_allocated_bytes": 295879168,
+            "peak_increment_bytes": 4259840,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 1.3711083412737621
+          },
+          "status": "passed"
+        }
+      },
+      "scope": "GPU graph replay, no Python dispatch; inputs, retained forward, warmups, capture and replay share one explicit nondefault stream; no dropout; identical Q/K/V, mask and upstream gradient",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "flex_mask_setup_ms": 3043.7500869999994,
+      "status": "passed",
+      "case_index": 12
+    },
+    {
+      "kind": "attention_training",
+      "n": 2048,
+      "d": 128,
+      "batch": 1,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": null,
+        "window_right": null,
+        "same_document": true
+      },
+      "seed": 29,
+      "variants": {
+        "structured_triton": {
+          "first_forward_backward_ms": 1711.1388470000009,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.0071697235107421875,
+              "rms_error": 0.0002886769361793995,
+              "relative_rms_error": 0.0019781950395554304,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.010177254676818848,
+              "rms_error": 0.0003033613902516663,
+              "relative_rms_error": 0.0024779534433037043,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.01399683952331543,
+              "rms_error": 0.00030761820380575955,
+              "relative_rms_error": 0.002489624312147498,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.011621475219726562,
+              "rms_error": 0.0003320830292068422,
+              "relative_rms_error": 0.0023059051018208265,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.0658240020275116,
+              "min_ms": 0.06573866804440816,
+              "max_ms": 0.06643199920654297,
+              "samples_ms": [
+                0.06643199920654297,
+                0.06576000154018402,
+                0.06574933230876923,
+                0.0658133327960968,
+                0.06584533552328746,
+                0.0658240020275116,
+                0.06596266726652782,
+                0.06579199930032094,
+                0.06592000027497609,
+                0.06585599978764851,
+                0.06589866677920024,
+                0.06580266853173573,
+                0.06580266853173573,
+                0.06597333153088887,
+                0.06573866804440816
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 358754816,
+            "peak_allocated_bytes": 361916928,
+            "peak_increment_bytes": 3162112,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.09198932846387227,
+              "min_ms": 0.09181867043177287,
+              "max_ms": 0.09271466732025146,
+              "samples_ms": [
+                0.09271466732025146,
+                0.09196799993515015,
+                0.09204266468683879,
+                0.0920853316783905,
+                0.09206400314966838,
+                0.092031995455424,
+                0.09205333391825359,
+                0.09188266595204671,
+                0.09192533294359843,
+                0.09196799993515015,
+                0.09181867043177287,
+                0.09211732943852742,
+                0.09195733070373535,
+                0.09194667140642802,
+                0.09198932846387227
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 358754816,
+            "peak_allocated_bytes": 362981888,
+            "peak_increment_bytes": 4227072,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        },
+        "flex_attention_triton": {
+          "first_forward_backward_ms": 4425.627450999997,
+          "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+          "errors": {
+            "output": {
+              "correct": true,
+              "max_abs_error": 0.0071697235107421875,
+              "rms_error": 0.0002884458808694035,
+              "relative_rms_error": 0.001976611791178584,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dq": {
+              "correct": true,
+              "max_abs_error": 0.010177254676818848,
+              "rms_error": 0.000303175940643996,
+              "relative_rms_error": 0.002476438647136092,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dk": {
+              "correct": true,
+              "max_abs_error": 0.01399683952331543,
+              "rms_error": 0.0003078199806623161,
+              "relative_rms_error": 0.0024912573862820864,
+              "atol": 0.025,
+              "rtol": 0.035
+            },
+            "dv": {
+              "correct": true,
+              "max_abs_error": 0.011621475219726562,
+              "rms_error": 0.0003320687683299184,
+              "relative_rms_error": 0.0023058061487972736,
+              "atol": 0.025,
+              "rtol": 0.035
+            }
+          },
+          "backward_only": {
+            "timing": {
+              "median_ms": 0.057215998570124306,
+              "min_ms": 0.056757330894470215,
+              "max_ms": 0.05779199798901876,
+              "samples_ms": [
+                0.05779199798901876,
+                0.057215998570124306,
+                0.057034666339556374,
+                0.057301332553227745,
+                0.05734399954477946,
+                0.05676800012588501,
+                0.057376002271970115,
+                0.0572266678015391,
+                0.057002668579419456,
+                0.05684266487757365,
+                0.05735466877619425,
+                0.05727999905745188,
+                0.05709866682688395,
+                0.056757330894470215,
+                0.05701333284378052
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 358754816,
+            "peak_allocated_bytes": 361916928,
+            "peak_increment_bytes": 3162112,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.8692269811581873
+          },
+          "forward_backward": {
+            "timing": {
+              "median_ms": 0.08435199658075969,
+              "min_ms": 0.08407466610272725,
+              "max_ms": 0.08518399794896443,
+              "samples_ms": [
+                0.08518399794896443,
+                0.0842133363087972,
+                0.0844053328037262,
+                0.08452266454696655,
+                0.08407466610272725,
+                0.0842026670773824,
+                0.08438400427500407,
+                0.0841493308544159,
+                0.08444799979527791,
+                0.0844053328037262,
+                0.08435199658075969,
+                0.08435199658075969,
+                0.08428800106048584,
+                0.08438400427500407,
+                0.08429867029190063
+              ],
+              "mode": "cuda_graph",
+              "calls_per_sample": 3,
+              "stream_scope": "inputs, retained forward, warmups, capture and replay on the same explicit nondefault CUDA stream"
+            },
+            "baseline_allocated_bytes": 358754816,
+            "peak_allocated_bytes": 362981888,
+            "peak_increment_bytes": 4227072,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded",
+            "baseline_over_custom_speedup": 0.9169758926318061
+          },
+          "status": "passed"
+        }
+      },
+      "scope": "GPU graph replay, no Python dispatch; inputs, retained forward, warmups, capture and replay share one explicit nondefault stream; no dropout; identical Q/K/V, mask and upstream gradient",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "flex_mask_setup_ms": 4329.230116000005,
+      "status": "passed",
+      "case_index": 13
+    },
+    {
+      "kind": "transformer_optimizer_step",
+      "n": 1024,
+      "d": 128,
+      "heads": 2,
+      "dtype": "torch.bfloat16",
+      "spec": {
+        "causal": true,
+        "window_left": 127,
+        "window_right": null,
+        "same_document": false
+      },
+      "variants": {
+        "flex_attention_triton": {
+          "first_step_ms": 4059.8901529999976,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.440760850906372,
+              "reference_rms": 1.440760850906372,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 1.440760850906372,
+              "reference_norm": 1.440760850906372,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.2003170251846313,
+              "reference_rms": 1.2003170251846313,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 614.5623168945312,
+              "reference_norm": 614.5623168945312,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 9.731508180266246e-05,
+              "reference_rms": 9.731508180266246e-05,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.04314999282360077,
+              "reference_norm": 0.04314999282360077,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.0001263477752218023,
+              "reference_rms": 0.0001263477752218023,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.03234503045678139,
+              "reference_norm": 0.03234503045678139,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.00018896798428613693,
+              "reference_rms": 0.00018896798428613693,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0967516079545021,
+              "reference_norm": 0.0967516079545021,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.000667924468871206,
+              "reference_rms": 0.000667924468871206,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.3419773280620575,
+              "reference_norm": 0.3419773280620575,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 9.731554655445507e-07,
+              "reference_rms": 9.731554655445507e-07,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0004315020050853491,
+              "reference_norm": 0.0004315020050853491,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 1.26348061257886e-06,
+              "reference_rms": 1.26348061257886e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.00032345103682018816,
+              "reference_norm": 0.00032345103682018816,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 1.8896814708568854e-06,
+              "reference_rms": 1.8896814708568854e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.0009675169130787253,
+              "reference_norm": 0.0009675169130787253,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 6.679243597318418e-06,
+              "reference_rms": 6.679243597318418e-06,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 0.003419772954657674,
+              "reference_norm": 0.003419772954657674,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9978994131088257,
+              "update_norm": 0.0004315020050853491,
+              "gradient_norm": 0.04314999282360077,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.998291015625,
+              "update_norm": 0.00032345103682018816,
+              "gradient_norm": 0.03234503045678139,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.9990768432617188,
+              "update_norm": 0.0009675169130787253,
+              "gradient_norm": 0.0967516079545021,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9998626708984375,
+              "update_norm": 0.003419772954657674,
+              "gradient_norm": 0.3419773280620575,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.440760850906372,
+          "step": {
+            "timing": {
+              "median_ms": 1.305344025293986,
+              "min_ms": 1.2300906976064045,
+              "max_ms": 1.7850666046142578,
+              "samples_ms": [
+                1.2999040285746257,
+                1.2479466597239177,
+                1.3107840220133464,
+                1.3955519994099934,
+                1.280618667602539,
+                1.7850666046142578,
+                1.314079999923706,
+                1.2908373673756917,
+                1.5031466484069824,
+                1.4097174008687336,
+                1.2300906976064045,
+                1.2304320335388184
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 352447488,
+            "peak_allocated_bytes": 366620672,
+            "peak_increment_bytes": 14173184,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed",
+          "baseline_over_custom_speedup": 1.1241130130925228
+        },
+        "structured_triton": {
+          "first_step_ms": 1861.9564560000015,
+          "errors": {
+            "loss": {
+              "correct": true,
+              "actual_rms": 1.440760850906372,
+              "reference_rms": 1.440760850906372,
+              "rms_error": 0.0,
+              "relative_rms_error": 0.0,
+              "actual_norm": 1.440760850906372,
+              "reference_norm": 1.440760850906372,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "output": {
+              "correct": true,
+              "actual_rms": 1.2003170251846313,
+              "reference_rms": 1.2003170251846313,
+              "rms_error": 3.813505099969916e-05,
+              "relative_rms_error": 3.1770815709152563e-05,
+              "actual_norm": 614.5623168945312,
+              "reference_norm": 614.5623168945312,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_gradient": {
+              "correct": true,
+              "actual_rms": 9.731526370160282e-05,
+              "reference_rms": 9.731508180266246e-05,
+              "rms_error": 5.879768849581524e-08,
+              "relative_rms_error": 0.0006041991375503995,
+              "actual_norm": 0.043150074779987335,
+              "reference_norm": 0.04314999282360077,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_gradient": {
+              "correct": true,
+              "actual_rms": 0.00012634794984478503,
+              "reference_rms": 0.0001263477752218023,
+              "rms_error": 3.154969974161759e-08,
+              "relative_rms_error": 0.0002497052258041932,
+              "actual_norm": 0.03234507516026497,
+              "reference_norm": 0.03234503045678139,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_gradient": {
+              "correct": true,
+              "actual_rms": 0.00018896810070145875,
+              "reference_rms": 0.00018896798428613693,
+              "rms_error": 3.891706512604287e-08,
+              "relative_rms_error": 0.00020594528365775613,
+              "actual_norm": 0.09675166755914688,
+              "reference_norm": 0.0967516079545021,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_gradient": {
+              "correct": true,
+              "actual_rms": 0.0006679245852865279,
+              "reference_rms": 0.000667924468871206,
+              "rms_error": 6.905936089651732e-08,
+              "relative_rms_error": 0.00010339396760419304,
+              "actual_norm": 0.34197738766670227,
+              "reference_norm": 0.3419773280620575,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "qkv_update_delta": {
+              "correct": true,
+              "actual_rms": 9.731580803418183e-07,
+              "reference_rms": 9.731554655445507e-07,
+              "rms_error": 7.160124715355209e-10,
+              "relative_rms_error": 0.0007357637056838193,
+              "actual_norm": 0.0004315031401347369,
+              "reference_norm": 0.0004315020050853491,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "projection_update_delta": {
+              "correct": true,
+              "actual_rms": 1.2634825452551013e-06,
+              "reference_rms": 1.26348061257886e-06,
+              "rms_error": 3.6527841862366017e-10,
+              "relative_rms_error": 0.0002891048861272981,
+              "actual_norm": 0.00032345153158530593,
+              "reference_norm": 0.00032345103682018816,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "up_update_delta": {
+              "correct": true,
+              "actual_rms": 1.889682835098938e-06,
+              "reference_rms": 1.8896814708568854e-06,
+              "rms_error": 4.1342942957989237e-10,
+              "relative_rms_error": 0.0002187826022300048,
+              "actual_norm": 0.0009675176115706563,
+              "reference_norm": 0.0009675169130787253,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            },
+            "down_update_delta": {
+              "correct": true,
+              "actual_rms": 6.679244961560471e-06,
+              "reference_rms": 6.679243597318418e-06,
+              "rms_error": 6.879987135555155e-10,
+              "relative_rms_error": 0.00010300548311065239,
+              "actual_norm": 0.003419773420318961,
+              "reference_norm": 0.003419772954657674,
+              "relative_rms_tolerance": 0.05,
+              "absolute_rms_floor": 1e-08
+            }
+          },
+          "optimizer_observability": {
+            "qkv": {
+              "changed_fraction": 0.9978790283203125,
+              "update_norm": 0.0004315031401347369,
+              "gradient_norm": 0.043150074779987335,
+              "nonzero_gradient_and_update": true
+            },
+            "projection": {
+              "changed_fraction": 0.998291015625,
+              "update_norm": 0.00032345153158530593,
+              "gradient_norm": 0.03234507516026497,
+              "nonzero_gradient_and_update": true
+            },
+            "up": {
+              "changed_fraction": 0.9990768432617188,
+              "update_norm": 0.0009675176115706563,
+              "gradient_norm": 0.09675166755914688,
+              "nonzero_gradient_and_update": true
+            },
+            "down": {
+              "changed_fraction": 0.9998626708984375,
+              "update_norm": 0.003419773420318961,
+              "gradient_norm": 0.34197738766670227,
+              "nonzero_gradient_and_update": true
+            }
+          },
+          "loss": 1.440760850906372,
+          "step": {
+            "timing": {
+              "median_ms": 1.1612213452657065,
+              "min_ms": 1.1219200293223064,
+              "max_ms": 1.403637409210205,
+              "samples_ms": [
+                1.403637409210205,
+                1.1665066878000896,
+                1.1708266735076904,
+                1.1559360027313232,
+                1.1320640246073406,
+                1.13918932278951,
+                1.213696002960205,
+                1.185813347498576,
+                1.2829973697662354,
+                1.1518399715423584,
+                1.1219200293223064,
+                1.122869332631429
+              ],
+              "mode": "eager",
+              "calls_per_sample": 3
+            },
+            "baseline_allocated_bytes": 359263744,
+            "peak_allocated_bytes": 373436928,
+            "peak_increment_bytes": 14173184,
+            "memory_scope": "one eager invocation after warmup; live inputs, retained graph and cached masks counted in baseline; CUDA graph pool excluded"
+          },
+          "status": "passed"
+        }
+      },
+      "flex_mask_setup_ms": 2559.3443690000013,
+      "architecture": "one pre-norm Transformer block, 2 heads, GELU MLP width 4C, mean squared output loss, FP32 master weights and SGD lr=0.01, weights cast to activation dtype for linear operators; no dropout",
+      "scope": "matched eager CUDA-event timing for every variant, including Python submission gaps; parameter restoration, forward, loss, backward and SGD; identical reset weights each invocation; compilation and setup excluded",
+      "timing_mode": "eager",
+      "timing_mode_reason": "native SDPA full-step backward raised cudaErrorStreamCaptureImplicit during CUDA-graph capture in the initial smoke; all complete-step variants deliberately use eager timing, with no per-variant fallback",
+      "compiler_settings": {
+        "torch._functorch.config.donated_buffer": false,
+        "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+      },
+      "optimizer_correctness_reference": "flex_attention_triton",
+      "status": "passed",
+      "case_index": 14
+    }
+  ],
+  "planned_cases": 15,
+  "elapsed_seconds": 77.17418902,
+  "completed_cases": 15,
+  "passed_cases": 15,
+  "status": "passed"
+}

@@ -1,0 +1,18 @@
+{"case": 0, "kind": "gpu_unittests", "status": "passed", "elapsed_seconds": 21.126119742999997}
+{"case": 1, "kind": "correctness", "status": "passed", "elapsed_seconds": 21.546350169}
+{"case": 2, "kind": "correctness", "status": "passed", "elapsed_seconds": 23.118059435999996}
+{"case": 3, "kind": "correctness", "status": "passed", "elapsed_seconds": 23.238313702}
+{"case": 4, "kind": "correctness", "status": "passed", "elapsed_seconds": 25.142043144999995}
+{"case": 5, "kind": "correctness", "status": "passed", "elapsed_seconds": 26.934238492999995}
+{"case": 6, "kind": "correctness", "status": "passed", "elapsed_seconds": 28.671263406}
+{"case": 7, "kind": "correctness", "status": "passed", "elapsed_seconds": 29.971073433}
+{"case": 8, "kind": "correctness", "status": "passed", "elapsed_seconds": 31.622335747}
+{"case": 9, "kind": "transformer", "status": "passed", "elapsed_seconds": 49.019233154}
+/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+{"case": 10, "kind": "performance", "status": "failed", "elapsed_seconds": 56.378101588}
+{"case": 11, "kind": "performance", "status": "failed", "elapsed_seconds": 56.555831355}
+{"case": 12, "kind": "performance", "status": "failed", "elapsed_seconds": 56.728874005}
+{"case": 13, "kind": "performance", "status": "failed", "elapsed_seconds": 56.90513021099999}
+{"case": 14, "kind": "transformer", "status": "failed", "elapsed_seconds": 57.080186143}
+{"status": "failed", "output": "/results/cohere-backward-study-20261105T183007Z-31a77c/study/summary.json"}

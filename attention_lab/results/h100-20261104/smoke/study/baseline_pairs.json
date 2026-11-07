@@ -1,0 +1,122 @@
+[
+  {
+    "case_id": "smoke-0-causal-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": "smoke-0-causal-s0-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.009372000023722647,
+    "flex_speedup": 1.910781243443212
+  },
+  {
+    "case_id": "smoke-0-causal-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": "smoke-0-causal-s0-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.009372000023722647,
+    "flex_speedup": 2.5107157481233577
+  },
+  {
+    "case_id": "smoke-0-window-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-0-window-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-0-document-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": "smoke-0-document-s0-csr_full-64-64-4-2",
+    "flex_latency_ms": 0.013577599823474885,
+    "flex_speedup": 2.1177938276811523
+  },
+  {
+    "case_id": "smoke-1-causal-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-1-causal-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-1-window-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-1-window-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-1-document-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-2-causal-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-2-causal-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-2-window-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-2-window-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-2-document-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-3-causal-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-3-causal-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-3-window-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-3-window-s0-interval_split-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  },
+  {
+    "case_id": "smoke-3-document-s0-csr_full-64-64-4-2",
+    "baseline_source_case_id": null,
+    "flex_latency_ms": null,
+    "flex_speedup": null
+  }
+]

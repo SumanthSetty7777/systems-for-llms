@@ -1,0 +1,16 @@
+{"case": 0, "kind": "gpu_unittests", "status": "passed", "elapsed_seconds": 16.562661681999998}
+{"case": 1, "kind": "correctness", "status": "passed", "elapsed_seconds": 16.763155617}
+{"case": 2, "kind": "correctness", "status": "passed", "elapsed_seconds": 18.101838543}
+{"case": 3, "kind": "correctness", "status": "passed", "elapsed_seconds": 18.218527621}
+{"case": 4, "kind": "correctness", "status": "passed", "elapsed_seconds": 19.785054147}
+{"case": 5, "kind": "correctness", "status": "passed", "elapsed_seconds": 21.306743441}
+{"case": 6, "kind": "correctness", "status": "passed", "elapsed_seconds": 22.828589180999998}
+{"case": 7, "kind": "correctness", "status": "passed", "elapsed_seconds": 23.942162803}
+{"case": 8, "kind": "correctness", "status": "passed", "elapsed_seconds": 25.344664584999997}
+{"case": 9, "kind": "transformer", "status": "passed", "elapsed_seconds": 37.232708474}
+{"case": 10, "kind": "performance", "status": "passed", "elapsed_seconds": 43.269098986}
+{"case": 11, "kind": "performance", "status": "passed", "elapsed_seconds": 52.38497256}
+{"case": 12, "kind": "performance", "status": "passed", "elapsed_seconds": 57.984255606}
+{"case": 13, "kind": "performance", "status": "passed", "elapsed_seconds": 69.99838871200001}
+{"case": 14, "kind": "transformer", "status": "passed", "elapsed_seconds": 76.90352649299999}
+{"status": "passed", "output": "/results/cohere-backward-study-20261105T183827Z-529f17/study/summary.json"}

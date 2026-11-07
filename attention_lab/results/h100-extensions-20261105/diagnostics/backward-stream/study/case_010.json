@@ -1,0 +1,151 @@
+{
+  "kind": "attention_training",
+  "n": 1024,
+  "d": 64,
+  "batch": 1,
+  "heads": 2,
+  "dtype": "torch.bfloat16",
+  "spec": {
+    "causal": true,
+    "window_left": null,
+    "window_right": null,
+    "same_document": false
+  },
+  "seed": 19,
+  "variants": {
+    "structured_triton": {
+      "first_forward_backward_ms": 1334.7219859999982,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.000246781186433509,
+          "relative_rms_error": 0.0020291549153625965,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.00027905782917514443,
+          "relative_rms_error": 0.002638391451910138,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.008005261421203613,
+          "rms_error": 0.0002662295592017472,
+          "relative_rms_error": 0.002532330108806491,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012444496154785156,
+          "rms_error": 0.00028532574651762843,
+          "relative_rms_error": 0.0023669209331274033,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "failed",
+      "error_type": "AcceleratorError",
+      "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+    },
+    "flex_attention_triton": {
+      "first_forward_backward_ms": 1.032821000009676,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.00024704966926947236,
+          "relative_rms_error": 0.0020313626155257225,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.000279358820989728,
+          "relative_rms_error": 0.0026412373408675194,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.008005261421203613,
+          "rms_error": 0.00026727092335931957,
+          "relative_rms_error": 0.0025422354228794575,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012444496154785156,
+          "rms_error": 0.00028529117116704583,
+          "relative_rms_error": 0.0023666340857744217,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "failed",
+      "error_type": "AcceleratorError",
+      "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+    },
+    "pytorch_sdpa_native_causal": {
+      "first_forward_backward_ms": 119.13407200000847,
+      "first_call_scope": "compile/cache lookup, allocations, forward and backward, synchronization; caches not cleared",
+      "errors": {
+        "output": {
+          "correct": true,
+          "max_abs_error": 0.007217884063720703,
+          "rms_error": 0.00024749990552663803,
+          "relative_rms_error": 0.002035064622759819,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dq": {
+          "correct": true,
+          "max_abs_error": 0.009593188762664795,
+          "rms_error": 0.00027924866299144924,
+          "relative_rms_error": 0.002640195656567812,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dk": {
+          "correct": true,
+          "max_abs_error": 0.008005261421203613,
+          "rms_error": 0.00026733180857263505,
+          "relative_rms_error": 0.0025428147055208683,
+          "atol": 0.025,
+          "rtol": 0.035
+        },
+        "dv": {
+          "correct": true,
+          "max_abs_error": 0.012444496154785156,
+          "rms_error": 0.0002853280457202345,
+          "relative_rms_error": 0.002366940025240183,
+          "atol": 0.025,
+          "rtol": 0.035
+        }
+      },
+      "status": "failed",
+      "error_type": "AcceleratorError",
+      "error": "CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/benchmark.py\", line 61, in _time_cuda\n    function()\n  File \"/project/attention_lab/backward_study.py\", line 168, in backward_only\n    return torch.autograd.grad(output, values, upstream, retain_graph=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 532, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation would make the legacy stream depend on a capturing blocking stream\nSearch for `cudaErrorStreamCaptureImplicit' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 171, in performance_case\n    record[\"backward_only\"] = _timing_and_memory(backward_only, repeats)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 119, in _timing_and_memory\n    timing = _time_cuda(function, device=\"cuda:0\", warmup=2, repeats=repeats,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/benchmark.py\", line 59, in _time_cuda\n    with torch.cuda.graph(graph):\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 265, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/usr/local/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 126, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+    }
+  },
+  "scope": "GPU graph replay, no Python dispatch; no dropout; identical Q/K/V, mask and upstream gradient",
+  "compiler_settings": {
+    "torch._functorch.config.donated_buffer": false,
+    "scope": "process-global before Flex compilation; retained backward requires reusable saved buffers; all Flex results use this setting, not default buffer donation"
+  },
+  "flex_mask_setup_ms": 5128.670306000004,
+  "status": "failed",
+  "case_index": 10
+}

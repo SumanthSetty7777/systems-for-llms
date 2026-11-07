@@ -1,0 +1,185 @@
+{
+  "case": {
+    "workload_id": "tune-window512",
+    "length": 4096,
+    "head_dim": 128,
+    "batch": 1,
+    "heads": 8,
+    "dtype": "bfloat16",
+    "spec": {
+      "causal": true,
+      "window_left": 511,
+      "window_right": null,
+      "same_document": false
+    },
+    "pattern": "window",
+    "document_ids": null,
+    "case_id": "tune-window512-s23-interval_split-64-64-4-3",
+    "seed": 23,
+    "variant": "interval_split",
+    "config": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 3
+    },
+    "include_flex": false,
+    "selection": null,
+    "implementation": "interval",
+    "use_full_blocks": true
+  },
+  "measurement": {
+    "status": "passed",
+    "correct": true,
+    "latency_ms": 0.03333600014448165,
+    "cold_call_ms": 1066.5777879999894,
+    "first_call_ms": 1066.5777879999894,
+    "compile_time_ms": null,
+    "first_call_scope": "validation + metadata upload + allocation + JIT/cache lookup + launch + synchronize; caches not reset",
+    "timing_scope": "CUDA event timing of batched graph replay, per forward call; excludes Python dispatch, mask construction and compile/setup",
+    "shape": [
+      1,
+      8,
+      4096,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "seed": 23,
+    "mask": {
+      "causal": true,
+      "window_left": 511,
+      "window_right": null,
+      "same_document": false
+    },
+    "document_ids": null,
+    "schedule_compile_ms": 0.32710899998278364,
+    "candidate": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 3,
+      "implementation": "interval",
+      "use_full_blocks": true
+    },
+    "tolerances": {
+      "atol": 0.02,
+      "rtol": 0.02
+    },
+    "schedule": {
+      "query_blocks": 64,
+      "retained_blocks": 540,
+      "full_blocks": 420
+    },
+    "hardware": {
+      "device": "cuda:0",
+      "name": "NVIDIA H100 80GB HBM3",
+      "compute_capability": [
+        9,
+        0
+      ],
+      "total_memory_bytes": 85009367040,
+      "multiprocessor_count": 132
+    },
+    "software": {
+      "python": "3.12.10",
+      "torch": "2.11.0+cu130",
+      "cuda_runtime": "13.0",
+      "triton": "3.6.0"
+    },
+    "warmup": 5,
+    "repeats": 20,
+    "inner_repeats": 20,
+    "reference": "PyTorch SDPA math backend, same input dtype, explicit boolean token mask; query chunks limit temporary memory",
+    "reference_chunk_size": 512,
+    "baseline": "PyTorch SDPA automatic backend selection; selected backend not inspected",
+    "baseline_mask_mode": "explicit_boolean_mask",
+    "flex": {
+      "status": "not_requested",
+      "backend_requested": "TRITON"
+    },
+    "forward_only": true,
+    "baseline_correct": true,
+    "kernel_metadata": {
+      "kernel_name": "interval_attention_forward",
+      "n_regs": 170,
+      "n_spills": 0,
+      "shared_memory_bytes": 114688,
+      "source": "Triton CompiledKernel metadata; not Nsight profiling",
+      "asm_sha256": {
+        "source": "fc9c7f7c6f5d43915e3298cd3d0d244f06c8951097309be69dcb1fbbfcca044a",
+        "ttir": "dedf01ea065739c728d2119d31776b378afc7fcd2882a6b188ba4881a15d5f4b",
+        "ttgir": "1501344d16298daf47891c2de0760fd87f13f53c4d93e558ab21cfc0d434abd9",
+        "llir": "bef2a5050eafe1fabc180b9419fe1bdfab217481c038e04777cfc2f54e542910",
+        "ptx": "94a5638a030f577eb61328dd057280efe4d4ab8954488d6d763cf6c3ec5abe0f",
+        "cubin": "b36874887f690dfe3ce8b94d53109937d509301f6c41988407c98e3beaac35ba"
+      }
+    },
+    "output_finite": true,
+    "reference_finite": true,
+    "inputs_unchanged": true,
+    "close_to_reference": true,
+    "max_abs_error": 0.0078125,
+    "mean_abs_error": 8.876477659214288e-05,
+    "candidate_timing": {
+      "median_ms": 0.03333600014448165,
+      "min_ms": 0.033211201429367065,
+      "max_ms": 0.033646398782730104,
+      "samples_ms": [
+        0.033646398782730104,
+        0.033457601070404054,
+        0.033451199531555176,
+        0.03329440057277679,
+        0.033334401249885556,
+        0.033318400382995605,
+        0.03324320018291473,
+        0.03325439989566803,
+        0.033339199423789975,
+        0.033292800188064575,
+        0.03342080116271973,
+        0.033435198664665225,
+        0.033441600203514096,
+        0.033211201429367065,
+        0.03324320018291473,
+        0.03333759903907776,
+        0.03336800038814545,
+        0.03329440057277679,
+        0.03328480124473572,
+        0.033404800295829776
+      ],
+      "mode": "cuda_graph",
+      "calls_per_sample": 20
+    },
+    "baseline_timing": {
+      "median_ms": 0.24997279644012452,
+      "min_ms": 0.24905760288238527,
+      "max_ms": 0.25046238899230955,
+      "samples_ms": [
+        0.250216007232666,
+        0.250217604637146,
+        0.24989759922027588,
+        0.24984159469604492,
+        0.2496880054473877,
+        0.24974560737609863,
+        0.250216007232666,
+        0.2502847909927368,
+        0.24986560344696046,
+        0.24996159076690674,
+        0.2498624086380005,
+        0.2500384092330933,
+        0.25046238899230955,
+        0.2497119903564453,
+        0.25007359981536864,
+        0.24905760288238527,
+        0.24976320266723634,
+        0.2499840021133423,
+        0.25021278858184814,
+        0.2500704050064087
+      ],
+      "mode": "cuda_graph",
+      "calls_per_sample": 20
+    },
+    "baseline_latency_ms": 0.24997279644012452,
+    "speedup": 7.498583973983583
+  },
+  "wall_seconds": 1.3456352789999926
+}

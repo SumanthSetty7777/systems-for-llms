@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "run_id": "attention-flex-hints-20261104a",
+  "stage": "flex_hints",
+  "gpu": "H100",
+  "job_timeout_seconds": 390,
+  "study_time_budget_seconds": 300,
+  "source_sha256": {
+    "attention_lab/__init__.py": "f642c9c1a55dbae0184c9c46c29aaf1421da3bf349243fa107fc54d18ec2a6fb",
+    "attention_lab/analyze_study.py": "34803e51a48ac1d1783be06fa10a6a87d40895416aaa1e13168f40b815bcdd9b",
+    "attention_lab/benchmark.py": "009bb166737746ace6b935bec2982564dc7c7348b11d8b9c7a3e1f63c71e68e9",
+    "attention_lab/block_benchmark.py": "c8a4aed65505e0ee270e48a69064c9593c4cbab65f8348d8e72862ce56a25e62",
+    "attention_lab/gpu_search.py": "de00c77d141b3fa46f57e31397560a19dbffd367937a13b712751065afb0f6f4",
+    "attention_lab/masks.py": "6a995f395586dc920fb535223effa46b07d4b699ff85652031ae24031206fcfe",
+    "attention_lab/run_campaign.py": "41736c208a300558ebb18268fb637daedc0ac3a48056c0b6ea37f086e035f465",
+    "attention_lab/run_modal.py": "a7a73b6ac970aab1e8a9a794b028d27e40cce32e4149ca41288e8ecc3ae195dc",
+    "attention_lab/search.py": "090e8985c433267a3ddc21de465d941dcfcba8b6ccf6bff932071aae8869044b",
+    "attention_lab/study.py": "10937f0d215a52341c6a0357fe183b6a8e7ad09eadc26623e98d16655092afaf",
+    "attention_lab/test_analyze_study.py": "bc1bc215cf02beb50842cd58a5478635c47415f7d4ef980dafbbbd8b809c7d58",
+    "attention_lab/test_benchmark.py": "5b332e20212e3b05ed631babf48cfb1560e3fcd5c14abc2e741826659a921f9d",
+    "attention_lab/test_block_benchmark.py": "5e2af05db9f483f7bed56cc08978edfb111e979a440d734ec58f6128d19df6bb",
+    "attention_lab/test_gpu_search.py": "30a87feb0ecb93f1210c435b4a614b581da15a5b5ea1191775e2cefa1c32aa4a",
+    "attention_lab/test_interval_kernel.py": "9df35a9c41dc2aa5eff0689372b9e8163ae5e206658c292e2c53db34cf041362",
+    "attention_lab/test_masks.py": "052675551e13cff79a8d5849f9580214234b9b9714123baa0cddc099c256a9bb",
+    "attention_lab/test_search.py": "903c1c19d67159627015837851d4528ae158ec90046c4e36745990fe2fffe565",
+    "attention_lab/test_study.py": "0ab88b8e0ccd20d70de5a18a2ad9481f9e334675e622c80ba8be316d8e0f9c84",
+    "attention_lab/triton_attention.py": "5b888bfc83b4633aeed90b02d39587a9081a99faeb6f980ffdadc93b363af590",
+    "attention_lab/validate.py": "caa86837c0f84ad6be791805277694fe4d6b11d850d850f1b6bcea896b1d845e"
+  },
+  "packages": [
+    "torch==2.11.0",
+    "einops==0.8.2",
+    "numpy==2.4.4",
+    "modal==1.5.1"
+  ],
+  "python": "3.12",
+  "resources": {
+    "gpus": 1,
+    "cpu_cores": 4,
+    "ram_gib": 32
+  },
+  "cost_estimate": {
+    "requested_resources_usd_at_timeout": 0.476,
+    "source": "https://modal.com/pricing",
+    "checked": "2026-11-04",
+    "scope": "Estimate, not billing cap; excludes image builds, startup, storage, excess CPU/RAM and other apps"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "python": "3.12.1",
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "timing_scope": "warmed CUDA graphs; includes all scratch traffic and split merge; excludes compile, Python dispatch and workspace allocation",
+  "setup_scope": "synchronized wall time; prepare includes CUDA extension load/cache and workspace allocation; first call includes baseline compile/cache lookup where applicable; disk caches are preserved",
+  "flex_compilation": "fullgraph, static shapes, Triton backend; in-process compiler state reset between shapes, not between seed replicates",
+  "attention_scope": "single-token forward, BF16/FP16 contiguous KV, variable per-request valid lengths, GQA without physical KV repeat"
+}

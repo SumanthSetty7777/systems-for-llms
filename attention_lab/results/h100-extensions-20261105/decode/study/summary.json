@@ -1,0 +1,46 @@
+{
+  "status": "completed",
+  "stage": "study",
+  "cases": 30,
+  "wall_seconds": 167.41735068100002,
+  "preflight": {
+    "status": "completed",
+    "cases": 582,
+    "planned_cases": 582,
+    "max_abs_error": 0.0039038658142089844
+  },
+  "planned_cases": 30,
+  "geomean_best_tile_over_best_token": 1.2014612180309039,
+  "paired_baselines_best_observed": {
+    "cuda_token_split_1": {
+      "paired_cases": 30,
+      "unpaired_completed_cases": 0,
+      "distinct_shapes": 10,
+      "geomean_speedup": 21.521791652512242
+    },
+    "cuda_tile_split_1": {
+      "paired_cases": 30,
+      "unpaired_completed_cases": 0,
+      "distinct_shapes": 10,
+      "geomean_speedup": 18.102023409674533
+    },
+    "sdpa_flash": {
+      "paired_cases": 30,
+      "unpaired_completed_cases": 0,
+      "distinct_shapes": 10,
+      "geomean_speedup": 0.3069926829967222
+    },
+    "flex_decode": {
+      "paired_cases": 30,
+      "unpaired_completed_cases": 0,
+      "distinct_shapes": 10,
+      "geomean_speedup": 2.0607506347541205
+    },
+    "flex_triton_attention": {
+      "paired_cases": 30,
+      "unpaired_completed_cases": 0,
+      "distinct_shapes": 10,
+      "geomean_speedup": 1.816419841581199
+    }
+  }
+}

@@ -1,0 +1,6277 @@
+{
+  "methodology": "OFFLINE replay of fixed GPU-measured latency tables. No new GPU calls; excludes timing noise, compile cost, thermal/order effects and end-to-end search overhead.",
+  "workloads": [
+    {
+      "workload_id": "tune-causal",
+      "status": "completed",
+      "oracle_latency_ms": 0.08344080150127411,
+      "eligible_configurations": 24,
+      "trials": [
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.12014960050582885,
+          "relative_regret": 0.43993823578018,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.1178335964679718,
+          "relative_regret": 0.4121819822904327,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.10280079841613769,
+          "relative_regret": 0.23202074484588886,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.11838879585266113,
+          "relative_regret": 0.4188357940312135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.10280079841613769,
+          "relative_regret": 0.23202074484588886,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.10280079841613769,
+          "relative_regret": 0.23202074484588886,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.12014960050582885,
+          "relative_regret": 0.43993823578018,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.11838879585266113,
+          "relative_regret": 0.4188357940312135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.11838879585266113,
+          "relative_regret": 0.4188357940312135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.12014960050582885,
+          "relative_regret": 0.43993823578018,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.11838879585266113,
+          "relative_regret": 0.4188357940312135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.11579599976539612,
+          "relative_regret": 0.38776231390380334,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.1178335964679718,
+          "relative_regret": 0.4121819822904327,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.10280079841613769,
+          "relative_regret": 0.23202074484588886,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.10733839869499207,
+          "relative_regret": 0.28640181738130877,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.12014960050582885,
+          "relative_regret": 0.43993823578018,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.11240720152854919,
+          "relative_regret": 0.34714911058030484,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.09377920031547546,
+          "relative_regret": 0.1239010008076622,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.10118160247802735,
+          "relative_regret": 0.21261541904630832,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.10280079841613769,
+          "relative_regret": 0.23202074484588886,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.09079360067844391,
+          "relative_regret": 0.08811994905223353,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.08344080150127411,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        }
+      ]
+    },
+    {
+      "workload_id": "tune-document",
+      "status": "completed",
+      "oracle_latency_ms": 0.02752479910850525,
+      "eligible_configurations": 24,
+      "trials": [
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.049088799953460695,
+          "relative_regret": 0.783438991142068,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.04907439947128296,
+          "relative_regret": 0.782915809042865,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.04569679945707321,
+          "relative_regret": 0.6602046495210478,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.049088799953460695,
+          "relative_regret": 0.783438991142068,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.046854400634765626,
+          "relative_regret": 0.7022613117015437,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.046854400634765626,
+          "relative_regret": 0.7022613117015437,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.027867200970649722,
+          "relative_regret": 0.012439758807855306,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.046854400634765626,
+          "relative_regret": 0.7022613117015437,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.04907439947128296,
+          "relative_regret": 0.782915809042865,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.04927199929952621,
+          "relative_regret": 0.7900947834457042,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.055144000053405764,
+          "relative_regret": 1.0034297011950253,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.05062240064144134,
+          "relative_regret": 0.8391560440417116,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.054406401515007016,
+          "relative_regret": 0.9766321018559321,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.049188800156116486,
+          "relative_regret": 0.7870720858746247,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.04907439947128296,
+          "relative_regret": 0.782915809042865,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.049088799953460695,
+          "relative_regret": 0.783438991142068,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.027867200970649722,
+          "relative_regret": 0.012439758807855306,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.04569679945707321,
+          "relative_regret": 0.6602046495210478,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.04569679945707321,
+          "relative_regret": 0.6602046495210478,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.046854400634765626,
+          "relative_regret": 0.7022613117015437,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.027867200970649722,
+          "relative_regret": 0.012439758807855306,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.027867200970649722,
+          "relative_regret": 0.012439758807855306,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.027669599652290343,
+          "relative_regret": 0.005260730267795166,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.04569679945707321,
+          "relative_regret": 0.6602046495210478,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.02772720009088516,
+          "relative_regret": 0.00735340452738753,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.02765759974718094,
+          "relative_regret": 0.004824763230866003,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.027640800178050994,
+          "relative_regret": 0.004214420206609226,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.02752479910850525,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        }
+      ]
+    },
+    {
+      "workload_id": "tune-window128",
+      "status": "completed",
+      "oracle_latency_ms": 0.010607200115919112,
+      "eligible_configurations": 24,
+      "trials": [
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.013671199977397918,
+          "relative_regret": 0.2888603804957357,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.014451199769973755,
+          "relative_regret": 0.3623953175245209,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.012355200201272964,
+          "relative_regret": 0.1647937312628318,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.013974399864673614,
+          "relative_regret": 0.3174447273509118,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.013671199977397918,
+          "relative_regret": 0.2888603804957357,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.011795199662446975,
+          "relative_regret": 0.1119993526609282,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.011795199662446975,
+          "relative_regret": 0.1119993526609282,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.011795199662446975,
+          "relative_regret": 0.1119993526609282,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.014023999869823455,
+          "relative_regret": 0.322120796870464,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.011795199662446975,
+          "relative_regret": 0.1119993526609282,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.012855200469493865,
+          "relative_regret": 0.21193154923144997,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.011916000023484231,
+          "relative_regret": 0.12338787740988266,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.013671199977397918,
+          "relative_regret": 0.2888603804957357,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.011916000023484231,
+          "relative_regret": 0.12338787740988266,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.012959200143814086,
+          "relative_regret": 0.22173617940564094,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.012855200469493865,
+          "relative_regret": 0.21193154923144997,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.011916000023484231,
+          "relative_regret": 0.12338787740988266,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.011916000023484231,
+          "relative_regret": 0.12338787740988266,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.012855200469493865,
+          "relative_regret": 0.21193154923144997,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.011795199662446975,
+          "relative_regret": 0.1119993526609282,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.012725599855184556,
+          "relative_regret": 0.19971337545392243,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.011608799919486046,
+          "relative_regret": 0.09442640778161149,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.012355200201272964,
+          "relative_regret": 0.1647937312628318,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.011742399632930755,
+          "relative_regret": 0.10702159897105701,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.012355200201272964,
+          "relative_regret": 0.1647937312628318,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 2,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.01124880015850067,
+          "relative_regret": 0.060487219583861274,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.010607200115919112,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        }
+      ]
+    },
+    {
+      "workload_id": "tune-window512",
+      "status": "completed",
+      "oracle_latency_ms": 0.03333600014448165,
+      "eligible_configurations": 24,
+      "trials": [
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.04937679916620255,
+          "relative_regret": 0.48118547372805454,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.04983599931001663,
+          "relative_regret": 0.4949603759905892,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.03727120012044907,
+          "relative_regret": 0.11804655504295236,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.03727120012044907,
+          "relative_regret": 0.11804655504295236,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.05591999888420105,
+          "relative_regret": 0.6774657619941813,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.03727120012044907,
+          "relative_regret": 0.11804655504295236,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "random",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 0,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 1,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 2,
+          "best_latency_ms": 0.041631199419498444,
+          "relative_regret": 0.2488360702863135,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 3,
+          "best_latency_ms": 0.05591999888420105,
+          "relative_regret": 0.6774657619941813,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 5,
+          "best_latency_ms": 0.047816799581050874,
+          "relative_regret": 0.4343892300758323,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 6,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 8,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 9,
+          "best_latency_ms": 0.04937679916620255,
+          "relative_regret": 0.48118547372805454,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 10,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 11,
+          "best_latency_ms": 0.03727120012044907,
+          "relative_regret": 0.11804655504295236,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 12,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 13,
+          "best_latency_ms": 0.05591999888420105,
+          "relative_regret": 0.6774657619941813,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 2,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 14,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 15,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 16,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 17,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 18,
+          "best_latency_ms": 0.03659839928150177,
+          "relative_regret": 0.09786414455485182,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 4,
+          "search_seed": 19,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 0,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 1,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 2,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 3,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 5,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 6,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 8,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 9,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 10,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 11,
+          "best_latency_ms": 0.03727120012044907,
+          "relative_regret": 0.11804655504295236,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 4
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 12,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 13,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 14,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 15,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 16,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 17,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 18,
+          "best_latency_ms": 0.03573199957609177,
+          "relative_regret": 0.07187423269815252,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 8,
+          "search_seed": 19,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 0,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 1,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 2,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 3,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 4,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 5,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 6,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 7,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 8,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 9,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 10,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 11,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 12,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 13,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 14,
+          "best_latency_ms": 0.03563920110464096,
+          "relative_regret": 0.06909050126520855,
+          "best_config": {
+            "block_q": 128,
+            "block_k": 32,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 15,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 16,
+          "best_latency_ms": 0.03333600014448165,
+          "relative_regret": 0.0,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 3
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 17,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 18,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        },
+        {
+          "method": "evolution",
+          "budget": 12,
+          "search_seed": 19,
+          "best_latency_ms": 0.03516879975795746,
+          "relative_regret": 0.054979589798784145,
+          "best_config": {
+            "block_q": 64,
+            "block_k": 64,
+            "num_warps": 4,
+            "num_stages": 2
+          }
+        }
+      ]
+    }
+  ]
+}

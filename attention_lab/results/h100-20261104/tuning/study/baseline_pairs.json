@@ -1,0 +1,578 @@
+[
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.023969978151843
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-4-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.2677281089549914
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-2-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.97223389142792
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-4-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9940032464549324
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-4-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.1196566706356403
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-2-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.022422385107286114
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-2-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.8481363402807932
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-2-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9306102550984707
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-2-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.8667184819885054
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-2-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.7761947027649893
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-2-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.024700006904955437
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-2-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.022684298214246043
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-4-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.2273681083448549
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-2-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.6562324490554284
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-2-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.6045938041392671
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-4-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9291018498903577
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-2-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.6517732909578828
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-4-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9579857045609934
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-2-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9344846494013777
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-4-4",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.0723245464129367
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-64-4-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.1375743897542427
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-128-32-4-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9768147891894647
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-64-4-3",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 1.3794402453281895
+  },
+  {
+    "case_id": "tune-causal-s23-interval_split-64-32-4-2",
+    "baseline_source_case_id": "tune-causal-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.11510159969329833,
+    "flex_speedup": 0.9669673164309559
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.8823651203616183
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-4-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5121235887348736
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-2-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.833836859233891
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-4-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.8609484211740552
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-4-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.69784937883075
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-2-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 0.04038416371112651
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-2-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.6862151842085775
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-2-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5014016422667795
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-2-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.7686479945056552
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-2-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.8526180720169332
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-2-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 0.0429641222309428
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-2-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 0.04034062454995614
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-4-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 2.0601100968107664
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-2-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.0563462044913245
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-2-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.042835859954232
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-4-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5247850118315496
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-2-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.0241076786554426
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-4-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5581859854917686
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-2-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.717168566226333
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-4-4",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5983966362736546
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-64-4-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.6998568096665125
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-128-32-4-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.5637165294616873
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-64-4-3",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.6603853674738638
+  },
+  {
+    "case_id": "tune-window128-s23-interval_split-64-32-4-2",
+    "baseline_source_case_id": "tune-window128-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.021852000057697295,
+    "flex_speedup": 1.9426071891928696
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.0592056224044297
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-4-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.8848222390056468
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-2-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.7885551032267836
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-4-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.1350205058579563
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-4-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.9221863629293879
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-2-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.012284371383306913
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-2-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.4418401580454085
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-2-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.3014327903120777
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-2-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.7106206263584238
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-2-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.6917497129662935
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-2-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.01569619540368168
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-2-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.016007327618856586
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-4-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.253838652329766
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-2-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.017737799783746035
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-2-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.018244980515225884
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-4-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.2048614518193037
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-2-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.017287635507588942
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-4-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.1831119027578412
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-2-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.5658905275456122
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-4-4",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 0.8930510125645331
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-64-4-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.2340759267801333
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-128-32-4-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.237289252447092
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-64-4-3",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.3227741871087169
+  },
+  {
+    "case_id": "tune-window512-s23-interval_split-64-32-4-2",
+    "baseline_source_case_id": "tune-window512-s23-interval_split-64-32-4-3",
+    "flex_latency_ms": 0.044096000492572784,
+    "flex_speedup": 1.0006717398552571
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.939207602735018
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-4-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.9608207852279014
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-2-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6098801375881244
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-4-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.9244414390780733
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-4-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6199667944211404
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-2-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.7666084696335174
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-2-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.654002242009051
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-2-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6601749765108975
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-2-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6499035643787001
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-2-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.739345636815495
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-2-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.777639504940967
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-2-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.7572400830015746
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-4-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.9483950097218634
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-2-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.75235776938753
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-2-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.7494849906590919
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-4-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.656799861981406
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-2-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 0.7516195176038346
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-4-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6606621413141092
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-2-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.6483551617447567
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-4-4",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.4979119191921848
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-64-4-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.4778760559763102
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-128-32-4-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 1.783407115551729
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-64-4-3",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.945326218442013
+  },
+  {
+    "case_id": "tune-document-s23-csr_full-64-32-4-2",
+    "baseline_source_case_id": "tune-document-s23-csr_full-64-32-4-3",
+    "flex_latency_ms": 0.08149599730968475,
+    "flex_speedup": 2.9466041180233438
+  }
+]

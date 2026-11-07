@@ -1,0 +1,42 @@
+{
+  "tune-causal": {
+    "case_id": "tune-causal-s23-interval_split-64-64-4-3",
+    "config": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 3
+    },
+    "latency_ms": 0.08344080150127411
+  },
+  "tune-document": {
+    "case_id": "tune-document-s23-csr_full-64-64-4-4",
+    "config": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 4
+    },
+    "latency_ms": 0.02752479910850525
+  },
+  "tune-window128": {
+    "case_id": "tune-window128-s23-interval_split-64-64-4-2",
+    "config": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 2
+    },
+    "latency_ms": 0.010607200115919112
+  },
+  "tune-window512": {
+    "case_id": "tune-window512-s23-interval_split-64-64-4-3",
+    "config": {
+      "block_q": 64,
+      "block_k": 64,
+      "num_warps": 4,
+      "num_stages": 3
+    },
+    "latency_ms": 0.03333600014448165
+  }
+}

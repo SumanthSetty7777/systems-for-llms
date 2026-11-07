@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/usr/local/bin/python",
+    "-m",
+    "attention_lab.backward_study",
+    "--stage",
+    "smoke",
+    "--output-dir",
+    "/results/cohere-backward-smoke-20261105T182127Z-60147c/study",
+    "--time-budget-seconds",
+    "480"
+  ]
+}

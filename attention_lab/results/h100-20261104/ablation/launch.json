@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "attention-ablation-20261104b",
+  "stage": "ablation",
+  "gpu": "H100",
+  "job_timeout_seconds": 990,
+  "study_time_budget_seconds": 900,
+  "source_sha256": {
+    "attention_lab/__init__.py": "f642c9c1a55dbae0184c9c46c29aaf1421da3bf349243fa107fc54d18ec2a6fb",
+    "attention_lab/analyze_study.py": "3db1d5b2d8293dc27b9a9cdaca28ed53e74bc5f306740e20c80f32d70954249c",
+    "attention_lab/benchmark.py": "ad145e08cc15b2e6873b7fa878fa8053070826a2a7093d340c066cc743de511a",
+    "attention_lab/gpu_search.py": "de00c77d141b3fa46f57e31397560a19dbffd367937a13b712751065afb0f6f4",
+    "attention_lab/masks.py": "6a995f395586dc920fb535223effa46b07d4b699ff85652031ae24031206fcfe",
+    "attention_lab/run_campaign.py": "41736c208a300558ebb18268fb637daedc0ac3a48056c0b6ea37f086e035f465",
+    "attention_lab/run_modal.py": "353c6e6b7e8f23b7c0f725b19eab8785f6347414ac2c7b803b9ff49ed4f1e834",
+    "attention_lab/search.py": "090e8985c433267a3ddc21de465d941dcfcba8b6ccf6bff932071aae8869044b",
+    "attention_lab/study.py": "0e34f502fe06fd22dd80e503a1ae88c8e6d17e905401fe4351647b4182fda5c0",
+    "attention_lab/test_analyze_study.py": "7951e8ada35c3691171544349d1ba338a5df6718262e077e2747aa7fa4ca7cac",
+    "attention_lab/test_benchmark.py": "36691ad2e5d06ad2d6af8bac723122643f2c700c50f2c87c899fef2e3ff09920",
+    "attention_lab/test_gpu_search.py": "30a87feb0ecb93f1210c435b4a614b581da15a5b5ea1191775e2cefa1c32aa4a",
+    "attention_lab/test_interval_kernel.py": "9df35a9c41dc2aa5eff0689372b9e8163ae5e206658c292e2c53db34cf041362",
+    "attention_lab/test_masks.py": "052675551e13cff79a8d5849f9580214234b9b9714123baa0cddc099c256a9bb",
+    "attention_lab/test_search.py": "903c1c19d67159627015837851d4528ae158ec90046c4e36745990fe2fffe565",
+    "attention_lab/test_study.py": "0645be6595b84d0c5fcc333f534742dd4345c31775a85c02cc519807e44d7fda",
+    "attention_lab/triton_attention.py": "5b888bfc83b4633aeed90b02d39587a9081a99faeb6f980ffdadc93b363af590",
+    "attention_lab/validate.py": "caa86837c0f84ad6be791805277694fe4d6b11d850d850f1b6bcea896b1d845e"
+  },
+  "packages": [
+    "torch==2.11.0",
+    "einops==0.8.2",
+    "numpy==2.4.4",
+    "modal==1.5.1"
+  ],
+  "python": "3.12",
+  "resources": {
+    "gpus": 1,
+    "cpu_cores": 4,
+    "ram_gib": 32
+  },
+  "cost_estimate": {
+    "requested_resources_usd_at_timeout": 1.2082,
+    "source": "https://modal.com/pricing",
+    "checked": "2026-11-04",
+    "scope": "Estimate, not billing cap; excludes image builds, startup, storage, excess CPU/RAM and other apps"
+  }
+}

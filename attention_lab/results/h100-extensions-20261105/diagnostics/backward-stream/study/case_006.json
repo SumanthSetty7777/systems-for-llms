@@ -1,0 +1,52 @@
+{
+  "kind": "correctness",
+  "n": 257,
+  "d": 128,
+  "dtype": "torch.float16",
+  "spec": {
+    "causal": true,
+    "window_left": 63,
+    "window_right": null,
+    "same_document": true
+  },
+  "seed": 17,
+  "block_q": 32,
+  "block_k": 64,
+  "document_pattern": "repeated labels",
+  "errors": {
+    "output": {
+      "correct": true,
+      "max_abs_error": 0.0010776519775390625,
+      "rms_error": 0.00010112726158695295,
+      "relative_rms_error": 0.0002191759558627382,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dq": {
+      "correct": true,
+      "max_abs_error": 0.0012683868408203125,
+      "rms_error": 0.00010645255679264665,
+      "relative_rms_error": 0.0003241990343667567,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dk": {
+      "correct": true,
+      "max_abs_error": 0.0015134811401367188,
+      "rms_error": 0.00010676394595066085,
+      "relative_rms_error": 0.0003255046613048762,
+      "atol": 0.004,
+      "rtol": 0.006
+    },
+    "dv": {
+      "correct": true,
+      "max_abs_error": 0.001705169677734375,
+      "rms_error": 0.00012970177340321243,
+      "relative_rms_error": 0.0002808622666634619,
+      "atol": 0.004,
+      "rtol": 0.006
+    }
+  },
+  "status": "passed",
+  "case_index": 6
+}

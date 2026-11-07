@@ -1,0 +1,7 @@
+{
+  "kind": "performance",
+  "status": "failed",
+  "error": "Offset increment outside graph capture encountered unexpectedly.",
+  "traceback": "Traceback (most recent call last):\n  File \"/project/attention_lab/backward_study.py\", line 352, in main\n    item = job()\n           ^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 342, in <lambda>\n    performance_case(n, d, torch.bfloat16, spec, docs, seed=29)))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 147, in performance_case\n    values, upstream = values_for(n, d, dtype, seed)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in values_for\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/attention_lab/backward_study.py\", line 59, in <genexpr>\n    values = tuple(torch.randn(1, heads, n, d, device=\"cuda\", dtype=dtype, requires_grad=True)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Offset increment outside graph capture encountered unexpectedly.\n",
+  "case_index": 12
+}

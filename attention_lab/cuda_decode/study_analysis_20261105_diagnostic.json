@@ -1,0 +1,211 @@
+{
+  "run": "cohere-cuda-study-20261105T182625Z-06dfba",
+  "status": "custom comparisons valid; external Flex baseline misnamed in raw run",
+  "backend_correction": {
+    "raw_key": "flex_decode",
+    "actual_backend": "TRITON",
+    "actual_name": "standard compiled FlexAttention",
+    "not_measured": "TRITON_DECODE",
+    "official_versioned_source": "https://raw.githubusercontent.com/pytorch/pytorch/v2.11.0/torch/_inductor/kernel/flex/flex_attention.py",
+    "source_lines": "219-230"
+  },
+  "pooled_predeclared_pairs": {
+    "pairs": 180,
+    "shapes": 10,
+    "splits": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "seeds": 3,
+    "geomean_tile_over_token": 1.1903067260551539,
+    "geomean_latency_reduction_percent": 15.98804088807071,
+    "wins": 141,
+    "min_ratio": 0.9870909227537026,
+    "max_ratio": 1.5676279290869788
+  },
+  "fixed_split": {
+    "1": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.1928640066866798,
+      "wins": 21
+    },
+    "2": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.1914290201587112,
+      "wins": 21
+    },
+    "4": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.1905466771349613,
+      "wins": 24
+    },
+    "8": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.1779830041253276,
+      "wins": 24
+    },
+    "16": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.1809871426625658,
+      "wins": 24
+    },
+    "32": {
+      "pairs": 30,
+      "geomean_tile_over_token": 1.208268897049327,
+      "wins": 27
+    }
+  },
+  "limitations": [
+    "Single H100 allocation, synthetic workloads, warmed CUDA graphs; not serving latency.",
+    "Seeds are input replicates, not independent hardware runs.",
+    "All30 best-split choices are32, the maximum benchmarked, so no optimality or held-out dispatcher claim.",
+    "Standard FlexAttention TRITON is not optimized FlexDecoding; use corrected rerun for external-baseline claims.",
+    "Flash SDPA was faster in every completed case."
+  ],
+  "per_shape": [
+    {
+      "batch": 1,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 1024,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 13.342399895191193,
+        "tile_split32": 11.009599640965462,
+        "flash_sdpa": 10.438399761915207,
+        "standard_flex_triton": 22.908800095319748
+      },
+      "tile_over_token_split32_geomean": 1.2157879264940503
+    },
+    {
+      "batch": 1,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 4096,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 38.414400815963745,
+        "tile_split32": 28.79360020160675,
+        "flash_sdpa": 15.575999766588211,
+        "standard_flex_triton": 78.62399816513062
+      },
+      "tile_over_token_split32_geomean": 1.3340010004727563
+    },
+    {
+      "batch": 1,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 16384,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 207.6352000236511,
+        "tile_split32": 132.64800310134888,
+        "flash_sdpa": 27.111999690532684,
+        "standard_flex_triton": 299.3855953216553
+      },
+      "tile_over_token_split32_geomean": 1.4736557289645043
+    },
+    {
+      "batch": 1,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 65536,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 816.4191722869873,
+        "tile_split32": 660.9503984451295,
+        "flash_sdpa": 64.36160206794739,
+        "standard_flex_triton": 1155.3743839263916
+      },
+      "tile_over_token_split32_geomean": 1.235584938668868
+    },
+    {
+      "batch": 8,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 4096,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 131.66400194168094,
+        "tile_split32": 109.35520529747009,
+        "flash_sdpa": 33.44320058822632,
+        "standard_flex_triton": 155.14240264892578
+      },
+      "tile_over_token_split32_geomean": 1.203073223941952
+    },
+    {
+      "batch": 8,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 16384,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 484.0143918991089,
+        "tile_split32": 417.0783996582031,
+        "flash_sdpa": 100.19999742507935,
+        "standard_flex_triton": 588.6287927627563
+      },
+      "tile_over_token_split32_geomean": 1.1612359216701171
+    },
+    {
+      "batch": 32,
+      "query_heads": 32,
+      "gqa_ratio": 8,
+      "cache_length": 4096,
+      "head_dim": 128,
+      "median_over_seeds_us": {
+        "token_split32": 420.56000232696533,
+        "tile_split32": 361.00480556488037,
+        "flash_sdpa": 96.75520062446594,
+        "standard_flex_triton": 602.8512001037598
+      },
+      "tile_over_token_split32_geomean": 1.1651351631938687
+    },
+    {
+      "batch": 1,
+      "query_heads": 16,
+      "gqa_ratio": 1,
+      "cache_length": 16384,
+      "head_dim": 64,
+      "median_over_seeds_us": {
+        "token_split32": 175.6447970867157,
+        "tile_split32": 176.15839838981628,
+        "flash_sdpa": 33.61760079860687,
+        "standard_flex_triton": 284.23839807510376
+      },
+      "tile_over_token_split32_geomean": 0.997299915382129
+    },
+    {
+      "batch": 1,
+      "query_heads": 32,
+      "gqa_ratio": 4,
+      "cache_length": 4096,
+      "head_dim": 64,
+      "median_over_seeds_us": {
+        "token_split32": 30.795200169086456,
+        "tile_split32": 30.62720000743866,
+        "flash_sdpa": 13.476800173521042,
+        "standard_flex_triton": 74.1919994354248
+      },
+      "tile_over_token_split32_geomean": 1.007582323642561
+    },
+    {
+      "batch": 8,
+      "query_heads": 32,
+      "gqa_ratio": 4,
+      "cache_length": 4096,
+      "head_dim": 64,
+      "median_over_seeds_us": {
+        "token_split32": 106.56160116195679,
+        "tile_split32": 77.67199873924255,
+        "flash_sdpa": 31.57760053873062,
+        "standard_flex_triton": 106.81920051574706
+      },
+      "tile_over_token_split32_geomean": 1.3729609429974106
+    }
+  ]
+}
